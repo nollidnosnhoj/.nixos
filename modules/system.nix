@@ -90,7 +90,6 @@
     git
     wget
     curl
-    vscodium
   ];
 
   environment.variables.EDITOR = "vim";

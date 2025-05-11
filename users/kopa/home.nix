@@ -2,6 +2,7 @@
   imports = [
     ../../home/core.nix
 
+    ../../home/editors
     ../../home/programs
     ../../home/zsh
   ];
