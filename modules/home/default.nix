@@ -6,6 +6,7 @@
     ./btop.nix
     ./discord.nix
     ./fastfetch.nix
+    ./fish.nix
     ./fzf.nix
     ./git.nix
     ./gtk.nix
