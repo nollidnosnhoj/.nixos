@@ -12,6 +12,7 @@
     ./security.nix
     ./services.nix
     ./system.nix
+    ./thunar.nix
     ./user.nix
     ./wayland.nix
     ./kde.nix

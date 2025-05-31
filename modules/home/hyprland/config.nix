@@ -2,9 +2,14 @@
 {
   wayland.windowManager.hyprland = {
     settings = {
+      "$mainMod" = "SUPER";
+      "$terminal" = "kitty";
+      "$browser" = "firefox";
+      "$menu" = "walker";
+      "$fileManager" = "thunar";
+
       # autostart
       exec-once = [
-        "dbus-update-activation-environment --systemd --all"
         "dbus-update-activation-environment --systemd QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start hyprpolkitagent"
@@ -25,7 +30,6 @@
       };
 
       general = {
-        "$mainMod" = "SUPER";
         layout = "dwindle";
         gaps_in = 2;
         gaps_out = 1;

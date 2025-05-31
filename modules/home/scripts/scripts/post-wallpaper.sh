@@ -1,7 +1,7 @@
-default_dir="$HOME/Pictures/Wallpapers/.defaults"
-wallpaper_cache_dir="$HOME/Pictures/Wallpapers/.defaults"
+NIXOS_CONFIG_DIR="$HOME/.nixos"
+default_dir="$NIXOS_CONFIG_DIR/.assets/wallpapers/.defaults"
+wallpaper_cache_dir="$NIXOS_CONFIG_DIR/.assets/wallpapers/.cache"
 blurred_wallpaper="$default_dir/blurred-wallpaper.png"
-squarred_wallpaper="$default_dir/squared-wallpaper.png"
 blur="50x30"
 
 if [ ! -d $default_dir ]; then
@@ -39,14 +39,3 @@ else
 fi
 
 cp $wallpaper_cache_dir/blur-$blur-$wallpaperfilename.png $blurred_wallpaper
-
-if [ -f $wallpaper_cache_dir/square-$wallpaperfilename.png ]; then
-    echo ':: Use cached wallpaper square-$wallpaperfilename'
-else
-    echo ":: Generate new cached wallpaper square-$wallpaperfilename"
-    magick $wallpaper -gravity Center -extent 1:1 $squarred_wallpaper
-    cp $squarred_wallpaper $wallpaper_cache_dir/square-$wallpaperfilename.png
-    echo ":: Squared"
-fi
-
-cp $wallpaper_cache_dir/square-$wallpaperfilename.png $squarred_wallpaper

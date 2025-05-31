@@ -14,6 +14,7 @@
     gtt # google translate TUI
     gtrash # rm replacement, put deleted files in system trash
     htop
+    imagemagick
     imv # image viewer
     jq # JSON processor
     killall

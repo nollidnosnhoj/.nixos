@@ -18,7 +18,7 @@
       background = [
         {
           monitor = "";
-          path = "$HOME/Pictures/Wallpapers/archlinux.png"; # only png supported for now
+          path = "$HOME/.nixos/.assets/wallpapers/.defaults/blurred-wallpaper.png"; # only png supported for now
         }
       ];
 

@@ -17,6 +17,7 @@
     ./swaync/swaync.nix
     ./swayosd.nix
     ./vscodium
+    ./walker.nix
     ./waybar
     ./waypaper.nix
   ];
