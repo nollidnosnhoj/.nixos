@@ -4,7 +4,7 @@
     settings = {
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
-      "$browser" = "firefox";
+      "$browser" = "zen";
       "$menu" = "walker";
       "$fileManager" = "thunar";
 
