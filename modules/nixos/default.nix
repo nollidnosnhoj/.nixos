@@ -3,6 +3,7 @@
   imports = [
     ./home-manager.nix
     ./bootloader.nix
+    ./greetd.nix
     ./hardware.nix
     ./xserver.nix
     ./networking.nix
@@ -15,6 +16,5 @@
     ./thunar.nix
     ./user.nix
     ./wayland.nix
-    ./kde.nix
   ];
 }
