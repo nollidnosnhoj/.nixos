@@ -4,7 +4,7 @@
     settings = {
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
-      "$browser" = "zen";
+      "$browser" = "firefox";
       "$menu" = "walker";
       "$fileManager" = "thunar";
 
@@ -196,7 +196,7 @@
       ];
 
       # windowrule
-      windowrule = [
+      windowrulev2 = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
@@ -213,7 +213,7 @@
         "float,class:^(nwg-look)$"
         "float,class:^(nwg-displays)$"
         "float,class:^(org.pulseaudio.pavucontrol)$"
-        "float,class:^(blueman-manager)$"
+        "float,class:^(\.blueman-manager-wrapped)$"
         "float,class:^(nm-applet)$"
         "float,size 622 652,stayfocused,class:^(clipse)$"
         "float,size 622 652,stayfocused,class:^(nmtui)$"
