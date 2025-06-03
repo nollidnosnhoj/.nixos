@@ -7,6 +7,7 @@
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
 
       "window.menuBarVisibility" = "toggle";
+      "editor.fontFamily" = "JetBrainsMono Nerd Font";
       "editor.fontSize" = 18;
 
       "editor.formatOnSave" = true;
@@ -18,13 +19,13 @@
 
       "nix.serverPath" = "nixd";
       "nix.enableLanguageServer" = true;
-      # "nix.serverSettings" = {
-      #   "nixd" = {
-      #     "formatting" = {
-      #       "command" = [ "nixfmt" ];
-      #     };
-      #   };
-      # };
+      "nix.serverSettings" = {
+        "nixd" = {
+          "formatting" = {
+            "command" = [ "nixfmt" ];
+          };
+        };
+      };
     };
   };
 }
