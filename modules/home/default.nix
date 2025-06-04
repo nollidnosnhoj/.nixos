@@ -21,6 +21,7 @@
     ./walker.nix
     ./waybar
     ./waypaper.nix
+    ./wlogout.nix
     ./xdg-mimes.nix
   ];
 }

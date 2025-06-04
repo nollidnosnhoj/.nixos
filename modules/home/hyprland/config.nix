@@ -128,7 +128,7 @@
         "$mainMod, J, togglesplit, # dwindle"
         "Alt_R, Control_R , exec, killall waybar || waybar"
         # bind = Alt_R, Control_R , exec, ironbar reload
-        "Control_L&Alt_L, DELETE, exec, $scriptsDir/wlogout.sh"
+        "Control_L&Alt_L, DELETE, exec, wlogout"
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"
