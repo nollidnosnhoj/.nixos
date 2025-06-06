@@ -1,4 +1,4 @@
-{ ... }:
+{ host, username, ... }:
 {
   programs.vscode.profiles.default = {
     userSettings = {
@@ -23,6 +23,15 @@
         "nixd" = {
           "formatting" = {
             "command" = [ "nixfmt" ];
+          };
+          "options" = {
+            "nixos" = {
+              "expr" = "(builtins.getFlake \"/home/${username}/.nixos\").nixosConfigurations.${host}.options";
+            };
+            "home_manager" = {
+              "expr" =
+                "(builtins.getFlake \"/home/${username}/.nixos\").nixosConfigurations.${host}.options.home-manager.users.type.getSubOptions []";
+            };
           };
         };
       };

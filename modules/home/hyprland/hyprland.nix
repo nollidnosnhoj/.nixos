@@ -6,12 +6,18 @@
     inputs.hyprpolkitagent.packages.${pkgs.system}.hyprpolkitagent
     grim
     slurp
+    wl-clipboard
     wl-clip-persist
     cliphist
     wf-recorder
     glib
     wayland
     direnv
+    brightnessctl
+    playerctl
+    wireplumber
+    poweralertd
+    libnotify
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"

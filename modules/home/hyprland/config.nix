@@ -1,13 +1,20 @@
 { ... }:
+let
+  mainMod = "SUPER";
+  terminal = "kitty";
+  browser = "firefox";
+  menu = "walker";
+  fileManager = "thunar";
+
+  activeBorder1 = "rgb(81a1c1)";
+  activeBorder2 = "rgb(8fbcbb)";
+  activeBorderDeg = "45deg";
+  inactiveBorder = "rgba(595959aa)";
+  shadowColor = "rgba(1a1a1aee)";
+in
 {
   wayland.windowManager.hyprland = {
     settings = {
-      "$mainMod" = "SUPER";
-      "$terminal" = "kitty";
-      "$browser" = "firefox";
-      "$menu" = "walker";
-      "$fileManager" = "thunar";
-
       # autostart
       exec-once = [
         "dbus-update-activation-environment --systemd QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -34,8 +41,8 @@
         gaps_in = 2;
         gaps_out = 1;
         border_size = 2;
-        "col.active_border" = "rgb(81a1c1) rgb(8fbcbb) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "${activeBorder1} ${activeBorder2} ${activeBorderDeg}";
+        "col.inactive_border" = "${inactiveBorder}";
         resize_on_border = false;
         allow_tearing = false;
       };
@@ -77,7 +84,7 @@
           enabled = true;
           range = 4;
           render_power = 3;
-          color = "rgba(1a1a1aee)";
+          color = "${shadowColor}";
         };
       };
 
@@ -117,66 +124,66 @@
       };
 
       bind = [
-        "$mainMod, B, exec, $browser"
-        "$mainMod, RETURN, exec, $terminal"
-        "$mainMod, Q, killactive,"
-        "$mainMod, M, exit,"
-        "$mainMod, E, exec, $fileManager"
-        "$mainMod, F, togglefloating,"
-        "$mainMod, SPACE, exec, $menu"
-        "$mainMod, P, pseudo, # dwindle"
-        "$mainMod, J, togglesplit, # dwindle"
+        "${mainMod}, B, exec, ${browser}"
+        "${mainMod}, RETURN, exec, ${terminal}"
+        "${mainMod}, Q, killactive,"
+        "${mainMod}, M, exit,"
+        "${mainMod}, E, exec, ${fileManager}"
+        "${mainMod}, F, togglefloating,"
+        "${mainMod}, SPACE, exec, ${menu}"
+        "${mainMod}, P, pseudo, # dwindle"
+        "${mainMod}, J, togglesplit, # dwindle"
         "Alt_R, Control_R , exec, killall waybar || waybar"
         # bind = Alt_R, Control_R , exec, ironbar reload
         "Control_L&Alt_L, DELETE, exec, wlogout"
 
         # Move focus with mainMod + arrow keys
-        "$mainMod, left, movefocus, l"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, down, movefocus, d"
+        "${mainMod}, left, movefocus, l"
+        "${mainMod}, right, movefocus, r"
+        "${mainMod}, up, movefocus, u"
+        "${mainMod}, down, movefocus, d"
 
         # Switch workspaces with mainMod + [0-9]
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
+        "${mainMod}, 1, workspace, 1"
+        "${mainMod}, 2, workspace, 2"
+        "${mainMod}, 3, workspace, 3"
+        "${mainMod}, 4, workspace, 4"
+        "${mainMod}, 5, workspace, 5"
+        "${mainMod}, 6, workspace, 6"
+        "${mainMod}, 7, workspace, 7"
+        "${mainMod}, 8, workspace, 8"
+        "${mainMod}, 9, workspace, 9"
+        "${mainMod}, 0, workspace, 10"
         "Alt_R, Tab, workspace, previous"
 
         # Move active window to a workspace with mainMod + SHIFT + [0-9]
-        "$mainMod SHIFT, 1, movetoworkspace, 1"
-        "$mainMod SHIFT, 2, movetoworkspace, 2"
-        "$mainMod SHIFT, 3, movetoworkspace, 3"
-        "$mainMod SHIFT, 4, movetoworkspace, 4"
-        "$mainMod SHIFT, 5, movetoworkspace, 5"
-        "$mainMod SHIFT, 6, movetoworkspace, 6"
-        "$mainMod SHIFT, 7, movetoworkspace, 7"
-        "$mainMod SHIFT, 8, movetoworkspace, 8"
-        "$mainMod SHIFT, 9, movetoworkspace, 9"
-        "$mainMod SHIFT, 0, movetoworkspace, 10"
+        "${mainMod} SHIFT, 1, movetoworkspace, 1"
+        "${mainMod} SHIFT, 2, movetoworkspace, 2"
+        "${mainMod} SHIFT, 3, movetoworkspace, 3"
+        "${mainMod} SHIFT, 4, movetoworkspace, 4"
+        "${mainMod} SHIFT, 5, movetoworkspace, 5"
+        "${mainMod} SHIFT, 6, movetoworkspace, 6"
+        "${mainMod} SHIFT, 7, movetoworkspace, 7"
+        "${mainMod} SHIFT, 8, movetoworkspace, 8"
+        "${mainMod} SHIFT, 9, movetoworkspace, 9"
+        "${mainMod} SHIFT, 0, movetoworkspace, 10"
 
         # Example special workspace (scratchpad)
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        "${mainMod}, S, togglespecialworkspace, magic"
+        "${mainMod} SHIFT, S, movetoworkspace, special:magic"
 
         # Scroll through existing workspaces with mainMod + scroll
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
+        "${mainMod}, mouse_down, workspace, e+1"
+        "${mainMod}, mouse_up, workspace, e-1"
 
         # Clipboard
-        # "$mainMod, V, exec, $terminal --class clipse -e clipse"
+        # "${mainMod}, V, exec, ${terminal} --class clipse -e clipse"
       ];
 
       # mouse binding
       bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+        "${mainMod}, mouse:272, movewindow"
+        "${mainMod}, mouse:273, resizewindow"
       ];
 
       bindel = [
@@ -223,7 +230,7 @@
         "float,move 50% 50%,class:^(jetbrains-toolbox)"
 
         "workspace 1, class:^(firefox)$"
-        "workspace 2, class:^(code-oss)$"
+        "workspace 2, class:^(codium)$"
         "workspace 2, class:^(kitty)$"
         "workspace 3, class:^(vesktop)$"
       ];

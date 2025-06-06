@@ -18,7 +18,6 @@
     imv # image viewer
     jq # JSON processor
     killall
-    libnotify
     man-pages # extra man pages
     mimeo
     mpv # video player
@@ -26,9 +25,7 @@
     nitch # systhem fetch util
     openssl
     onefetch # fetch utility for git repo
-    pamixer # pulseaudio command line mixer
-    playerctl # controller for media players
-    poweralertd
+    pamixer # pulseaudio cli mixer
     ripgrep # grep replacement
     shfmt # bash formatter
     swappy # snapshot editing tool
@@ -37,9 +34,7 @@
     tldr
     unzip
     wavemon # monitoring for wireless network devices
-    wl-clipboard # clipboard utils for wayland (wl-copy, wl-paste)
     wget
-    woomer
     xdg-utils
     xxd
   ];
