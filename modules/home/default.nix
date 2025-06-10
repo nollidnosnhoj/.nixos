@@ -9,19 +9,12 @@
     ./fish.nix
     ./fzf.nix
     ./git.nix
-    ./gtk.nix
-    ./hyprland
+    ./desktops/hyprland
     ./kitty.nix
     ./lazygit.nix
     ./programs
     ./scripts/scripts.nix
-    ./swaync/swaync.nix
-    ./swayosd.nix
     ./vscodium
-    ./walker.nix
-    ./waybar
-    ./waypaper.nix
-    ./wlogout.nix
     ./xdg-mimes.nix
   ];
 }
