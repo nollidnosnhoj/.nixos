@@ -11,14 +11,10 @@
     useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
-      imports =
-        if (host == "msa1") then
-          [ ./../home ]
-        else
-          [ ./../home ];
+      imports = if (host == "msa1") then [ ./../home ] else [ ./../home ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
-      home.stateVersion = "24.11";
+      home.stateVersion = "25.05";
       programs.home-manager.enable = true;
     };
   };
