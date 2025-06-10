@@ -7,7 +7,7 @@
     ./hypridle.nix
     ./variables.nix
     inputs.hyprland.homeManagerModules.default
-    ../common/swaync/swaync.nix
+    ../common/swaync
     ../common/waybar
     ../common/gtk.nix
     ../common/swayosd.nix
