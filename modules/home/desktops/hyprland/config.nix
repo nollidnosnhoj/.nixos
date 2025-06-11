@@ -20,10 +20,10 @@ in
         "dbus-update-activation-environment --systemd QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start hyprpolkitagent"
-        "poweralertd"
-        "waypaper --restore"
+        "swww-daemon"
         "swaync"
         "waybar"
+        "swww img $HOME/.nixos/.assets/wallpaper/nordtheme.png"
       ];
 
       input = {

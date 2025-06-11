@@ -12,7 +12,7 @@
     ../common/gtk.nix
     ../common/swayosd.nix
     ../common/walker.nix
-    ../common/waypaper.nix
+    # ../common/waypaper.nix
     ../common/wlogout.nix
   ];
 }
