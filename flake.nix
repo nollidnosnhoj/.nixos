@@ -73,6 +73,14 @@
             inherit self inputs username;
           };
         };
+        # framework16 = nixpkgs.lib.nixosSystem {
+        #   inherit system;
+        #   modules = [ ./hosts/framework16 ];
+        #   specialArgs = {
+        #     host = "framework16";
+        #     inherit self inputs username;
+        #   };
+        # };
       };
     };
 }
