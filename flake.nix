@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,14 +75,14 @@
             inherit self inputs username;
           };
         };
-        # framework16 = nixpkgs.lib.nixosSystem {
-        #   inherit system;
-        #   modules = [ ./hosts/framework16 ];
-        #   specialArgs = {
-        #     host = "framework16";
-        #     inherit self inputs username;
-        #   };
-        # };
+        framework16 = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/framework16 ];
+          specialArgs = {
+            host = "framework16";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
