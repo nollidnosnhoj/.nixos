@@ -55,6 +55,7 @@
   };
 
   services = {
+    fprintd.enable = true;
     power-profiles-daemon.enable = true;
 
     upower = {
