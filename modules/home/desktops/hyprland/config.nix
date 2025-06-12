@@ -23,6 +23,7 @@ in
         "swww-daemon"
         "swaync"
         "waybar"
+        "walker --gapplication-service"
         "swww img $HOME/.nixos/.assets/wallpaper/nordtheme.png"
       ];
 
@@ -231,6 +232,7 @@ in
 
         "workspace 1, class:^(firefox)$"
         "workspace 2, class:^(codium)$"
+        "workspace 2, class:^(VSCodium)$"
         "workspace 2, class:^(kitty)$"
         "workspace 3, class:^(vesktop)$"
       ];
