@@ -24,7 +24,7 @@ in
         "swaync"
         "waybar"
         "walker --gapplication-service"
-        "swww img $HOME/.nixos/.assets/wallpaper/nordtheme.png"
+        "swww img $HOME/.nixos/.assets/wallpapers/nordtheme.png"
       ];
 
       input = {
