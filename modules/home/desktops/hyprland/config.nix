@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 let
   mainMod = "SUPER";
   terminal = "kitty";
@@ -22,6 +22,7 @@ in
         "systemctl --user start hyprpolkitagent"
         "swww-daemon"
         "swaync"
+        "swayosd-server"
         "waybar"
         "walker --gapplication-service"
         "swww img $HOME/.nixos/.assets/wallpapers/nordtheme.png"
@@ -177,6 +178,8 @@ in
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
 
+        ",XF86AudioMute, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume mute-toggle"
+
         # Clipboard
         # "${mainMod}, V, exec, ${terminal} --class clipse -e clipse"
       ];
@@ -188,19 +191,19 @@ in
       ];
 
       bindel = [
-        ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume 5"
-        ",XF86AudioLowerVolume, exec, swayosd-client --output-volume -5"
-        ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
-        ",XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
-        ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
-        ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+        ",XF86AudioRaiseVolume, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume 5"
+        ",XF86AudioLowerVolume, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume -5"
+        ",XF86AudioMute, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume mute-toggle"
+        ",XF86AudioMicMute, exec, ${pkgs.swayosd}/bin/swayosd-client --input-volume mute-toggle"
+        ",XF86MonBrightnessUp, exec, ${pkgs.swayosd}/bin/swayosd-client --brightness raise"
+        ",XF86MonBrightnessDown, exec, ${pkgs.swayosd}/bin/swayosd-client --brightness lower"
       ];
 
       bindl = [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+        ", XF86AudioPause, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+        ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+        ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
       ];
 
       # windowrule

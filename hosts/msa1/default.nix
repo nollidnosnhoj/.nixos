@@ -21,7 +21,7 @@
     ../../modules/nixos/system.nix
     ../../modules/nixos/thunar.nix
     ../../modules/nixos/user.nix
-    ../../modules/nixos/wayland.nix
+    # ../../modules/nixos/wayland.nix
   ];
 
   powerManagement.cpuFreqGovernor = "performance";
@@ -40,7 +40,8 @@
         ../../modules/home/fish.nix
         ../../modules/home/fzf.nix
         ../../modules/home/git.nix
-        ../../modules/home/desktops/hyprland
+        # ../../modules/home/desktops/hyprland
+        ../../modules/home/desktops/niri
         ../../modules/home/kitty.nix
         ../../modules/home/lazygit.nix
         ../../modules/home/programs
