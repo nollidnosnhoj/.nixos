@@ -1,27 +1,30 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   programs.niri.settings.binds =
     with config.lib.niri.actions;
     let
       open-browser = spawn "${pkgs.firefox}/bin/firefox";
-      open-file-manager = spawn "thunar";
-      swayosd = spawn "${pkgs.swayosd}/bin/swayosd-client";
+      open-file-manager = spawn "kitty --class yazi -e yazi";
       playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
     in
     {
-      "XF86AudioMute".action = swayosd "--output-volume mute-toggle";
-      "XF86AudioMicMute".action = swayosd "--input-volume mute-toggle";
+      "XF86AudioMute".action = spawn "swayosd-client" "--output-volume" "mute-toggle";
+      "XF86AudioMicMute".action = spawn "swayosd-client" "--input-volume" "mute-toggle";
 
       "XF86AudioPlay".action = playerctl "play-pause";
       "XF86AudioStop".action = playerctl "pause";
       "XF86AudioPrev".action = playerctl "previous";
       "XF86AudioNext".action = playerctl "next";
 
-      "XF86AudioRaiseVolume".action = swayosd "--output-volume 5";
-      "XF86AudioLowerVolume".action = swayosd "--output-volume -5";
+      "XF86AudioRaiseVolume".action = spawn "swayosd-client" "--output-volume" "5";
+      "XF86AudioLowerVolume".action = spawn "swayosd-client" "--output-volume" "-5";
 
-      "XF86MonBrightnessUp".action = swayosd "--brightness raise";
-      "XF86MonBrightnessDown".action = swayosd "--brightness lower";
+      "XF86MonBrightnessUp".action = spawn "swayosd-client" "--brightness" "raise";
+      "XF86MonBrightnessDown".action = spawn "swayosd-client" "--brightness" "lower";
 
       "Print".action.screenshot-screen = {
         write-to-disk = true;

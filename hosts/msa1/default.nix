@@ -18,8 +18,9 @@
     ../../modules/nixos/programs.nix
     ../../modules/nixos/security.nix
     ../../modules/nixos/services.nix
+    ../../modules/nixos/swayosd.nix
     ../../modules/nixos/system.nix
-    ../../modules/nixos/thunar.nix
+    # ../../modules/nixos/thunar.nix
     ../../modules/nixos/user.nix
     # ../../modules/nixos/wayland.nix
   ];
@@ -48,6 +49,7 @@
         ../../modules/home/scripts/scripts.nix
         ../../modules/home/vscodium
         ../../modules/home/xdg-mimes.nix
+        ../../modules/home/yazi.nix
       ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";

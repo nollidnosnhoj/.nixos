@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [ swayosd ];
+  services.swayosd.enable = true;
+  services.swayosd.package = pkgs.swayosd;
 
   xdg.configFile."swayosd/style.css".text = ''
     window {
