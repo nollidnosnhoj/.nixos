@@ -16,13 +16,6 @@
       }
 
       {
-        "label" = "logout";
-        "action" = "hyprctl dispatch exit 0";
-        "text" = "Logout";
-        "keybind" = "e";
-      }
-
-      {
         "label" = "suspend";
         "action" = "systemctl suspend && hyprlock";
         "text" = "Suspend";
