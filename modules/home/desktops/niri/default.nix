@@ -12,6 +12,7 @@
     ./rules.nix
     ../common/swaync
     # ../common/gtk.nix
+    ./hypridle.nix
     ../hyprland/hyprlock.nix
     ../common/swayosd.nix
     ../common/walker.nix
