@@ -1,12 +1,9 @@
 {
-  config,
   inputs,
   pkgs,
   ...
 }:
-let
-  pointer = config.home.pointerCursor;
-in
+
 {
   imports = [
     inputs.niri.homeModules.niri
@@ -15,7 +12,7 @@ in
     ./keybinds.nix
     ./rules.nix
     ../common/swaync
-    ../common/gtk.nix
+    # ../common/gtk.nix
     ../hyprland/hyprlock.nix
     ../common/swayosd.nix
     ../common/walker.nix
@@ -96,7 +93,6 @@ in
       };
       cursor = {
         size = 20;
-        theme = "${pointer.name}";
       };
       layout = {
         focus-ring.enable = false;

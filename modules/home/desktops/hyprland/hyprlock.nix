@@ -1,5 +1,7 @@
 { inputs, pkgs, ... }:
 {
+
+  stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
     enable = true;
     package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;

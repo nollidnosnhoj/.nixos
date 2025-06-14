@@ -18,7 +18,7 @@
     ../../modules/nixos/programs.nix
     ../../modules/nixos/security.nix
     ../../modules/nixos/services.nix
-    ../../modules/nixos/swayosd.nix
+    ../../modules/nixos/stylix.nix
     ../../modules/nixos/system.nix
     # ../../modules/nixos/thunar.nix
     ../../modules/nixos/user.nix
