@@ -1,29 +1,11 @@
-{ ... }:
+{ config, ... }:
 let
-  nord = {
-    nord0 = "#2e3440";
-    nord1 = "#3b4252";
-    nord2 = "#434c5e";
-    nord3 = "#4c566a";
-    nord4 = "#d8dee9";
-    nord5 = "#e5e9f0";
-    nord6 = "#eceff4";
-    nord7 = "#8fbcbb";
-    nord8 = "#88c0d0";
-    nord9 = "#81a1c1";
-
-    nord10 = "#5e81ac";
-    nord11 = "#bf616a";
-    nord12 = "#d08770";
-    nord13 = "#ebcb8b";
-    nord14 = "#a3be8c";
-    nord15 = "#b48ead";
-  };
+  font = config.stylix.fonts.monospace.name;
 in
 {
-  programs.waybar.style = with nord; ''
+  programs.waybar.style = ''
         * {
-        font-family: "Noto Sans Nerd Font";
+        font-family: "${font}";
         font-size: 16px;
         min-height: 0;
         font-weight: bold;
@@ -31,11 +13,11 @@ in
 
     window#waybar {
         background: transparent;
-        background-color: ${nord0};
-        color: ${nord6};
+        background-color: @base00;
+        color: @base06;
         transition-property: background-color;
         transition-duration: 0.1s;
-        border-bottom: 1px solid ${nord3};
+        border-bottom: 1px solid @base03;
     }
 
     button {
@@ -50,18 +32,18 @@ in
 
     #workspaces button {
         padding: 0 4px;
-        color: ${nord8};
+        color: @base08;
     }
 
     #workspaces button.empty {
-        color: ${nord4};
+        color: @base04;
         opacity: 0.6;
     }
 
     #workspaces button.active {
         background-color: rgba(0, 0, 0, 0.3);
-        color: ${nord8};
-        border-top: 2px solid ${nord8};
+        color: @base0C;
+        border-top: 2px solid @base0C;
     }
 
     #workspaces button.visible {
@@ -69,7 +51,7 @@ in
     }
 
     #workspaces button.urgent {
-        background-color: ${nord11};
+        background-color: @base08;
     }
 
     #wireplumber,
@@ -78,7 +60,7 @@ in
     #hardware,
     #misc,
     #net {
-        color: ${nord7};
+        color: @base07;
         padding-top: 4px;
         padding-bottom: 4px;
         padding-left: 4px;
@@ -107,7 +89,7 @@ in
     #temperature  {
         padding-left: 6px;
         padding-right: 6px;
-        color: ${nord7};
+        color: @base07;
     }
 
     #bluetooth {
@@ -119,31 +101,23 @@ in
     }
 
     #custom-wlogout {
-        color: ${nord11};
-    }
-
-    #custom-pacman.pending-updates {
-        color: ${nord13};
-    }
-
-    #custom-pacman.updated {
-        color: ${nord14};
+        color: @base0B;
     }
 
     #idle_inhibitor {
-        color: ${nord14};
+        color: @base0B;
     }
 
     #idle_inhibitor.activated {
-        color: ${nord11};
+        color: @base08;
     }
 
     #battery {
-        color: ${nord14};
+        color: @base0E;
     }
 
     #temperature.critical {
-        color: ${nord11};
+        color: @base08;
     }
 
 

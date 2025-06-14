@@ -3,6 +3,7 @@
   imports = [
     ./waybar.nix
     ./config.nix
-    ./style.nix
+    # ./style.nix
+    ./stylix.nix
   ];
 }
