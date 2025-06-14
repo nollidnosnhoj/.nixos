@@ -4,12 +4,12 @@
     { command = [ "xwayland-satellite" ]; }
     { command = [ "swww-daemon" ]; }
     { command = [ "swaync" ]; }
+    { command = [ "waybar" ]; }
     {
       command = [
         "walker"
         "--gapplication-service"
       ];
     }
-    { command = [ "swayosd-server" ]; }
   ];
 }

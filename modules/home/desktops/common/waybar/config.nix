@@ -1,9 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  programs.waybar.enable = true;
+  programs.waybar.package = pkgs.waybar;
   programs.waybar.settings.mainBar = {
     position = "top";
     modules-left = [
-      "hyprland/workspaces"
+      "niri/workspaces"
       "tray"
     ];
     modules-center = [
@@ -99,7 +101,7 @@
       ];
     };
     bluetooth = {
-      on-click = "blueman-manager";
+      on-click = "${pkgs.blueman}/bin/blueman-manager";
       format = "󰂯";
       format-disabled = "󰂲";
       format-connected = "";
@@ -120,38 +122,12 @@
     wireplumber = {
       format = "{icon}  {volume}%";
       format-muted = "󰖁";
-      on-click = "pavucontrol";
+      on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
       format-icons = [
         ""
         ""
         ""
       ];
-    };
-    "pulseaudio#speaker" = {
-      format = "{icon}";
-      format-bluetooth = "{volume} {icon} ";
-      format-bluetooth-muted = " {icon} ";
-      format-muted = "󰖁";
-      format-icons = {
-        headphone = "󰋋";
-        default = [
-          "󰕿"
-          "󰖀"
-          "󱄠"
-          "󰕾"
-        ];
-      };
-      on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
-      on-click-right = "pavucontrol";
-      tooltip-format = "{desc} - {volume}";
-    };
-    "pulseaudio#mic" = {
-      format = "{format_source}";
-      format-source = "";
-      format-source-muted = "󰍭";
-      on-click = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-      on-click-right = "pavucontrol";
-      tooltip-format = "{desc} - {volume}";
     };
     "hyprland/workspaces" = {
       format = "{}";
@@ -169,6 +145,13 @@
       persistent-workspaces = {
         "*" = 5;
       };
+    };
+    "niri/workspaces" = {
+      all-outputs = false;
+      current-only = true;
+      format = "{index}";
+      disable-click = true;
+      disable-markup = true;
     };
     "hyprland/window" = {
       rewrite = {
@@ -193,11 +176,6 @@
     temperature = {
       format = "{temperatureC}°C ";
     };
-    "custom/wlogout" = {
-      format = "⏻ ";
-      on-click = "~/.config/hypr/scripts/wlogout.sh";
-      tooltip = false;
-    };
     "custom/notification" = {
       tooltip-format = "Left: Notifications\nRight: Do not disturb";
       format = "{icon}";
@@ -212,21 +190,11 @@
         dnd-inhibited-none = "";
       };
       return-type = "json";
-      exec-if = "which swaync-client";
-      exec = "swaync-client -swb";
-      on-click = "swaync-client -t -sw";
-      on-click-right = "swaync-client -d -sw";
+      exec-if = "which ${pkgs.swaynotificationcenter}/bin/swaync-client";
+      exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+      on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+      on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
       escape = true;
-    };
-    "custom/pacman" = {
-      format = "{icon}{0}";
-      return-type = "json";
-      format-icons = {
-        pending-updates = " ";
-        updated = "";
-      };
-      exec-if = "which waybar-updates";
-      exec = "waybar-updates";
     };
     "group/hardware" = {
       orientation = "inherit";
@@ -255,7 +223,6 @@
     "group/misc" = {
       orientation = "inherit";
       modules = [
-        "custom/pacman"
         "custom/notification"
       ];
     };

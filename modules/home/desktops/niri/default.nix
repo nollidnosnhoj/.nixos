@@ -19,6 +19,7 @@ in
     ../hyprland/hyprlock.nix
     ../common/swayosd.nix
     ../common/walker.nix
+    ../common/waybar
     ../common/wlogout.nix
   ];
 
