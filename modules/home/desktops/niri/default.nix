@@ -1,12 +1,12 @@
 {
-  config,
+  # config,
   inputs,
   pkgs,
   ...
 }:
-let
-  pointer = config.home.pointerCursor;
-in
+# let
+#   pointer = config.home.pointerCursor;
+# in
 {
   imports = [
     inputs.niri.homeModules.niri
@@ -94,17 +94,13 @@ in
       gestures = {
         hot-corners.enable = true;
       };
-      cursor = {
-        theme = "${pointer.name}";
-        size = 20;
-      };
+      # cursor = {
+      #   theme = "${pointer.name}";
+      #   size = 20;
+      # };
       layout = {
-        focus-ring.enable = false;
         border = {
-          enable = true;
           width = 1;
-          active.color = "#7fb4ca";
-          inactive.color = "#090e13";
         };
         shadow = {
           enable = true;

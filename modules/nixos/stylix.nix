@@ -1,4 +1,5 @@
 {
+  config,
   self,
   inputs,
   pkgs,
@@ -12,16 +13,21 @@
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
   stylix.image = "${self}/.assets/wallpapers/nordtheme.png";
+  stylix.cursor = {
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
 
   stylix.fonts = {
     serif = {
-      package = pkgs.noto-fonts-cjk-serif;
-      name = "Noto Serif";
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Serif";
     };
 
     sansSerif = {
-      package = pkgs.noto-fonts-cjk-sans;
-      name = "Noto Sans";
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans";
     };
 
     monospace = {
