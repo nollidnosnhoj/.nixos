@@ -75,6 +75,23 @@
       "Mod+Shift+K".action = move-column-to-workspace-up;
       "Mod+Shift+J".action = move-column-to-workspace-down;
 
+      "Mod+WheelScrollDown" = {
+        action = focus-column-left;
+        cooldown-ms = 150;
+      };
+
+      "Mod+WheelScrollUp" = {
+        action = focus-column-right;
+        cooldown-ms = 150;
+      };
+
+      #       binds {
+      #     Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+      #     Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+      #     Mod+WheelScrollRight                { focus-column-right; }
+      #     Mod+WheelScrollLeft                 { focus-column-left; }
+      # }
+
       "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
       "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
 
