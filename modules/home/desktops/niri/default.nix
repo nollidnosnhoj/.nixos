@@ -96,9 +96,8 @@
         hot-corners.enable = true;
       };
       layout = {
-        border = {
-          width = 1;
-        };
+        border.enable = true;
+        border.width = 1;
         shadow = {
           enable = true;
         };
