@@ -63,6 +63,11 @@
       screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";
       outputs = {
         "eDP-1" = {
+          mode = {
+            width = 2560;
+            height = 1600;
+            refresh = null;
+          };
           scale = 1.0;
           position = {
             x = 0;
