@@ -7,7 +7,7 @@
     open-browser = spawn "${pkgs.firefox}/bin/firefox";
     open-file-manager = spawn "thunar";
     set-volume = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@";
-    brightnessctl = spawn "${pkgs.brightnessctl}";
+    brightnessctl = spawn "${pkgs.brightnessctl}/bin/brightnessctl";
     playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
   in {
     "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
@@ -80,13 +80,6 @@
       action = focus-column-left;
       cooldown-ms = 150;
     };
-
-    #       binds {
-    #     Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
-    #     Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
-    #     Mod+WheelScrollRight                { focus-column-right; }
-    #     Mod+WheelScrollLeft                 { focus-column-left; }
-    # }
 
     "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
     "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;

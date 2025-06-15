@@ -11,10 +11,9 @@
     ./rules.nix
     ../common/swaync
     ../common/gtk.nix
-    ./hypridle.nix
-    ../hyprland/hyprlock.nix
-    ../hyprland/hyprpaper.nix
-    ../common/swayosd.nix
+    ./hypridle.nix # idle
+    ../hyprland/hyprlock.nix # lock screen
+    ../hyprland/hyprpaper.nix # wallpaper
     ../common/walker.nix
     ../common/waybar
     ../common/wlogout.nix
@@ -22,7 +21,6 @@
 
   home.packages = with pkgs; [
     xwayland-satellite
-    swww
     slurp
     wl-clipboard
     wl-clip-persist
