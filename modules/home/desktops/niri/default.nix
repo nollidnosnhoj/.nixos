@@ -10,7 +10,7 @@
     ./keybinds.nix
     ./rules.nix
     ../common/swaync
-    # ../common/gtk.nix
+    ../common/gtk.nix
     ./hypridle.nix
     ../hyprland/hyprlock.nix
     ../common/swayosd.nix

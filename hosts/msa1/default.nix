@@ -19,7 +19,7 @@
     ../../modules/nixos/services.nix
     ../../modules/nixos/stylix.nix
     ../../modules/nixos/system.nix
-    # ../../modules/nixos/thunar.nix
+    ../../modules/nixos/thunar.nix
     ../../modules/nixos/user.nix
     # ../../modules/nixos/wayland.nix
   ];

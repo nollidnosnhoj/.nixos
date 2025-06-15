@@ -5,7 +5,7 @@
 }: {
   programs.niri.settings.binds = with config.lib.niri.actions; let
     open-browser = spawn "${pkgs.firefox}/bin/firefox";
-    open-file-manager = spawn "kitty --class yazi -e yazi";
+    open-file-manager = spawn "thunar";
     set-volume = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@";
     brightnessctl = spawn "${pkgs.brightnessctl}";
     playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
