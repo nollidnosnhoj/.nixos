@@ -17,8 +17,7 @@ excludes = [
 ]
 
 [formatter.nix]
-command = "nixfmt"
-options = [ "-sv", "-w" ,"80" ]
+command = "alejandra"
 includes = [ "*.nix" ]
 excludes = [ ]
 
