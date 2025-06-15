@@ -173,6 +173,10 @@
         open-floating = true;
       }
       {
+        matches = [{app-id = "iwgtk";}];
+        open-floating = true;
+      }
+      {
         matches = [{app-id = "xdg-desktop-portal-gtk";}];
         open-floating = true;
       }
