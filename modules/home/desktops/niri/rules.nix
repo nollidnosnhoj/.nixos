@@ -1,24 +1,21 @@
-{ ... }:
-{
+{...}: {
   programs.niri.settings = {
     window-rules = [
       {
-        geometry-corner-radius =
-          let
-            radius = 16.0;
-          in
-          {
-            bottom-left = radius;
-            bottom-right = radius;
-            top-left = radius;
-            top-right = radius;
-          };
+        geometry-corner-radius = let
+          radius = 16.0;
+        in {
+          bottom-left = radius;
+          bottom-right = radius;
+          top-left = radius;
+          top-right = radius;
+        };
         clip-to-geometry = true;
         draw-border-with-background = false;
       }
       {
         matches = [
-          { is-floating = true; }
+          {is-floating = true;}
         ];
         shadow.enable = true;
       }
@@ -44,28 +41,28 @@
         };
       }
       {
-        matches = [ { app-id = "org.telegram.desktop"; } ];
+        matches = [{app-id = "org.telegram.desktop";}];
         block-out-from = "screencast";
       }
       {
-        matches = [ { app-id = "app.drey.PaperPlane"; } ];
+        matches = [{app-id = "app.drey.PaperPlane";}];
         block-out-from = "screencast";
       }
       {
         matches = [
-          { app-id = "zen"; }
-          { app-id = "firefox"; }
-          { app-id = "chromium-browser"; }
-          { app-id = "xdg-desktop-portal-gtk"; }
+          {app-id = "zen";}
+          {app-id = "firefox";}
+          {app-id = "chromium-browser";}
+          {app-id = "xdg-desktop-portal-gtk";}
         ];
         scroll-factor = 0.2;
       }
       {
         matches = [
-          { app-id = "zen"; }
-          { app-id = "firefox"; }
-          { app-id = "chromium-browser"; }
-          { app-id = "edge"; }
+          {app-id = "zen";}
+          {app-id = "firefox";}
+          {app-id = "chromium-browser";}
+          {app-id = "edge";}
         ];
         open-maximized = true;
       }
@@ -110,7 +107,7 @@
         };
       }
       {
-        matches = [ { title = "Picture in picture"; } ];
+        matches = [{title = "Picture in picture";}];
         open-floating = true;
         default-floating-position = {
           x = 32;
@@ -119,7 +116,7 @@
         };
       }
       {
-        matches = [ { title = "Discord Popout"; } ];
+        matches = [{title = "Discord Popout";}];
         open-floating = true;
         default-floating-position = {
           x = 32;
@@ -128,117 +125,117 @@
         };
       }
       {
-        matches = [ { app-id = "pavucontrol"; } ];
+        matches = [{app-id = "pavucontrol";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "pavucontrol-qt"; } ];
+        matches = [{app-id = "pavucontrol-qt";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "com.saivert.pwvucontrol"; } ];
+        matches = [{app-id = "com.saivert.pwvucontrol";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "io.github.fsobolev.Cavalier"; } ];
+        matches = [{app-id = "io.github.fsobolev.Cavalier";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "dialog"; } ];
+        matches = [{app-id = "dialog";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "popup"; } ];
+        matches = [{app-id = "popup";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "task_dialog"; } ];
+        matches = [{app-id = "task_dialog";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "gcr-prompter"; } ];
+        matches = [{app-id = "gcr-prompter";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "file-roller"; } ];
+        matches = [{app-id = "file-roller";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "org.gnome.FileRoller"; } ];
+        matches = [{app-id = "org.gnome.FileRoller";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "nm-connection-editor"; } ];
+        matches = [{app-id = "nm-connection-editor";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "blueman-manager"; } ];
+        matches = [{app-id = "blueman-manager";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "xdg-desktop-portal-gtk"; } ];
+        matches = [{app-id = "xdg-desktop-portal-gtk";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "org.gnome.polkit-gnome-authentication-agent-1"; } ];
+        matches = [{app-id = "org.gnome.polkit-gnome-authentication-agent-1";}];
         open-floating = true;
       }
       {
-        matches = [ { app-id = "pinentry"; } ];
+        matches = [{app-id = "pinentry";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Progress"; } ];
+        matches = [{title = "Progress";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "File Operations"; } ];
+        matches = [{title = "File Operations";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Copying"; } ];
+        matches = [{title = "Copying";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Moving"; } ];
+        matches = [{title = "Moving";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Properties"; } ];
+        matches = [{title = "Properties";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Downloads"; } ];
+        matches = [{title = "Downloads";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "file progress"; } ];
+        matches = [{title = "file progress";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Confirm"; } ];
+        matches = [{title = "Confirm";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Authentication Required"; } ];
+        matches = [{title = "Authentication Required";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Notice"; } ];
+        matches = [{title = "Notice";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Warning"; } ];
+        matches = [{title = "Warning";}];
         open-floating = true;
       }
       {
-        matches = [ { title = "Error"; } ];
+        matches = [{title = "Error";}];
         open-floating = true;
       }
     ];
     layer-rules = [
       {
-        matches = [ { namespace = "^swww$"; } ];
+        matches = [{namespace = "^swww$";}];
         # place-within-backdrop = true;
       }
     ];

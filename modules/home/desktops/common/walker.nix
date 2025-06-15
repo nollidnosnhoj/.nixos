@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     walker
   ];
@@ -482,7 +480,7 @@
     max_width = 400
     min_width = 400
     width = 400
-        
+
     [ui.window.box.scroll.list.item.activation_label]
     h_align = "fill"
     v_align = "fill"

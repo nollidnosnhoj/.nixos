@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.dconf.enable = true;
   programs.fish.enable = true;
   programs.gnupg.agent = {
@@ -8,5 +7,5 @@
     # pinentryFlavor = "";
   };
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [ ];
+  programs.nix-ld.libraries = with pkgs; [];
 }

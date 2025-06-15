@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [ swaynotificationcenter ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [swaynotificationcenter];
 
   services.swaync = {
     enable = true;
@@ -83,7 +82,6 @@
           image-size = 96;
           image-radius = 12;
           blacklist = [
-
           ];
         };
         buttons-grid = {

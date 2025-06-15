@@ -1,5 +1,4 @@
-{ ... }:
-{
-  imports = [ ./style.nix ];
+{...}: {
+  imports = [./style.nix];
   stylix.targets.waybar.enable = true;
 }

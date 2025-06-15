@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -18,7 +21,7 @@
     };
   };
   nixpkgs = {
-    overlays = [ inputs.nur.overlays.default ];
+    overlays = [inputs.nur.overlays.default];
   };
 
   environment.systemPackages = with pkgs; [

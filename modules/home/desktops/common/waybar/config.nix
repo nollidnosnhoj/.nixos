@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.waybar.settings.mainBar = {
     position = "top";
     modules-left = [

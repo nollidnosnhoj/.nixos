@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   mainMod = "SUPER";
   terminal = "kitty";
   browser = "firefox";
@@ -11,8 +10,7 @@ let
   activeBorderDeg = "45deg";
   inactiveBorder = "rgba(595959aa)";
   shadowColor = "rgba(1a1a1aee)";
-in
-{
+in {
   wayland.windowManager.hyprland = {
     settings = {
       # autostart

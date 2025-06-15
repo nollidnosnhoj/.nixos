@@ -3,8 +3,7 @@
   inputs,
   username,
   ...
-}:
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
@@ -30,7 +29,7 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username host; };
+    extraSpecialArgs = {inherit inputs username host;};
     users.${username} = {
       imports = [
         ../../modules/home/bat.nix

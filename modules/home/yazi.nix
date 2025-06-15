@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [ yazi ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [yazi];
 
   programs.yazi = {
     enable = true;
@@ -33,11 +32,11 @@
     keymap = {
       manager.prepend_keymap = [
         {
-          on = [ "e" ];
+          on = ["e"];
           run = "open";
         }
         {
-          on = [ "d" ];
+          on = ["d"];
           run = "remove --force";
         }
       ];

@@ -3,12 +3,9 @@
   inputs,
   pkgs,
   ...
-}:
-let
+}: let
   colors = config.lib.stylix.colors;
-in
-{
-
+in {
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
     enable = true;

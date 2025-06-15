@@ -1,8 +1,6 @@
-{ config, ... }:
-let
+{config, ...}: let
   font = config.stylix.fonts.monospace.name;
-in
-{
+in {
   programs.waybar.style = ''
         * {
         font-family: "${font}";
@@ -83,9 +81,9 @@ in
     #custom-notification,
     #custom-pacman,
     #custom-wlogout,
-    #cpu, 
-    #memory, 
-    #disk, 
+    #cpu,
+    #memory,
+    #disk,
     #temperature  {
         padding-left: 6px;
         padding-right: 6px;

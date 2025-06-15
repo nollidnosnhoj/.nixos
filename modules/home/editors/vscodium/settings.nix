@@ -1,5 +1,8 @@
-{ host, username, ... }:
 {
+  host,
+  username,
+  ...
+}: {
   programs.vscode.profiles.default = {
     userSettings = {
       "update.mode" = "none";
@@ -20,15 +23,14 @@
       "nix.serverSettings" = {
         "nixd" = {
           "formatting" = {
-            "command" = [ "alejandra" ];
+            "command" = ["alejandra"];
           };
           "options" = {
             "nixos" = {
               "expr" = "(builtins.getFlake \"/home/${username}/.nixos\").nixosConfigurations.${host}.options";
             };
             "home_manager" = {
-              "expr" =
-                "(builtins.getFlake \"/home/${username}/.nixos\").nixosConfigurations.${host}.options.home-manager.users.type.getSubOptions []";
+              "expr" = "(builtins.getFlake \"/home/${username}/.nixos\").nixosConfigurations.${host}.options.home-manager.users.type.getSubOptions []";
             };
           };
         };

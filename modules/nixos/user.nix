@@ -2,8 +2,7 @@
   pkgs,
   username,
   ...
-}:
-{
+}: {
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
@@ -21,5 +20,5 @@
       ];
     };
   };
-  nix.settings.allowed-users = [ "${username}" ];
+  nix.settings.allowed-users = ["${username}"];
 }

@@ -67,35 +67,36 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs =
-    { nixpkgs, self, ... }@inputs:
-    let
-      username = "kopa";
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
+  outputs = {
+    nixpkgs,
+    self,
+    ...
+  } @ inputs: let
+    username = "kopa";
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    lib = nixpkgs.lib;
+  in {
+    nixosConfigurations = {
+      msa1 = nixpkgs.lib.nixosSystem {
         inherit system;
-        config.allowUnfree = true;
-      };
-      lib = nixpkgs.lib;
-    in
-    {
-      nixosConfigurations = {
-        msa1 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [ ./hosts/msa1 ];
-          specialArgs = {
-            host = "msa1";
-            inherit self inputs username;
-          };
+        modules = [./hosts/msa1];
+        specialArgs = {
+          host = "msa1";
+          inherit self inputs username;
         };
-        framework16 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [ ./hosts/framework16 ];
-          specialArgs = {
-            host = "framework16";
-            inherit self inputs username;
-          };
+      };
+      framework16 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./hosts/framework16];
+        specialArgs = {
+          host = "framework16";
+          inherit self inputs username;
         };
       };
     };
+  };
 }

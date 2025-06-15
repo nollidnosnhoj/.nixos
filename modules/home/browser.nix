@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
 
@@ -80,13 +79,13 @@
           engines = {
             searxng = {
               urls = [
-                { template = "https://searx.org/search?q={searchTerms}"; }
+                {template = "https://searx.org/search?q={searchTerms}";}
               ];
               icon = "https://searx.org/favicon.ico";
               updateInterval = 86400000; # 24h
-              definedAliases = [ "@searx" ];
+              definedAliases = ["@searx"];
               suggestUrls = [
-                { template = "https://searx.org/autosuggest?q={searchTerms}"; }
+                {template = "https://searx.org/autosuggest?q={searchTerms}";}
               ];
             };
 
@@ -107,23 +106,23 @@
                 }
               ];
               icon = "https://nixos.wiki/favicon.png";
-              definedAliases = [ "@np" ];
+              definedAliases = ["@np"];
             };
 
             "nixos-wiki" = {
               urls = [
-                { template = "https://nixos.wiki/index.php?search={searchTerms}"; }
+                {template = "https://nixos.wiki/index.php?search={searchTerms}";}
               ];
               icon = "https://nixos.wiki/favicon.png";
               updateInterval = 86400000;
-              definedAliases = [ "@nw" ];
+              definedAliases = ["@nw"];
             };
 
             ddg = {
               urls = [
-                { template = "https://duckduckgo.com/?q={searchTerms}"; }
+                {template = "https://duckduckgo.com/?q={searchTerms}";}
               ];
-              definedAliases = [ "@ddg" ];
+              definedAliases = ["@ddg"];
             };
 
             # Hide Bing from the UI
