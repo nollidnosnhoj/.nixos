@@ -13,6 +13,7 @@
     ../common/gtk.nix
     ./hypridle.nix
     ../hyprland/hyprlock.nix
+    ../hyprland/hyprpaper.nix
     ../common/swayosd.nix
     ../common/walker.nix
     ../common/waybar
