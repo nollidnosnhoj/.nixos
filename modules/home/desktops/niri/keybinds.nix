@@ -76,12 +76,12 @@
       "Mod+Shift+J".action = move-column-to-workspace-down;
 
       "Mod+WheelScrollDown" = {
-        action = focus-column-left;
+        action = focus-column-right;
         cooldown-ms = 150;
       };
 
       "Mod+WheelScrollUp" = {
-        action = focus-column-right;
+        action = focus-column-left;
         cooldown-ms = 150;
       };
 
