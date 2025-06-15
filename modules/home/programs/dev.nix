@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     # Nix
     nixd
-    nixfmt-rfc-style
+    alejandra
   ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

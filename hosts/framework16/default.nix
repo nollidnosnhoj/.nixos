@@ -46,7 +46,7 @@
         ../../modules/home/lazygit.nix
         ../../modules/home/programs
         ../../modules/home/scripts/scripts.nix
-        ../../modules/home/vscodium
+        ../../modules/home/editors/vscodium
         ../../modules/home/xdg-mimes.nix
         ../../modules/home/yazi.nix
       ];

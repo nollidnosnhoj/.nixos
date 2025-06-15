@@ -64,6 +64,7 @@
     };
 
     nixcord.url = "github:kaylorben/nixcord";
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs =
