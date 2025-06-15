@@ -4,15 +4,15 @@ Was very interested in NixOS so I decided to create a configuration that is simi
 
 ## TODO
 
-- Create configuration for my Framework 16 laptop.
-  - Need to add conditional to the configuration for laptop-specific configurations.
+- Refactoring configuration to utilize options.
+- Look into dev-shells.
+- Perhaps replace swaync with mako or dunst.
+- Learn my new nvim config :P
 
 ## Credit
 
 ### https://nixos-and-flakes.thiscute.world/
 
 ### https://github.com/Frost-Phoenix/nixos-config
-
-I've mainly used this configuration and customized it to my liking. 
 
 ### https://github.com/Ly-sec/nixos
