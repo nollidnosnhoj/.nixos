@@ -55,7 +55,7 @@
           scroll-factor = 1.5;
         };
         focus-follows-mouse.enable = true;
-        warp-mouse-to-focus = true;
+        warp-mouse-to-focus.enable = true;
         workspace-auto-back-and-forth = true;
       };
       screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";

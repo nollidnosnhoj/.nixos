@@ -19,6 +19,8 @@
         globals.mapleader = " ";
         globals.maplocalleader = " ";
 
+        lsp.enable = true;
+
         options.splitright = true;
         options.splitbelow = true;
         options.shiftwidth = 2;
@@ -34,7 +36,6 @@
         formatter.conform-nvim.enable = true;
 
         languages = {
-          enableLSP = true;
           enableTreesitter = true;
 
           nix = {
