@@ -18,6 +18,7 @@
     ../../modules/nixos/security.nix
     ../../modules/nixos/services.nix
     ../../modules/nixos/stylix.nix
+    ../../modules/nixos/swayosd.nix
     ../../modules/nixos/system.nix
     ../../modules/nixos/thunar.nix
     ../../modules/nixos/user.nix
@@ -47,6 +48,7 @@
         ../../modules/home/editors/neovim
         ../../modules/home/programs
         ../../modules/home/scripts/scripts.nix
+        ../../modules/home/desktops/common/swayosd.nix
         ../../modules/home/editors/vscodium
         ../../modules/home/xdg-mimes.nix
         ../../modules/home/yazi.nix

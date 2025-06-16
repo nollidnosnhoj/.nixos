@@ -6,23 +6,23 @@
   programs.niri.settings.binds = with config.lib.niri.actions; let
     open-browser = spawn "${pkgs.firefox}/bin/firefox";
     open-file-manager = spawn "thunar";
-    set-volume = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@";
-    brightnessctl = spawn "${pkgs.brightnessctl}/bin/brightnessctl";
+    set-volume = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume";
+    set-brightness = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness";
     playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
   in {
-    "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
-    "XF86AudioMicMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+    "XF86AudioMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "mute-toggle";
+    "XF86AudioMicMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--input-volume" "mute-toggle";
 
     "XF86AudioPlay".action = playerctl "play-pause";
     "XF86AudioStop".action = playerctl "pause";
     "XF86AudioPrev".action = playerctl "previous";
     "XF86AudioNext".action = playerctl "next";
 
-    "XF86AudioRaiseVolume".action = set-volume "5%+";
-    "XF86AudioLowerVolume".action = set-volume "5%-";
+    "XF86AudioRaiseVolume".action = set-volume "raise";
+    "XF86AudioLowerVolume".action = set-volume "lower";
 
-    "XF86MonBrightnessUp".action = brightnessctl "set" "5%+";
-    "XF86MonBrightnessDown".action = brightnessctl "set" "-%5";
+    "XF86MonBrightnessUp".action = set-brightness "raise";
+    "XF86MonBrightnessDown".action = set-brightness "lower";
 
     "Print".action.screenshot-screen = {
       write-to-disk = true;
