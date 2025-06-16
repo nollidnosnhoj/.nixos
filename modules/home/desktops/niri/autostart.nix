@@ -1,15 +1,10 @@
-{config, ...}: let
-  wallpaper = config.stylix.image;
-in {
+{pkgs, ...}: {
   programs.niri.settings.spawn-at-startup = [
     {command = ["xwayland-satellite"];}
     {command = ["swaync"];}
     {command = ["waybar"];}
     {
-      command = [
-        "walker"
-        "--gapplication-service"
-      ];
+      command = ["${pkgs.fuzzel}/bin/fuzzel"];
     }
   ];
 }

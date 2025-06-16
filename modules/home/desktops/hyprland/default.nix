@@ -9,7 +9,7 @@
     ../common/swaync
     ../common/waybar
     ../common/gtk.nix
-    ../common/walker.nix
+    ../common/fuzzel.nix
     # ../common/waypaper.nix
     ../common/wlogout.nix
   ];

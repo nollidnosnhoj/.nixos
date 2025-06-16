@@ -33,7 +33,7 @@
     };
     "Mod+Return".action = spawn "${pkgs.kitty}/bin/kitty";
     "Mod+B".action = open-browser;
-    "Mod+Space".action = spawn "${pkgs.walker}/bin/walker";
+    "Mod+Space".action = spawn "${pkgs.fuzzel}/bin/fuzzel";
     "Mod+E".action = open-file-manager;
     # "Ctrl+Alt+L".action = spawn "sh -c pgrep hyprlock || hyprlock";
 

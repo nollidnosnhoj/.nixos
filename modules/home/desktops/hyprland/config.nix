@@ -2,7 +2,7 @@
   mainMod = "SUPER";
   terminal = "kitty";
   browser = "firefox";
-  menu = "walker";
+  menu = "${pkgs.fuzzel}/bin/fuzzel";
   fileManager = "thunar";
 
   activeBorder1 = "rgb(81a1c1)";
@@ -21,7 +21,6 @@ in {
         "swww-daemon"
         "swaync"
         "waybar"
-        "walker --gapplication-service"
         "swww img $HOME/.nixos/.assets/wallpapers/nordtheme.png"
       ];
 

@@ -14,7 +14,7 @@
     ./hypridle.nix # idle
     ../hyprland/hyprlock.nix # lock screen
     ../hyprland/hyprpaper.nix # wallpaper
-    ../common/walker.nix
+    ../common/fuzzel.nix
     ../common/waybar
     ../common/wlogout.nix
   ];
