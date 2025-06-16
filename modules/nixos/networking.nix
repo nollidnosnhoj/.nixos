@@ -5,9 +5,18 @@
 }: {
   networking = {
     hostName = "${host}";
-    wireless.iwd.enable = true;
-    networkmanager.enable = true;
-    networkmanager.wifi.backend = "iwd";
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
+    wireless = {
+      iwd = {
+        enable = true;
+        settings = {
+          Settings.AutoConnect = true;
+        };
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [networkmanagerapplet];

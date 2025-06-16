@@ -32,7 +32,6 @@
     wireplumber
     poweralertd
     libnotify
-    gnome-keyring
   ];
 
   programs.niri = {
