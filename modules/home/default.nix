@@ -1,11 +1,15 @@
 {
+  config,
   host,
   inputs,
   username,
   ...
 }: {
   home-manager = {
-    extraSpecialArgs = {inherit inputs username host;};
+    extraSpecialArgs = {
+      inherit inputs username host;
+      nixosConfig = config;
+    };
     users.${username} = {
       imports = [
         ./bat.nix

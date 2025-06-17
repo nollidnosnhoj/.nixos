@@ -2,8 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-    ../../modules/nixos
-    ../../modules/home
+    ../../modules
   ];
 
   services = {

@@ -119,6 +119,9 @@
         };
       };
   in {
+    nixosModules.default = {...}: {
+      imports = defaultModules ++ [./modules];
+    };
     nixosConfigurations = {
       msa1 = mkSystem "msa1" "kopa" [./hosts/msa1];
       framework16 = mkSystem "framework16" "kopa" [./hosts/framework16];

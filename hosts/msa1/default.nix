@@ -1,9 +1,12 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos
-    ../../modules/home
+    ../../modules
   ];
 
   powerManagement.cpuFreqGovernor = "performance";
+
+  input = {
+    mouse-sensivity = -0.2;
+  };
 }

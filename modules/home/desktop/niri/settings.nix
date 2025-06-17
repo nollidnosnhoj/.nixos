@@ -1,4 +1,6 @@
-{...}: {
+{nixosConfig, ...}: let
+  inputCfg = nixosConfig.input;
+in {
   programs.niri.settings = {
     input = {
       keyboard.xkb.layout = "us";
@@ -14,6 +16,8 @@
         accel-profile = "adaptive";
       };
       mouse = {
+        accel-profile = "flat";
+        accel-speed = inputCfg.mouse-sensivity;
         scroll-factor = 1.5;
       };
       focus-follows-mouse.enable = true;
