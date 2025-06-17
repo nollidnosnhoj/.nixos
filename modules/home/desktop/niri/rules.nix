@@ -45,15 +45,6 @@ in {
           {app-id = "zen";}
           {app-id = "firefox";}
           {app-id = "chromium-browser";}
-          {app-id = "xdg-desktop-portal-gtk";}
-        ];
-        scroll-factor = 0.2;
-      }
-      {
-        matches = [
-          {app-id = "zen";}
-          {app-id = "firefox";}
-          {app-id = "chromium-browser";}
           {app-id = "edge";}
         ];
         open-maximized = true;
@@ -62,26 +53,6 @@ in {
         matches = [
           {
             app-id = "firefox";
-            title = "Picture-in-Picture";
-          }
-        ];
-        open-floating = true;
-        default-floating-position = {
-          x = 32;
-          y = 32;
-          relative-to = "bottom-right";
-        };
-        default-column-width = {
-          fixed = 480;
-        };
-        default-window-height = {
-          fixed = 270;
-        };
-      }
-      {
-        matches = [
-          {
-            app-id = "zen";
             title = "Picture-in-Picture";
           }
         ];
@@ -115,6 +86,10 @@ in {
           y = 32;
           relative-to = "bottom-right";
         };
+      }
+      {
+        matches = [{app-id = "com.chatterino.";}];
+        default-column-width.proportion = 0.2;
       }
       {
         matches = [{app-id = "pavucontrol";}];

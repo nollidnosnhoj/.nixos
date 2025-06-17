@@ -1,11 +1,26 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [inputs.nixcord.homeModules.nixcord];
+
+  home.packages = with pkgs; [arrpc];
 
   programs.nixcord = {
     enable = true;
     vesktop.enable = true;
     config = {
       frameless = true;
+      plugins = {
+        webRichPresence.enable = true;
+        webScreenShareFixes.enable = true;
+        youtubeAdblock.enable = true;
+        appleMusicRichPresence.enable = true;
+      };
     };
   };
+
+  services.arrpc.enable = true;
+  services.arrpc.package = pkgs.arrpc;
 }

@@ -16,5 +16,7 @@
 
     blueman # bluetooth gui
     iwgtk # wireless gui
+
+    chatterino2 # Twitch chat GUI
   ];
 }
