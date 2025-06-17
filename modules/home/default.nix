@@ -1,0 +1,39 @@
+{
+  host,
+  inputs,
+  username,
+  ...
+}: {
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    extraSpecialArgs = {inherit inputs username host;};
+    users.${username} = {
+      imports = [
+        ./bat.nix
+        ./browser.nix
+        ./btop.nix
+        ./discord.nix
+        ./fastfetch.nix
+        ./fish.nix
+        ./fzf.nix
+        ./git.nix
+        # ./desktops/hyprland
+        ./desktops/niri
+        ./kitty.nix
+        ./lazygit.nix
+        ./editors/neovim
+        ./programs
+        ./scripts/scripts.nix
+        ./desktops/common/swayosd.nix
+        ./editors/vscodium
+        ./xdg-mimes.nix
+        ./yazi.nix
+      ];
+      home.username = "${username}";
+      home.homeDirectory = "/home/${username}";
+      home.stateVersion = "25.05";
+      programs.home-manager.enable = true;
+    };
+  };
+}
