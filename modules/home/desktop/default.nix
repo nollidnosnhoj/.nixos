@@ -1,13 +1,14 @@
 {pkgs, ...}: {
   imports = [
-    ./swaync
-    ./hypridle.nix # idle
-    ./hyprlock.nix # lock screen
-    ./hyprpaper.nix # wallpaper
     ./fuzzel.nix
+    ./hypridle.nix
+    ./hyprlock.nix
+    ./hyprpaper.nix
+    ./niri
+    ./swayosd.nix
+    ./swaync
     ./waybar
     ./wlogout.nix
-    ./niri.nix
   ];
 
   home.packages = with pkgs; [
