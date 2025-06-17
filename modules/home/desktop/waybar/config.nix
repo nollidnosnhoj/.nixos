@@ -114,7 +114,7 @@
       format-linked = "{ifname} (No IP) ";
       format-disconnected = "󰤭 ";
       tooltip-format-wifi = "{essid}: {signalStrength}%";
-      on-click = "kitty --class nmtui -e nmtui";
+      on-click = "${pkgs.iwgtk}/bin/iwgtk";
     };
     wireplumber = {
       format = "{icon}  {volume}%";
@@ -126,36 +126,12 @@
         ""
       ];
     };
-    "hyprland/workspaces" = {
-      format = "{}";
-      separate-outputs = false;
-      active-only = false;
-      all-outputs = false;
-      on-click = "activate";
-      on-scroll-up = "hyprctl dispatch workspace r-1";
-      on-scroll-down = "hyprctl dispatch workspace r+1";
-      format-icons = {
-        urgent = "";
-        active = "";
-        default = "";
-      };
-      persistent-workspaces = {
-        "*" = 5;
-      };
-    };
     "niri/workspaces" = {
       all-outputs = false;
       current-only = true;
       format = "{index}";
       disable-click = true;
       disable-markup = true;
-    };
-    "hyprland/window" = {
-      rewrite = {
-        "(.*) - Brave" = "$1";
-        "(.*) - Chromium" = "$1";
-      };
-      separate-outputs = true;
     };
     tray = {
       icon-size = 21;

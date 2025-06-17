@@ -15,5 +15,6 @@
     gnome-text-editor # gedit
 
     blueman # bluetooth gui
+    iwgtk # wireless gui
   ];
 }

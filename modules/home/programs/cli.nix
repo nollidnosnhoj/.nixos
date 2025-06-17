@@ -16,6 +16,7 @@
     imagemagick
     imv # image viewer
     jq # JSON processor
+    just
     killall
     man-pages # extra man pages
     mimeo
