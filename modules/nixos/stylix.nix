@@ -1,13 +1,8 @@
 {
   self,
-  inputs,
   pkgs,
   ...
 }: {
-  imports = [
-    inputs.stylix.nixosModules.stylix
-  ];
-
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
   stylix.image = "${self}/.assets/wallpapers/nordtheme.png";

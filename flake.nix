@@ -82,33 +82,46 @@
   outputs = {
     nixpkgs,
     self,
+    home-manager,
+    stylix,
     ...
   } @ inputs: let
-    username = "kopa";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    lib = nixpkgs.lib;
+    defaultModules = [
+      {
+        _module.args = {
+          inherit inputs;
+        };
+      }
+      home-manager.nixosModules.home-manager
+      stylix.nixosModules.stylix
+      {
+        nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+        nixpkgs = {
+          config = {
+            allowUnfree = true;
+          };
+        };
+
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "backup";
+        };
+      }
+    ];
+
+    mkSystem = host: username: extraModules:
+      nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = defaultModules ++ extraModules;
+        specialArgs = {
+          inherit self inputs host username;
+        };
+      };
   in {
     nixosConfigurations = {
-      msa1 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [./hosts/msa1];
-        specialArgs = {
-          host = "msa1";
-          inherit self inputs username;
-        };
-      };
-      framework16 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [./hosts/framework16];
-        specialArgs = {
-          host = "framework16";
-          inherit self inputs username;
-        };
-      };
+      msa1 = mkSystem "msa1" "kopa" [./hosts/msa1];
+      framework16 = mkSystem "framework16" "kopa" [./hosts/framework16];
     };
   };
 }
