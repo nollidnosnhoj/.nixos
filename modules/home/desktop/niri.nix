@@ -1,47 +1,33 @@
 {
   config,
   inputs,
+  lib,
   pkgs,
   ...
 }: {
   imports = [
     inputs.niri.homeModules.niri
-    ../common/swaync
-    ../common/gtk.nix
-    ./hypridle.nix # idle
-    ../common/hyprlock.nix # lock screen
-    ../common/hyprpaper.nix # wallpaper
-    ../common/fuzzel.nix
-    ../common/waybar
-    ../common/wlogout.nix
   ];
 
   home.packages = with pkgs; [
     xwayland-satellite
-    slurp
-    wl-clipboard
-    wl-clip-persist
-    glib
-    wayland
-    direnv
-    brightnessctl
-    playerctl
-    wireplumber
-    poweralertd
-    libnotify
   ];
+
+  gtk = {
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme.override {color = "black";};
+    };
+  };
 
   programs.niri = {
     enable = true;
     package = pkgs.niri;
     settings = {
       spawn-at-startup = [
-        {command = ["xwayland-satellite"];}
-        {command = ["swaync"];}
-        {command = ["waybar"];}
-        {
-          command = ["${pkgs.fuzzel}/bin/fuzzel"];
-        }
+        {command = ["${lib.getExe pkgs.xwayland-satellite}"];}
+        {command = ["${lib.getExe pkgs.waybar}"];}
+        {command = ["${lib.getExe pkgs.fuzzel}"];}
       ];
       environment = {
         CLUTTER_BACKEND = "wayland";

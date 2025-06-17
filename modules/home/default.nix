@@ -16,14 +16,12 @@
         ./fish.nix
         ./fzf.nix
         ./git.nix
-        # ./desktops/hyprland
-        ./desktops/niri
+        ./desktop
         ./kitty.nix
         ./lazygit.nix
         ./editors/neovim
         ./programs
         ./scripts/scripts.nix
-        ./desktops/common/swayosd.nix
         ./editors/vscodium
         ./xdg-mimes.nix
         ./yazi.nix
