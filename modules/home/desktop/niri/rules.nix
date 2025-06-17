@@ -1,9 +1,11 @@
-{...}: {
+{config, ...}: let
+  colors = config.lib.stylix.colors.withHashtag;
+in {
   programs.niri.settings = {
-    window-rules = [
+    window-rules = with colors; [
       {
         geometry-corner-radius = let
-          radius = 16.0;
+          radius = 2.0;
         in {
           bottom-left = radius;
           bottom-right = radius;
@@ -25,19 +27,9 @@
             is-window-cast-target = true;
           }
         ];
-        focus-ring = {
-          active.color = "#f38ba8";
-          inactive.color = "#7d0d2d";
-        };
-        border = {
-          inactive.color = "#7d0d2d";
-        };
-        shadow = {
-          color = "#7d0d2d70";
-        };
         tab-indicator = {
-          active.color = "#f38ba8";
-          inactive.color = "#7d0d2d";
+          active.color = base0D;
+          inactive.color = base03;
         };
       }
       {
