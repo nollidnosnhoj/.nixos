@@ -1,9 +1,34 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-    ../../modules
+    ../../modules/nixos
+    ../../options
   ];
+
+  users.users.${username} = {
+    isNormalUser = true;
+    description = "${username}";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "input"
+    ];
+    shell = pkgs.fish;
+    openssh.authorizedKeys = {
+      keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEny0zOiDgAoU2RLujAiI/7a3r6RFUOpuGpuNQ4osn97 me@nollidnosnhoj.com"
+      ];
+    };
+  };
+
+  home-manager.users.${username} = import ./home.nix;
 
   services = {
     fprintd.enable = true;

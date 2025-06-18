@@ -1,10 +1,12 @@
 {
   pkgs,
   inputs,
+  username,
   ...
 }: {
   nix = {
     settings = {
+      allowed-users = ["${username}"];
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
@@ -23,6 +25,8 @@
   nixpkgs = {
     overlays = [inputs.nur.overlays.default];
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     wget
@@ -46,7 +50,5 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "25.05";
 }

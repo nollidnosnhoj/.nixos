@@ -1,9 +1,9 @@
-{inputs, ...}: {
+{...}: {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
     ./bootloader.nix
     ./greetd.nix
     ./hardware.nix
+    ./home-manager.nix
     ./networking.nix
     ./nh.nix
     ./pipewire.nix
@@ -14,7 +14,6 @@
     ./swayosd.nix
     ./system.nix
     ./thunar.nix
-    ./user.nix
     ./xserver.nix
   ];
 }
