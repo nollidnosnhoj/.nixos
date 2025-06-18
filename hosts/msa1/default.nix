@@ -1,4 +1,5 @@
 {
+  self,
   pkgs,
   username,
   ...
@@ -30,6 +31,10 @@
   home-manager.users.${username} = import ./home.nix;
 
   powerManagement.cpuFreqGovernor = "performance";
+
+  desktop = {
+    wallpaper = "${self}/.assets/wallpapers/one-punch-man.png";
+  };
 
   input = {
     mouse-sensivity = -0.2;

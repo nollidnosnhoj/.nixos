@@ -1,11 +1,11 @@
 {
-  self,
+  config,
   pkgs,
   ...
 }: {
   stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-  stylix.image = "${self}/.assets/wallpapers/one-punch-man.png";
+  stylix.base16Scheme = config.desktop.palette;
+  stylix.image = config.desktop.wallpaper;
   stylix.cursor = {
     name = "Bibata-Modern-Ice";
     package = pkgs.bibata-cursors;
