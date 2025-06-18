@@ -75,6 +75,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    swww.url = "github:LGFae/swww";
+
     nixcord.url = "github:kaylorben/nixcord";
     nvf.url = "github:notashelf/nvf";
   };

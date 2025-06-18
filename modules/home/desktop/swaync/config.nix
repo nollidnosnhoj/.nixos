@@ -1,4 +1,8 @@
-{...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   services.swaync.settings = {
     positionX = "right";
     positionY = "top";
@@ -83,11 +87,12 @@
           }
           {
             label = "󰖩";
-            command = "iwgtk";
+            command = "${lib.getExe pkgs.kitty} --class impala -e impala";
           }
           {
             label = "󰂯";
-            command = "blueman-manager";
+            # command = "blueman-manager";
+            command = "${lib.getExe pkgs.kitty} --class bluetui -e bluetui";
           }
         ];
       };

@@ -15,6 +15,13 @@
       }
 
       {
+        "label" = "logout";
+        "action" = "${pkgs.niri}/bin/niri msg action quit";
+        "text" = "Logout";
+        "keybind" = "e";
+      }
+
+      {
         "label" = "suspend";
         "action" = "systemctl suspend && hyprlock";
         "text" = "Suspend";

@@ -14,8 +14,9 @@
     file-roller # archive
     gnome-text-editor # gedit
 
-    blueman # bluetooth gui
-    iwgtk # wireless gui
+    # blueman # bluetooth gui
+    bluetui # bluetooth tui
+    impala # wireless tui
 
     chatterino2 # Twitch chat GUI
   ];

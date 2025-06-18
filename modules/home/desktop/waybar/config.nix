@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.waybar.settings.mainBar = {
     position = "top";
     modules-left = [
@@ -98,7 +102,8 @@
       ];
     };
     bluetooth = {
-      on-click = "${pkgs.blueman}/bin/blueman-manager";
+      # on-click = "${pkgs.blueman}/bin/blueman-manager";
+      on-click = "${lib.getExe pkgs.kitty} --class bluetui -e bluetui";
       format = "󰂯";
       format-disabled = "󰂲";
       format-connected = "";
@@ -114,7 +119,7 @@
       format-linked = "{ifname} (No IP) ";
       format-disconnected = "󰤭 ";
       tooltip-format-wifi = "{essid}: {signalStrength}%";
-      on-click = "${pkgs.iwgtk}/bin/iwgtk";
+      on-click = "${lib.getExe pkgs.kitty} --class impala -e impala";
     };
     wireplumber = {
       format = "{icon}  {volume}%";

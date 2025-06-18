@@ -140,7 +140,11 @@ in {
         open-floating = true;
       }
       {
-        matches = [{app-id = "iwgtk";}];
+        matches = [{app-id = "bluetui";}];
+        open-floating = true;
+      }
+      {
+        matches = [{app-id = "impala";}];
         open-floating = true;
       }
       {

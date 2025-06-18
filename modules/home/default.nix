@@ -27,6 +27,7 @@
         ./programs
         ./scripts/scripts.nix
         ./editors/vscodium
+        ./editors/zed
         ./xdg-mimes.nix
         ./yazi.nix
       ];

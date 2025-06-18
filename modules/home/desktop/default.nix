@@ -3,10 +3,11 @@
     ./fuzzel.nix
     ./hypridle.nix
     ./hyprlock.nix
-    ./hyprpaper.nix
+    # ./hyprpaper.nix
     ./niri
     ./swayosd.nix
     ./swaync
+    ./swww.nix
     ./waybar
     ./wlogout.nix
   ];
