@@ -25,5 +25,5 @@
     EDITOR = "nvim";
   };
 
-  services.blueman-applet.enable = false;
+  services.blueman-applet.enable = true;
 }

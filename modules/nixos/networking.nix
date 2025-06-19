@@ -1,10 +1,5 @@
-{
-  pkgs,
-  host,
-  ...
-}: {
+{pkgs, ...}: {
   networking = {
-    hostName = "${host}";
     networkmanager = {
       enable = true;
       wifi.backend = "iwd";
@@ -19,5 +14,8 @@
     };
   };
 
-  # environment.systemPackages = with pkgs; [networkmanagerapplet];
+  services.openssh.enable = true;
+
+  # Don't wait for network startup
+  systemd.services.NetworkManager-wait-online.serviceConfig.ExecStart = ["" "${pkgs.networkmanager}/bin/nm-online -q"];
 }

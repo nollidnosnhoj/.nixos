@@ -34,6 +34,12 @@
     fprintd.enable = true;
     power-profiles-daemon.enable = true;
 
+    logind = {
+      powerKey = "suspend";
+      lidSwitch = "suspend";
+      lidSwitchExternalPower = "lock";
+    };
+
     upower = {
       enable = true;
       percentageLow = 20;

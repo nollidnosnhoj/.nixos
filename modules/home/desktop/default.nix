@@ -19,9 +19,7 @@
     glib
     wayland
     direnv
-    brightnessctl
     playerctl
-    wireplumber
     poweralertd
     libnotify
   ];

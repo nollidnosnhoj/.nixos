@@ -1,8 +1,8 @@
-{...}: {
+{host, ...}: {
   imports = [
     ./bootloader.nix
     ./greetd.nix
-    ./hardware.nix
+    ./hardware
     ./home-manager.nix
     ./networking.nix
     ./nh.nix
@@ -17,4 +17,6 @@
     ./xdg.nix
     ./xserver.nix
   ];
+
+  networking.hostName = "${host}";
 }
