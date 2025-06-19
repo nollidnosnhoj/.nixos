@@ -14,13 +14,13 @@
 
   stylix.fonts = {
     serif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Serif";
+      package = pkgs.noto-fonts-cjk-serif;
+      name = "Noto Serif";
     };
 
     sansSerif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans";
+      package = pkgs.noto-fonts-cjk-sans;
+      name = "Noto Sans";
     };
 
     monospace = {

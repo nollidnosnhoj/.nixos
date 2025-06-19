@@ -1,5 +1,5 @@
 {config, ...}: let
-  font = config.stylix.fonts.monospace.name;
+  font = config.stylix.fonts.sansSerif.name;
 in {
   programs.waybar.style = ''
         * {
