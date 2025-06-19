@@ -87,12 +87,11 @@
           }
           {
             label = "󰖩";
-            command = "${lib.getExe pkgs.kitty} --class impala -e impala";
+            command = "${lib.getExe pkgs.kitty} --class nmtui -e nmtui";
           }
           {
             label = "󰂯";
-            # command = "blueman-manager";
-            command = "${lib.getExe pkgs.kitty} --class bluetui -e bluetui";
+            command = "${pkgs.blueman}/bin/blueman-manager";
           }
         ];
       };

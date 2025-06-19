@@ -24,4 +24,6 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  services.blueman-applet.enable = false;
 }

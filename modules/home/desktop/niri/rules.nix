@@ -136,15 +136,11 @@ in {
         open-floating = true;
       }
       {
+        matches = [{app-id = "nmtui";}];
+        open-floating = true;
+      }
+      {
         matches = [{app-id = "blueman-manager";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "bluetui";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "impala";}];
         open-floating = true;
       }
       {

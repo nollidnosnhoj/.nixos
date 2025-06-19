@@ -102,8 +102,7 @@
       ];
     };
     bluetooth = {
-      # on-click = "${pkgs.blueman}/bin/blueman-manager";
-      on-click = "${lib.getExe pkgs.kitty} --class bluetui -e bluetui";
+      on-click = "${pkgs.blueman}/bin/blueman-manager";
       format = "󰂯";
       format-disabled = "󰂲";
       format-connected = "";
@@ -119,7 +118,7 @@
       format-linked = "{ifname} (No IP) ";
       format-disconnected = "󰤭 ";
       tooltip-format-wifi = "{essid}: {signalStrength}%";
-      on-click = "${lib.getExe pkgs.kitty} --class impala -e impala";
+      on-click = "${lib.getExe pkgs.kitty} --class nmtui -e nmtui";
     };
     wireplumber = {
       format = "{icon}  {volume}%";
