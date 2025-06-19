@@ -14,6 +14,7 @@
     ./swayosd.nix
     ./system.nix
     ./thunar.nix
+    ./xdg.nix
     ./xserver.nix
   ];
 }
