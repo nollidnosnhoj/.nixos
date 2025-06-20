@@ -1,10 +1,30 @@
 {config, ...}: let
   font = config.stylix.fonts.sansSerif.name;
+  colors = config.lib.stylix.colors.withHashtag;
 in {
-  programs.waybar.style = ''
-        * {
+  stylix.targets.waybar.enable = false;
+  programs.waybar.style = with colors; ''
+    @define-color base00 ${base00};
+    @define-color base01 ${base01};
+    @define-color base02 ${base02};
+    @define-color base03 ${base03};
+    @define-color base04 ${base04};
+    @define-color base05 ${base05};
+    @define-color base06 ${base06};
+    @define-color base07 ${base07};
+
+    @define-color base08 ${base08};
+    @define-color base09 ${base09};
+    @define-color base0A ${base0A};
+    @define-color base0B ${base0B};
+    @define-color base0C ${base0C};
+    @define-color base0D ${base0D};
+    @define-color base0E ${base0E};
+    @define-color base0F ${base0F};
+
+    * {
         font-family: "${font}";
-        font-size: 16px;
+        font-size: 20px;
         min-height: 0;
         font-weight: bold;
     }
@@ -18,19 +38,10 @@ in {
         border-bottom: 1px solid @base03;
     }
 
-    button {
-        box-shadow: inset 0 -3px transparent;
-        border: none;
-        border-radius: 0;
-    }
-
-    button:hover {
-        background: inherit;
-    }
-
     #workspaces button {
         padding: 0 4px;
-        color: @base08;
+        color: @base0C;
+        opacity: 0.6;
     }
 
     #workspaces button.empty {
@@ -38,18 +49,9 @@ in {
         opacity: 0.6;
     }
 
-    #workspaces button.active {
-        background-color: rgba(0, 0, 0, 0.3);
+    #workspaces button.active, #workspaces button.focused {
         color: @base0C;
-        border-top: 2px solid @base0C;
-    }
-
-    #workspaces button.visible {
         opacity: 1;
-    }
-
-    #workspaces button.urgent {
-        background-color: @base08;
     }
 
     #wireplumber,
@@ -98,10 +100,6 @@ in {
         opacity: 1;
     }
 
-    #custom-wlogout {
-        color: @base0B;
-    }
-
     #idle_inhibitor {
         color: @base0B;
     }
@@ -117,7 +115,6 @@ in {
     #temperature.critical {
         color: @base08;
     }
-
 
     /* If workspaces is the leftmost module, omit left margin */
     .modules-left > widget:first-child > #workspaces {

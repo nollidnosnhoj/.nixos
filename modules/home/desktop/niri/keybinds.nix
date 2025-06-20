@@ -1,19 +1,18 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
   programs.niri.settings.binds = with config.lib.niri.actions; let
     open-browser = spawn "${pkgs.firefox}/bin/firefox";
-    open-file-manager = spawn "thunar";
-    open-terminal = spawn "${lib.getExe pkgs.kitty}";
-    open-app-menu = spawn "${lib.getExe pkgs.fuzzel}";
-    open-power-menu = spawn "${lib.getExe pkgs.wlogout}";
+    open-file-manager = spawn "${pkgs.xfce.thunar}/bin/thunar";
+    open-terminal = spawn "${pkgs.kitty}/bin/kitty";
+    open-app-menu = spawn "${pkgs.fuzzel}/bin/fuzzel";
+    open-power-menu = spawn "${pkgs.wlogout}/bin/wlogout";
 
     set-volume = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume";
     set-brightness = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness";
-    playerctl = spawn "${lib.getExe pkgs.playerctl}";
+    playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
   in {
     "XF86AudioMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "mute-toggle";
     "XF86AudioMicMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--input-volume" "mute-toggle";
@@ -41,14 +40,10 @@
     "Mod+Space".action = open-app-menu;
     "Mod+E".action = open-file-manager;
     "Ctrl+Alt+Delete".action = open-power-menu;
-    # "Ctrl+Alt+L".action = spawn "sh -c pgrep hyprlock || hyprlock";
-
-    # "Mod+U".action = spawn "env XDG_CURRENT_DESKTOP=gnome gnome-control-center";
 
     "Mod+Q".action = close-window;
     "Mod+S".action = switch-preset-column-width;
     "Mod+F".action = maximize-column;
-    # "Mod+Shift+F".action = fullscreen-window;
     "Mod+Shift+F".action = expand-column-to-available-width;
     "Mod+V".action = toggle-window-floating;
     "Mod+W".action = toggle-column-tabbed-display;
@@ -89,5 +84,8 @@
 
     "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
     "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
+
+    "Mod+1".action = focus-workspace "browser";
+    "Mod+2".action = focus-workspace "vesktop";
   };
 }

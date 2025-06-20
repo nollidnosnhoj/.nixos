@@ -28,6 +28,9 @@
     };
   };
 
+  # Enabling it causes the build to be slow if you're using fish
+  documentation.man.generateCaches = false;
+
   home-manager.users.${username} = import ./home.nix;
 
   services = {

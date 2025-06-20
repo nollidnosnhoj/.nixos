@@ -33,20 +33,14 @@ in {
         };
       }
       {
-        matches = [{app-id = "org.telegram.desktop";}];
-        block-out-from = "screencast";
-      }
-      {
-        matches = [{app-id = "app.drey.PaperPlane";}];
-        block-out-from = "screencast";
+        matches = [{app-id = "vesktop";}];
+        open-on-workspace = "vesktop";
       }
       {
         matches = [
-          {app-id = "zen";}
           {app-id = "firefox";}
-          {app-id = "chromium-browser";}
-          {app-id = "edge";}
         ];
+        open-on-workspace = "browser";
         open-maximized = true;
       }
       {

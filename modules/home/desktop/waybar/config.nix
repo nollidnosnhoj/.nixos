@@ -131,11 +131,16 @@
       ];
     };
     "niri/workspaces" = {
-      all-outputs = false;
-      current-only = true;
-      format = "{index}";
-      disable-click = true;
-      disable-markup = true;
+      # all-outputs = false;
+      # current-only = true;
+      # format = "{index}";
+      # disable-click = true;
+      # disable-markup = true;
+      format = "{icon}";
+      format-icons = {
+        browser = " ";
+        vesktop = " ";
+      };
     };
     tray = {
       icon-size = 21;

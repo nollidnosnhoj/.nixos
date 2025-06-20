@@ -2,6 +2,10 @@
   inputCfg = nixosConfig.input;
 in {
   programs.niri.settings = {
+    workspaces = {
+      browser = {};
+      vesktop = {};
+    };
     input = {
       keyboard.xkb.layout = "us";
       touchpad = {
