@@ -38,6 +38,10 @@ in {
         border-bottom: 1px solid @base03;
     }
 
+    #workspaces {
+        padding: 0px 4px;
+    }
+
     #workspaces button {
         padding: 0 4px;
         color: @base0C;
@@ -133,7 +137,7 @@ in {
     }
 
     .modules-right {
-        margin-right: 2px;
+        margin-right: 4px;
     }
   '';
 }
