@@ -15,5 +15,6 @@
     gnome-text-editor # gedit
 
     chatterino2 # Twitch chat GUI
+    postman
   ];
 }
