@@ -33,17 +33,6 @@ in {
         };
       }
       {
-        matches = [{app-id = "vesktop";}];
-        open-on-workspace = "vesktop";
-      }
-      {
-        matches = [
-          {app-id = "firefox";}
-        ];
-        open-on-workspace = "browser";
-        open-maximized = true;
-      }
-      {
         matches = [
           {
             app-id = "firefox";

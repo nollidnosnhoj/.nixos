@@ -13,56 +13,6 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    hyprpolkitagent = {
-      url = "github:hyprwm/hyprpolkitagent";
-      inputs = {
-        hyprutils.follows = "hyprland/hyprutils";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
-    };
-
-    hypr-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs = {
-        hyprlang.follows = "hyprland/hyprlang";
-        hyprutils.follows = "hyprland/hyprutils";
-        hyprland-protocols.follows = "hyprland/hyprland-protocols";
-        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
-    };
-
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs = {
-        hyprgraphics.follows = "hyprland/hyprgraphics";
-        hyprlang.follows = "hyprland/hyprlang";
-        hyprutils.follows = "hyprland/hyprutils";
-        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
-    };
-
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs = {
-        hyprgraphics.follows = "hyprland/hyprgraphics";
-        hyprlang.follows = "hyprland/hyprlang";
-        hyprutils.follows = "hyprland/hyprutils";
-        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
-    };
-
     nur.url = "github:nix-community/NUR";
 
     niri = {

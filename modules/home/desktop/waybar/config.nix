@@ -14,7 +14,8 @@
     ];
     modules-right = [
       "wireplumber"
-      "group/net"
+      "network"
+      "bluetooth"
       "group/hardware"
       "battery"
       "power-profiles-daemon"
@@ -94,13 +95,6 @@
         power-saver = "";
       };
     };
-    "group/net" = {
-      orientation = "inherit";
-      modules = [
-        "network"
-        "bluetooth"
-      ];
-    };
     bluetooth = {
       on-click = "${pkgs.blueman}/bin/blueman-manager";
       format = "󰂯";
@@ -131,16 +125,11 @@
       ];
     };
     "niri/workspaces" = {
-      # all-outputs = false;
-      # current-only = true;
-      # format = "{index}";
-      # disable-click = true;
-      # disable-markup = true;
-      format = "{icon}";
-      format-icons = {
-        browser = " ";
-        vesktop = " ";
-      };
+      all-outputs = false;
+      current-only = false;
+      format = "{index}";
+      disable-click = true;
+      disable-markup = true;
     };
     tray = {
       icon-size = 21;

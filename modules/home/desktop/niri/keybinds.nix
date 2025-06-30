@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -84,8 +85,5 @@
 
     "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
     "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
-
-    "Mod+1".action = focus-workspace "browser";
-    "Mod+2".action = focus-workspace "vesktop";
   };
 }

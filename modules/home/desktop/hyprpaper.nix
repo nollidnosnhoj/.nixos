@@ -1,12 +1,11 @@
 {
   config,
-  inputs,
   pkgs,
   ...
 }: {
   services.hyprpaper = {
     enable = true;
-    package = inputs.hyprpaper.packages.${pkgs.system}.default;
+    package = pkgs.hyprpaper;
     settings = {
       ipc = "off";
       preload = ["${config.stylix.image}"];
