@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos
+    ../../modules/nixos/podman.nix
     ../../options
   ];
 
