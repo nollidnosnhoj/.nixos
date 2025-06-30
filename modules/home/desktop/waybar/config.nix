@@ -20,7 +20,7 @@
       "battery"
       "power-profiles-daemon"
       "idle_inhibitor"
-      "group/misc"
+      "custom/notification"
     ];
     clock = {
       format = "{:%a %d %b - %H:%M}";
@@ -116,7 +116,7 @@
     };
     wireplumber = {
       format = "{icon}  {volume}%";
-      format-muted = "󰖁";
+      format-muted = "󰖁 ";
       on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
       format-icons = [
         ""
@@ -167,6 +167,17 @@
       on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
       escape = true;
     };
+    cpu = {
+      format = "  {usage}% ";
+    };
+    memory = {
+      format = "  {}% ";
+    };
+    disk = {
+      interval = 30;
+      format = "󱛟 {percentage_used}% ";
+      path = "/";
+    };
     "group/hardware" = {
       orientation = "inherit";
       drawer = {
@@ -178,23 +189,6 @@
         "disk"
         "cpu"
         "memory"
-      ];
-    };
-    cpu = {
-      format = " {usage}% ";
-    };
-    memory = {
-      format = " {}% ";
-    };
-    disk = {
-      interval = 30;
-      format = "󱛟 {percentage_used}% ";
-      path = "/";
-    };
-    "group/misc" = {
-      orientation = "inherit";
-      modules = [
-        "custom/notification"
       ];
     };
   };

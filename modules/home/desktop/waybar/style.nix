@@ -66,39 +66,21 @@ in {
         border-top: 2px solid @base0C;
     }
 
-    #wireplumber,
-    #idle_inhibitor,
-    #power,
-    #hardware,
-    #misc,
-    #net {
-        color: @base07;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        padding-left: 4px;
-        padding-right: 4px;
-        margin-right: 2px;
-        margin-left: 2px;
-        margin-top: 4px;
-        margin-bottom: 4px;
-    }
-
     #battery,
+    #idle_inhibitor,
     #pulseaudio,
     #wireplumber,
     #network,
     #bluetooth,
     #tray,
     #mode,
-    #scratchpad,
     #power-profiles-daemon,
     #custom-notification,
-    #custom-pacman,
-    #custom-wlogout,
     #cpu,
     #memory,
     #disk,
-    #temperature  {
+    #temperature,
+    #power {
         padding-left: 6px;
         padding-right: 6px;
         color: @base07;
