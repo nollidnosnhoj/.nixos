@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../../modules/home/bat.nix
-    ../../modules/home/browser.nix
+    ../../modules/home/browser
     ../../modules/home/btop.nix
     ../../modules/home/discord.nix
     ../../modules/home/editors/neovim
