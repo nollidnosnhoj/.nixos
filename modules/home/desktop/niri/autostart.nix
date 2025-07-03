@@ -1,14 +1,21 @@
 {
   config,
-  lib,
+  inputs,
   pkgs,
   ...
 }: let
   wallpaper = config.stylix.image;
+  swww = inputs.swww.packages.${pkgs.system}.swww;
 in {
   programs.niri.settings.spawn-at-startup = [
-    {command = ["${lib.getExe pkgs.xwayland-satellite}"];}
-    {command = ["${lib.getExe pkgs.waybar}"];}
-    {command = ["${lib.getExe pkgs.swww} img ${wallpaper}"];}
+    {command = ["${pkgs.xwayland-satellite}/bin/xwayland-satellite"];}
+    {command = ["${swww}/bin/waybar"];}
+    {
+      command = [
+        "swww"
+        "img"
+        "${wallpaper}"
+      ];
+    }
   ];
 }
