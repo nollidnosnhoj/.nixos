@@ -23,7 +23,7 @@
     shell = pkgs.fish;
     openssh.authorizedKeys = {
       keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBsCe/W1K+2tqJPTtG7cIoJiy+ONnZ61jhHeqa90HTLN me@nollidnosnhoj.com" # Minisforum MS-A1
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDswGYvepIgUEkZIA6tpBlD/drVlxO/CkpY7bmRX+hpO me@nollidnosnhoj.com" # Minisforum MS-A1
       ];
     };
   };

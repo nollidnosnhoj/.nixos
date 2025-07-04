@@ -1,4 +1,7 @@
 {pkgs, ...}: {
-  programs.waybar.enable = true;
-  programs.waybar.package = pkgs.waybar;
+  programs.waybar = {
+    enable = true;
+    package = pkgs.waybar;
+    systemd.enable = true;
+  };
 }
