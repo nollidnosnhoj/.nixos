@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.starship = {
     enable = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
     package = pkgs.starship;
   };
 }

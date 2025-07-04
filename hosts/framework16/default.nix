@@ -20,7 +20,7 @@
       "video"
       "input"
     ];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     openssh.authorizedKeys = {
       keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEny0zOiDgAoU2RLujAiI/7a3r6RFUOpuGpuNQ4osn97 me@nollidnosnhoj.com"

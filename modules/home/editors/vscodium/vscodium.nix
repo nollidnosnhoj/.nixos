@@ -4,7 +4,7 @@
     package = pkgs.vscodium;
   };
 
-  programs.fish.shellAliases = {
+  programs.zsh.shellAliases = {
     code = "codium";
   };
 }

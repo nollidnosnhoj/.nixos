@@ -9,7 +9,7 @@
     ../../modules/home/editors/vscodium
     ../../modules/home/editors/zed
     ../../modules/home/fastfetch.nix
-    ../../modules/home/fish.nix
+    ../../modules/home/zsh.nix
     ../../modules/home/fzf.nix
     ../../modules/home/git.nix
     ../../modules/home/desktop
