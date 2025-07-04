@@ -20,7 +20,7 @@
       "battery"
       "power-profiles-daemon"
       "idle_inhibitor"
-      "custom/notification"
+      # "custom/notification"
     ];
     clock = {
       format = "{:%a %d %b - %H:%M}";
@@ -147,26 +147,26 @@
     temperature = {
       format = "{temperatureC}°C ";
     };
-    "custom/notification" = {
-      tooltip-format = "Left: Notifications\nRight: Do not disturb";
-      format = "{icon}";
-      format-icons = {
-        notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
-        none = "";
-        dnd-notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
-        dnd-none = "";
-        inhibited-notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
-        inhibited-none = "";
-        dnd-inhibited-notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
-        dnd-inhibited-none = "";
-      };
-      return-type = "json";
-      exec-if = "which ${pkgs.swaynotificationcenter}/bin/swaync-client";
-      exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
-      on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
-      on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
-      escape = true;
-    };
+    # "custom/notification" = {
+    #   tooltip-format = "Left: Notifications\nRight: Do not disturb";
+    #   format = "{icon}";
+    #   format-icons = {
+    #     notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
+    #     none = "";
+    #     dnd-notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
+    #     dnd-none = "";
+    #     inhibited-notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
+    #     inhibited-none = "";
+    #     dnd-inhibited-notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
+    #     dnd-inhibited-none = "";
+    #   };
+    #   return-type = "json";
+    #   exec-if = "which ${pkgs.swaynotificationcenter}/bin/swaync-client";
+    #   exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+    #   on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+    #   on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
+    #   escape = true;
+    # };
     cpu = {
       format = "  {usage}% ";
     };

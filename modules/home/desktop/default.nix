@@ -6,7 +6,8 @@
     # ./hyprpaper.nix
     ./niri
     ./swayosd.nix
-    ./swaync
+    # ./swaync
+    ./mako.nix
     ./swww.nix
     ./waybar
     ./wlogout.nix
