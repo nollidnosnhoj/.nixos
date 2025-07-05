@@ -4,6 +4,7 @@ in {
   programs.niri.settings = {
     input = {
       keyboard.xkb.layout = "us";
+      keyboard.numlock = true;
       touchpad = {
         click-method = "button-areas";
         dwt = true;
