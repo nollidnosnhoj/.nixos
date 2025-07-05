@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  self,
   username,
   ...
 }: {
@@ -50,5 +51,10 @@
       percentageAction = 3;
       criticalPowerAction = "PowerOff";
     };
+  };
+
+  desktop = {
+    wallpaper = "${self}/.assets/wallpapers/wallpaper-material-dark.jpg";
+    palette = "${pkgs.base16-schemes}/share/themes/material-darker.yaml";
   };
 }

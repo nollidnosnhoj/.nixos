@@ -36,7 +36,8 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   desktop = {
-    wallpaper = "${self}/.assets/wallpapers/wallpaper01.jpg";
+    wallpaper = "${self}/.assets/wallpapers/wallpaper-material-dark.jpg";
+    palette = "${pkgs.base16-schemes}/share/themes/material-darker.yaml";
   };
 
   input = {
