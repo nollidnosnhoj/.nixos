@@ -10,7 +10,6 @@
     ./mako.nix
     ./swww.nix
     ./waybar
-    ./wlogout.nix
   ];
 
   home.packages = with pkgs; [

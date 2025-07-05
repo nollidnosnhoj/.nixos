@@ -1,15 +1,13 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
   programs.niri.settings.binds = with config.lib.niri.actions; let
     open-browser = spawn "${pkgs.firefox}/bin/firefox";
-    open-file-manager = spawn "${pkgs.xfce.thunar}/bin/thunar";
+    open-file-manager = spawn "${pkgs.nautilus}/bin/nautilus";
     open-terminal = spawn "${pkgs.kitty}/bin/kitty";
     open-app-menu = spawn "${pkgs.fuzzel}/bin/fuzzel";
-    open-power-menu = spawn "${pkgs.wlogout}/bin/wlogout";
 
     set-volume = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume";
     set-brightness = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness";
@@ -40,7 +38,7 @@
     "Mod+B".action = open-browser;
     "Mod+Space".action = open-app-menu;
     "Mod+E".action = open-file-manager;
-    "Ctrl+Alt+Delete".action = open-power-menu;
+    "Ctrl+Alt+Delete".action = quit;
 
     "Mod+Q".action = close-window;
     "Mod+S".action = switch-preset-column-width;

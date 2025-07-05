@@ -16,11 +16,13 @@
       "wireplumber"
       "network"
       "bluetooth"
-      "group/hardware"
+      "temperature"
+      "disk"
+      "cpu"
+      "memory"
       "battery"
       "power-profiles-daemon"
       "idle_inhibitor"
-      # "custom/notification"
     ];
     clock = {
       format = "{:%a %d %b - %H:%M}";
@@ -97,9 +99,9 @@
     };
     bluetooth = {
       on-click = "${pkgs.blueman}/bin/blueman-manager";
-      format = "󰂯";
-      format-disabled = "󰂲";
-      format-connected = "";
+      format = "󰂯 {status} ";
+      format-disabled = "󰂲 {status} ";
+      format-connected = " {device_alias} ";
       format-connected-battery = " {device_battery_percentage}%";
       tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
       tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
@@ -107,12 +109,13 @@
       tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
     };
     network = {
-      format-wifi = " ";
-      format-ethernet = "󰈀 ";
-      format-linked = "{ifname} (No IP) ";
+      format-wifi = "  {essid}";
+      format-alt = "  {signalStrength}%";
+      format-ethernet = "  Wired";
+      format-linked = "󱘖 {ifname} (No IP) ";
       format-disconnected = "󰤭 ";
       tooltip-format-wifi = "{essid}: {signalStrength}%";
-      on-click = "${lib.getExe pkgs.kitty} --class nmtui -e nmtui";
+      on-click-right = "${lib.getExe pkgs.kitty} --class nmtui -e nmtui";
     };
     wireplumber = {
       format = "{icon}  {volume}%";
@@ -177,19 +180,6 @@
       interval = 30;
       format = "󱛟 {percentage_used}% ";
       path = "/";
-    };
-    "group/hardware" = {
-      orientation = "inherit";
-      drawer = {
-        transition-duration = 300;
-        transition-left-to-right = false;
-      };
-      modules = [
-        "temperature"
-        "disk"
-        "cpu"
-        "memory"
-      ];
     };
   };
 }

@@ -4,6 +4,7 @@
     ./greetd.nix
     ./hardware
     ./home-manager.nix
+    ./nautilus.nix
     ./networking.nix
     ./nh.nix
     ./pipewire.nix
@@ -13,7 +14,6 @@
     ./stylix.nix
     ./swayosd.nix
     ./system.nix
-    ./thunar.nix
     ./xdg.nix
     ./xserver.nix
   ];

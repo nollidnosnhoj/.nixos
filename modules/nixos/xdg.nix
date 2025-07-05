@@ -14,8 +14,6 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal
       xdg-desktop-portal-gtk
-
-      # Niri
       xdg-desktop-portal-gnome
     ];
   };

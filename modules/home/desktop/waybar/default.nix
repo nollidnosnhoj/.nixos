@@ -1,7 +1,12 @@
-{...}: {
+{pkgs,...}: {
   imports = [
-    ./waybar.nix
     ./config.nix
     ./style.nix
   ];
+
+  programs.waybar = {
+    enable = true;
+    package = pkgs.waybar;
+    systemd.enable = true;
+  };
 }

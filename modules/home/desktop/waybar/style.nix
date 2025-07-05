@@ -81,17 +81,9 @@ in {
     #disk,
     #temperature,
     #power {
-        padding-left: 6px;
-        padding-right: 6px;
+        padding-left: 8px;
+        padding-right: 8px;
         color: @base07;
-    }
-
-    #bluetooth {
-        opacity: 0.7;
-    }
-
-    #bluetooth.connected {
-        opacity: 1;
     }
 
     #idle_inhibitor {
