@@ -109,8 +109,8 @@
       tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
     };
     network = {
-      format-wifi = "  {essid}";
-      format-alt = "  {signalStrength}%";
+      format-alt = "  {essid}";
+      format-wifi = "  {signalStrength}%";
       format-ethernet = "  Wired";
       format-linked = "󱘖 {ifname} (No IP) ";
       format-disconnected = "󰤭 ";

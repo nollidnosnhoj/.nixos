@@ -36,7 +36,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   desktop = {
-    wallpaper = "${self}/.assets/wallpapers/one-punch-man.png";
+    wallpaper = "${self}/.assets/wallpapers/wallpaper01.jpg";
   };
 
   input = {
