@@ -39,6 +39,7 @@
     "Mod+Space".action = open-app-menu;
     "Mod+E".action = open-file-manager;
     "Ctrl+Alt+Delete".action = quit;
+    "Mod+Alt+L".action = spawn "hyprlock";
 
     "Mod+Q".action = close-window;
     "Mod+S".action = switch-preset-column-width;

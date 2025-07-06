@@ -186,6 +186,27 @@ in {
         matches = [{title = "Error";}];
         open-floating = true;
       }
+      {
+        matches = [
+          {
+            title = "Welcome to JetBrains Rider";
+            app-id = "jetbrains-rider";
+          }
+        ];
+        open-floating = true;
+        default-window-height = {
+          proportion = 0.75;
+        };
+      }
+      {
+        matches = [
+          {
+            title = "Extension:";
+            app-id = "firefox";
+          }
+        ];
+        open-floating = true;
+      }
     ];
     layer-rules = [
       {
