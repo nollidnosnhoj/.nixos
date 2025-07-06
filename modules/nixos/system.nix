@@ -43,6 +43,8 @@
     git
   ];
 
+  environment.pathsToLink = [ "/share/zsh" ];
+
   # Set your time zone.
   time.timeZone = "Pacific/Honolulu";
 
