@@ -16,7 +16,8 @@
     ../../modules/home/kitty.nix
     ../../modules/home/lazygit.nix
     ../../modules/home/programs
-    ../../modules/home/scripts/scripts.nix
+    # ../../modules/home/scripts/scripts.nix
+    ../../modules/home/starship.nix
     ../../modules/home/stylix.nix
     ../../modules/home/xdg-mimes.nix
     ../../modules/home/yazi.nix
