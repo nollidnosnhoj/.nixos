@@ -23,7 +23,7 @@
     shell = pkgs.zsh;
     openssh.authorizedKeys = {
       keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDswGYvepIgUEkZIA6tpBlD/drVlxO/CkpY7bmRX+hpO me@nollidnosnhoj.com" # Minisforum MS-A1
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILe6kbUE4w6W8iQcEC3arExmgFsgrLidnpPfzvI/Qa/K me@nollidnosnhoj.com" # Minisforum MS-A1
       ];
     };
   };

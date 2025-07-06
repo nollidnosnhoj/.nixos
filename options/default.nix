@@ -6,10 +6,16 @@
 }:
 with lib; {
   options = {
+    is-laptop = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Determine if this configuration is for a laptop.";
+    };
     desktop = {
       wallpaper = mkOption {
         type = types.path;
         default = "${self}/.assets/wallpapers/nordtheme.png";
+        description = "Set a wallpaper for your environment.";
       };
       palette = mkOption {
         type = with types; nullOr (oneOf [path attrs lines]);

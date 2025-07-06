@@ -87,10 +87,6 @@ in {
         open-floating = true;
       }
       {
-        matches = [{app-id = "io.github.fsobolev.Cavalier";}];
-        open-floating = true;
-      }
-      {
         matches = [{app-id = "dialog";}];
         open-floating = true;
       }
