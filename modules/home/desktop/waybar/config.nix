@@ -1,8 +1,11 @@
 {
+  config,
   lib,
   pkgs,
   ...
-}: {
+}: let
+  colors = config.lib.stylix.colors.withHashtag;
+in {
   programs.waybar.settings.mainBar = {
     position = "top";
     modules-left = [
@@ -10,23 +13,24 @@
       "tray"
     ];
     modules-center = [
-      "clock"
+      "niri/window"
     ];
     modules-right = [
-      "wireplumber"
       "network"
-      "bluetooth"
-      "temperature"
-      "disk"
-      "cpu"
-      "memory"
       "battery"
       "power-profiles-daemon"
       "idle_inhibitor"
+      "bluetooth"
+      "wireplumber"
+      "backlight"
+      "temperature"
+      "memory"
+      "cpu"
+      "clock"
     ];
     clock = {
-      format = "{:%a %d %b - %H:%M}";
-      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+      format = "{:%H:%M}";
+      tooltip-format = "<tt><small>{calendar}</small></tt>";
       calendar = {
         mode = "month";
         mode-mon-col = 3;
@@ -87,7 +91,7 @@
       tooltip-spacing = 20;
     };
     power-profiles-daemon = {
-      format = "{icon} ";
+      format = "{icon}";
       tooltip-format = "Power profile: {profile}\nDriver: {driver}";
       tooltip = true;
       format-icons = {
@@ -99,9 +103,9 @@
     };
     bluetooth = {
       on-click = "${pkgs.blueman}/bin/blueman-manager";
-      format = "󰂯 {status} ";
-      format-disabled = "󰂲 {status} ";
-      format-connected = " {device_alias} ";
+      format = "󰂯 {status}";
+      format-disabled = "󰂲 {status}";
+      format-connected = " {device_alias}";
       format-connected-battery = " {device_battery_percentage}%";
       tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
       tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
@@ -119,7 +123,7 @@
     };
     wireplumber = {
       format = "{icon}  {volume}%";
-      format-muted = "󰖁 ";
+      format-muted = "󰖁 muted";
       on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
       format-icons = [
         ""
@@ -133,6 +137,12 @@
       format = "{index}";
       disable-click = true;
       disable-markup = true;
+    };
+    "niri/window" = {
+      format = "{}";
+      rewrite = {
+        "(.*) — Mozilla Firefox" = "🌎 $1";
+      };
     };
     tray = {
       icon-size = 21;
@@ -148,37 +158,22 @@
       tooltip-format-deactivated = "The computer will go to sleep if the user is idle";
     };
     temperature = {
-      format = "{temperatureC}°C ";
+      format = " {temperatureC}°C";
+      tooltip = true;
+      tooltip-format = "CPU Temperature: {}°C";
     };
-    # "custom/notification" = {
-    #   tooltip-format = "Left: Notifications\nRight: Do not disturb";
-    #   format = "{icon}";
-    #   format-icons = {
-    #     notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
-    #     none = "";
-    #     dnd-notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
-    #     dnd-none = "";
-    #     inhibited-notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
-    #     inhibited-none = "";
-    #     dnd-inhibited-notification = "<span rise='8pt'><span foreground='red'><sup></sup></span></span>";
-    #     dnd-inhibited-none = "";
-    #   };
-    #   return-type = "json";
-    #   exec-if = "which ${pkgs.swaynotificationcenter}/bin/swaync-client";
-    #   exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
-    #   on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
-    #   on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
-    #   escape = true;
-    # };
     cpu = {
-      format = "  {usage}% ";
+      format = "  {usage}%";
+      tooltip = true;
     };
     memory = {
-      format = "  {}% ";
+      format = "  {used:0.1f}G/{total:0.1f}G";
+      tooltip = true;
+      tooltip-format = "Memory: {used:0.2f}G/{total:0.2f}G";
     };
     disk = {
       interval = 30;
-      format = "󱛟 {percentage_used}% ";
+      format = "󱛟 {percentage_used}%";
       path = "/";
     };
   };

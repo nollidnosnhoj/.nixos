@@ -23,47 +23,51 @@ in {
     @define-color base0F ${base0F};
 
     * {
-        font-family: "${font}";
-        font-size: 20px;
-        min-height: 0;
-        font-weight: bold;
+      font-family: "${font}";
+      font-size: 20px;
+      min-height: 0;
+      font-weight: bold;
     }
 
     window#waybar {
-        background: transparent;
-        background-color: @base00;
-        color: @base06;
-        transition-property: background-color;
-        transition-duration: 0.1s;
-        border-bottom: 1px solid @base03;
+      background: transparent;
+      background-color: @base00;
+      color: @base06;
+      transition-property: background-color;
+      transition-duration: 0.1s;
+      border-bottom: 1px solid @base03;
+    }
+
+    window#waybar.empty #window {
+      background-color: transparent;
     }
 
     button {
-        box-shadow: inset 0 -3px transparent;
-        border: none;
-        border-radius: 0;
+      box-shadow: inset 0 -3px transparent;
+      border: none;
+      border-radius: 0;
     }
 
     #workspaces {
-        padding-right: 4px;
+      padding-right: 4px;
     }
 
     #workspaces button {
-        padding: 0 4px;
-        color: @base0C;
-        opacity: 0.6;
+      padding: 0 4px;
+      color: @base0C;
+      opacity: 0.6;
     }
 
     #workspaces button.empty {
-        color: @base04;
-        opacity: 0.6;
+      color: @base04;
+      opacity: 0.6;
     }
 
     #workspaces button.active, #workspaces button.focused {
-        background-color: rgba(0, 0, 0, 0.3);
-        color: @base0C;
-        opacity: 1;
-        border-top: 2px solid @base0C;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: @base0C;
+      opacity: 1;
+      border-top: 2px solid @base0C;
     }
 
     #battery,
@@ -72,7 +76,6 @@ in {
     #wireplumber,
     #network,
     #bluetooth,
-    #tray,
     #mode,
     #power-profiles-daemon,
     #custom-notification,
@@ -81,45 +84,50 @@ in {
     #disk,
     #temperature,
     #power {
-        padding-left: 8px;
-        padding-right: 8px;
-        color: @base07;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: @base07;
+    }
+
+    #tray {
+      padding-left: 4px;
+      padding-right: 4px;
     }
 
     #idle_inhibitor {
-        color: @base0B;
+      color: @base0B;
     }
 
     #idle_inhibitor.activated {
-        color: @base08;
+      color: @base08;
     }
 
     #battery {
-        color: @base0E;
+      color: @base0E;
     }
 
     #temperature.critical {
-        color: @base08;
+      color: @base08;
     }
 
     /* If workspaces is the leftmost module, omit left margin */
     .modules-left > widget:first-child > #workspaces {
-        margin-left: 0;
+      margin-left: 0;
     }
 
     .modules-center {
-        margin: 4px;
-        padding-left: 8;
-        padding-right: 8;
+      margin: 4px;
+      padding-left: 8;
+      padding-right: 8;
     }
 
     /* If workspaces is the rightmost module, omit right margin */
     .modules-right > widget:last-child > #workspaces {
-        margin-right: 0;
+      margin-right: 0;
     }
 
     .modules-right {
-        margin-right: 4px;
+      margin-right: 4px;
     }
   '';
 }
