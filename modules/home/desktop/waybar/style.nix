@@ -24,7 +24,7 @@ in {
 
     * {
       font-family: "${font}";
-      font-size: 20px;
+      font-size: 16px;
       min-height: 0;
       font-weight: bold;
     }
@@ -116,9 +116,7 @@ in {
     }
 
     .modules-center {
-      margin: 4px;
-      padding-left: 8;
-      padding-right: 8;
+      padding: 8px;
     }
 
     /* If workspaces is the rightmost module, omit right margin */
@@ -127,7 +125,7 @@ in {
     }
 
     .modules-right {
-      margin-right: 4px;
+      padding: 8px;
     }
   '';
 }

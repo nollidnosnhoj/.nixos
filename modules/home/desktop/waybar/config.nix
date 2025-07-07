@@ -46,6 +46,7 @@ in {
         on-scroll-up = "shift_up";
         on-scroll-down = "shift_down";
       };
+      on-click = "${pkgs.gnome-calendar}/bin/gnome-calendar";
     };
     backlight = {
       scroll-step = 10;

@@ -13,8 +13,8 @@
     evince # pdf
     file-roller # archive
     gnome-text-editor # gedit
+    gnome-calendar # calendar
 
-    chatterino2 # Twitch chat GUI
     postman
   ];
 }
