@@ -27,6 +27,7 @@ in {
       "memory"
       "cpu"
       "clock"
+      "custom/notification"
     ];
     clock = {
       format = "{:%H:%M}";
@@ -176,6 +177,26 @@ in {
       interval = 30;
       format = "󱛟 {percentage_used}%";
       path = "/";
+    };
+    "custom/notification" = {
+      tooltip-format = "Left: Notifications\nRight: Do not disturb";
+      format = "{icon}";
+      format-icons = with colors; {
+        notification = "<span foreground='${base0F}'></span>";
+        none = "";
+        dnd-notification = "<span foreground='${base0F}'></span>";
+        dnd-none = "";
+        inhibited-notification = "<span foreground='${base0F}'></span>";
+        inhibited-none = "";
+        dnd-inhibited-notification = "<span foreground='${base0F}'></span>";
+        dnd-inhibited-none = "";
+      };
+      return-type = "json";
+      exec-if = "which ${pkgs.swaynotificationcenter}/bin/swaync-client";
+      exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+      on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+      on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
+      escape = true;
     };
   };
 }

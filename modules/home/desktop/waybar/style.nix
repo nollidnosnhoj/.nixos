@@ -83,7 +83,8 @@ in {
     #memory,
     #disk,
     #temperature,
-    #power {
+    #power,
+    #custom-notification {
       padding-left: 10px;
       padding-right: 10px;
       color: @base07;
