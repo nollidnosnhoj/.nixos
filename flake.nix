@@ -18,12 +18,14 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    nur.url = "github:nix-community/NUR";
-
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    nur.url = "github:nix-community/NUR";
 
     stylix = {
       url = "github:danth/stylix";

@@ -1,6 +1,7 @@
 {host, ...}: {
   imports = [
     ./bootloader.nix
+    ./flatpak.nix
     ./greetd.nix
     ./hardware
     ./home-manager.nix
