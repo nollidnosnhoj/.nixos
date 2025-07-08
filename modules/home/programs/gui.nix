@@ -19,5 +19,7 @@
 
     runelite # old school runescape client
     bolt-launcher # alternative to jagex launcher
+
+    bitwarden # password manager
   ];
 }

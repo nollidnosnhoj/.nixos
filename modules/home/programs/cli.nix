@@ -3,6 +3,7 @@
     asciinema
     asciinema-agg
     binsider
+    bitwarden-cli # password manager CLI
     caligula # User-friendly, lightweight TUI for disk imaging
     dysk # disk information
     eza # ls replacement
