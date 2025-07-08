@@ -15,6 +15,9 @@
     gnome-text-editor # gedit
     gnome-calendar # calendar
 
-    postman
+    postman # api testing
+
+    runelite # old school runescape client
+    bolt-launcher # alternative to jagex launcher
   ];
 }
