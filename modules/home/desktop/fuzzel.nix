@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  font = config.stylix.fonts.monospace.name;
+{pkgs, ...}: let
 in {
   home.packages = with pkgs; [fzf];
   programs.fuzzel = {

@@ -41,9 +41,11 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    unzip
+    curl
   ];
 
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = ["/share/zsh"];
 
   # Set your time zone.
   time.timeZone = "Pacific/Honolulu";

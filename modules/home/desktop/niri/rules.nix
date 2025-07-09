@@ -203,6 +203,15 @@ in {
         ];
         open-floating = true;
       }
+      {
+        matches = [
+          {
+            app-id = "net-runelite-client-RuneLite";
+          }
+        ];
+        open-floating = true;
+        open-focused = false;
+      }
     ];
     layer-rules = [
       {

@@ -8,8 +8,8 @@
     ../../modules/home/editors/vscodium
     ../../modules/home/editors/zed
     ../../modules/home/fastfetch.nix
-    ../../modules/home/zsh.nix
     ../../modules/home/fzf.nix
+    ../../modules/home/ghostty.nix
     ../../modules/home/git.nix
     ../../modules/home/desktop
     ../../modules/home/kitty.nix
@@ -20,6 +20,7 @@
     ../../modules/home/stylix.nix
     ../../modules/home/xdg-mimes.nix
     ../../modules/home/yazi.nix
+    ../../modules/home/zsh.nix
   ];
   home.sessionVariables = {
     EDITOR = "nvim";
