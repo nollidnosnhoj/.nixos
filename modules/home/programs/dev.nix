@@ -8,8 +8,9 @@
     nixd
     alejandra
 
-    # development envirronment
-    devenv
+    devenv # development envirronment
+    go # golang
+    gnumake # make command
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
