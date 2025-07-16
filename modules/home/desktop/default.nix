@@ -18,7 +18,6 @@
     wl-clip-persist
     glib
     wayland
-    direnv
     playerctl
     poweralertd
     libnotify

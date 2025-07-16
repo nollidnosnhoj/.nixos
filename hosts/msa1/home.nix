@@ -5,7 +5,7 @@
     ../../modules/home/btop.nix
     ../../modules/home/discord.nix
     ../../modules/home/editors/neovim
-    ../../modules/home/editors/rider
+    # ../../modules/home/editors/rider
     ../../modules/home/editors/vscodium
     ../../modules/home/editors/zed
     ../../modules/home/fastfetch.nix

@@ -6,7 +6,10 @@
       arrterian.nix-env-selector
       mads-hartmann.bash-ide-vscode
 
-      leonardssh.vscord # discord rich presense
+      leonardssh.vscord
+      biomejs.biome
+      christian-kohler.path-intellisense
+      esbenp.prettier-vscode
     ];
   };
 }
