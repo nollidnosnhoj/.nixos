@@ -13,21 +13,20 @@
             "nixd"
             "!nil"
           ];
+          formatter = {
+            external.command = "alejandra";
+          };
         };
       };
       lsp = {
         nixd = {
           binary = {
             path = "/usr/bin/env";
-            arguments = [ "nixd" ];
+            arguments = ["nixd"];
           };
           initialization_options = {
             formatting = {
-              command = [
-                "${pkgs.alejandra}/bin/alejandra"
-                "--quiet"
-                "--"
-              ];
+              command = "alejandra";
             };
           };
           settings = {

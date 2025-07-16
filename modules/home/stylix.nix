@@ -1,5 +1,4 @@
-{...}:
-{
-    stylix.iconTheme.dark = "Papirus-Dark";
-    stylix.iconTheme.light = "Papirus";
+{...}: {
+  stylix.iconTheme.dark = "Papirus-Dark";
+  stylix.iconTheme.light = "Papirus";
 }

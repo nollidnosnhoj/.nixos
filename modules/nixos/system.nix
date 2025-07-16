@@ -5,6 +5,7 @@
   ...
 }: {
   nix = {
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     settings = {
       allowed-users = ["${username}"];
       auto-optimise-store = true;

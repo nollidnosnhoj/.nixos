@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # Nix
     nixd
@@ -12,6 +8,4 @@
     go # golang
     gnumake # make command
   ];
-
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }
