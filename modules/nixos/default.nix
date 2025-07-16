@@ -1,4 +1,5 @@
 {host, ...}: {
+  # Place modules you want all x-top machines to have.
   imports = [
     ./bootloader.nix
     ./flatpak.nix

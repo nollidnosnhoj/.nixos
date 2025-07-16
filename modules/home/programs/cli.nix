@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     bitwarden-cli # password manager CLI
-    direnv
     dysk # disk information
     eza # ls replacement
     entr # perform action when file change
@@ -30,11 +29,4 @@
     xdg-utils
     xxd
   ];
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
-  };
 }
