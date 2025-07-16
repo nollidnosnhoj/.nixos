@@ -7,6 +7,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   services.gvfs.enable = true;
+  services.udisks2.enable = true;
   services.dbus.packages = with pkgs; [
     gcr
     gnome-settings-daemon

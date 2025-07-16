@@ -1,6 +1,7 @@
 {...}: {
   # Place modules that will be used in all x-top machines
   imports = [
+    ./browser
     ./desktop
     ./discord.nix
     ./editors/neovim
@@ -13,6 +14,7 @@
     ./programs
     ./shell
     ./stylix.nix
+    ./udiskie.nix
     ./xdg-mimes.nix
   ];
 }

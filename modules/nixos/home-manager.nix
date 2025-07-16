@@ -22,5 +22,6 @@
       programs.home-manager.enable = true;
       _module.args.inputs = inputs;
     };
+    backupFileExtension = "backup";
   };
 }

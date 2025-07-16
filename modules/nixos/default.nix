@@ -6,6 +6,7 @@
     ./greetd.nix
     ./hardware
     ./home-manager.nix
+    ./mail.nix
     ./nautilus.nix
     ./networking.nix
     ./nh.nix
