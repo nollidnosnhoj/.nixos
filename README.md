@@ -1,13 +1,29 @@
 # My NixOS Configuration
 
-Was very interested in NixOS so I decided to create a configuration that is similar to my Arch Linux's dotfiles.
+## Features
 
-## TODO
+- Terminal: foot
+- Status bar: waybar
+- Editors: Zed, Neovim (nvf), VSCodium, JetBrains Rider
+- WM: Niri (Scrollable-tiling wayland compositor)
+- Browser: Firefox, Brave
+- Notifications: Sway Notification Center (swaync)
+- OSD: SwayOSD
+- Lock-screen: Hypr-lock
+- Idle: Hypr-idle
+- Wallpaper: swww
+- App Launcher: fuzzel
 
-- Refactoring configuration to utilize options.
-- Look into dev-shells.
-- Perhaps replace swaync with mako or dunst.
-- Learn my new nvim config :P
+
+## Hosts
+
+### framework16
+
+This configuration is used for my Framework 16 Laptop.
+
+### msa1
+
+This configuration is used for my development machine: Minisforum MS-A1
 
 ## Credit
 
