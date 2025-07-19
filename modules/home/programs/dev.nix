@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   home.packages = with pkgs; [
     # Nix
     nixd
@@ -7,5 +11,9 @@
     devenv # development envirronment
     go # golang
     gnumake # make command
+  ];
+
+  home.sessionPath = [
+    "/home/${username}/go/bin"
   ];
 }
