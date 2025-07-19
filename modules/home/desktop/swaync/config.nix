@@ -87,7 +87,7 @@
           }
           {
             label = "󰖩";
-            command = "${lib.getExe pkgs.kitty} --class nmtui -e nmtui";
+            command = "${lib.getExe pkgs.foot} -a nmtui -e nmtui";
           }
           {
             label = "󰂯";

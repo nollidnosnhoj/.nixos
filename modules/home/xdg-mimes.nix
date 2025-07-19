@@ -7,7 +7,7 @@ with lib; let
     audio = ["mpv.desktop"];
     video = ["mpv.desktop"];
     pdf = ["org.gnome.Evince.desktop"];
-    terminal = ["kitty.desktop"];
+    terminal = ["foot.desktop"];
     archive = ["org.gnome.FileRoller.desktop"];
     discord = ["vesktop.desktop"];
   };

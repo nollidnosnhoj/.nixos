@@ -11,7 +11,7 @@ in {
         width = 25;
         line-height = 50;
         fields = "name,generic,comment,categories,filename,keywords";
-        terminal = "kitty -e";
+        terminal = "foot -e";
         show-actions = "yes";
         exit-on-keyboard-focus-loss = "no";
       };

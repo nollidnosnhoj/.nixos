@@ -121,7 +121,7 @@ in {
       format-linked = "󱘖 {ifname} (No IP) ";
       format-disconnected = "󰤭 ";
       tooltip-format-wifi = "{essid}: {signalStrength}%";
-      on-click-right = "${lib.getExe pkgs.kitty} --class nmtui -e nmtui";
+      on-click-right = "${lib.getExe pkgs.foot} -a nmtui -e nmtui";
     };
     wireplumber = {
       format = "{icon}  {volume}%";

@@ -6,7 +6,7 @@
   programs.niri.settings.binds = with config.lib.niri.actions; let
     open-browser = spawn "${pkgs.firefox}/bin/firefox";
     open-file-manager = spawn "${pkgs.nautilus}/bin/nautilus";
-    open-terminal = spawn "${pkgs.kitty}/bin/kitty";
+    open-terminal = spawn "${pkgs.foot}/bin/foot";
     open-app-menu = spawn "${pkgs.fuzzel}/bin/fuzzel";
 
     set-volume = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume";

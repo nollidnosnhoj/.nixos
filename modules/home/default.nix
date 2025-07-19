@@ -8,12 +8,11 @@
     ./editors/vscodium
     ./editors/zed
     ./flatpak.nix
-    ./ghostty.nix
     ./git.nix
-    ./kitty.nix
     ./programs
     ./shell
     ./stylix.nix
+    ./terminals/foot.nix
     ./udiskie.nix
     ./xdg-mimes.nix
   ];
