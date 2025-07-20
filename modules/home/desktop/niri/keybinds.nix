@@ -2,44 +2,46 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  apps = import ./apps.nix {inherit pkgs;};
+in {
   programs.niri.settings.binds = with config.lib.niri.actions; let
-    open-browser = spawn "${pkgs.firefox}/bin/firefox";
-    open-file-manager = spawn "${pkgs.nautilus}/bin/nautilus";
-    open-terminal = spawn "${pkgs.foot}/bin/foot";
-    open-app-menu = spawn "${pkgs.fuzzel}/bin/fuzzel";
-
     set-volume = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume";
     set-brightness = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness";
     playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
   in {
-    "XF86AudioMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "mute-toggle";
-    "XF86AudioMicMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--input-volume" "mute-toggle";
-
+    # media playback
     "XF86AudioPlay".action = playerctl "play-pause";
     "XF86AudioStop".action = playerctl "pause";
     "XF86AudioPrev".action = playerctl "previous";
     "XF86AudioNext".action = playerctl "next";
 
+    # volumes
     "XF86AudioRaiseVolume".action = set-volume "raise";
     "XF86AudioLowerVolume".action = set-volume "lower";
+    "XF86AudioMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "mute-toggle";
+    "XF86AudioMicMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--input-volume" "mute-toggle";
 
+    # brightness
     "XF86MonBrightnessUp".action = set-brightness "raise";
     "XF86MonBrightnessDown".action = set-brightness "lower";
 
-    "Print".action.screenshot-screen = {
+    # Screenshots
+    "Ctrl+Print".action.screenshot-screen = {
       write-to-disk = true;
     };
-    "Mod+Shift+Alt+S".action = screenshot-window;
-    "Mod+Shift+S".action.screenshot = {
+    "Mod+Print".action = screenshot-window;
+    "Print".action.screenshot = {
       show-pointer = false;
     };
-    "Mod+Return".action = open-terminal;
-    "Mod+B".action = open-browser;
-    "Mod+Space".action = open-app-menu;
-    "Mod+E".action = open-file-manager;
+
+    # App shortcuts
+    "Mod+Return".action = spawn apps.terminal;
+    "Mod+B".action = spawn apps.browser;
+    "Mod+Space".action = spawn apps.app-launcher;
+    "Mod+E".action = spawn apps.file-manager;
+    "Mod+Alt+L".action = spawn apps.lock-screen;
     "Ctrl+Alt+Delete".action = quit;
-    "Mod+Alt+L".action = spawn "hyprlock";
 
     "Mod+Q".action = close-window;
     "Mod+S".action = switch-preset-column-width;

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./fuzzel.nix
     ./hypridle.nix
@@ -10,16 +10,5 @@
     # ./mako.nix
     ./swww.nix
     ./waybar
-  ];
-
-  home.packages = with pkgs; [
-    slurp
-    wl-clipboard
-    wl-clip-persist
-    glib
-    wayland
-    playerctl
-    poweralertd
-    libnotify
   ];
 }
