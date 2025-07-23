@@ -15,9 +15,5 @@
     postman # api testing
 
     bitwarden # password manager
-
-    (calibre.override {
-      unrarSupport = true;
-    })
   ];
 }
