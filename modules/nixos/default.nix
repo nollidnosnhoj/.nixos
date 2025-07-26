@@ -16,6 +16,7 @@
     ./stylix.nix
     ./swayosd.nix
     ./system.nix
+    ./vpn.nix
     ./xdg.nix
     ./xserver.nix
   ];
