@@ -13,20 +13,19 @@ in {
       "tray"
     ];
     modules-center = [
-      "niri/window"
+      "clock"
     ];
     modules-right = [
       "network"
       "battery"
-      "power-profiles-daemon"
-      "idle_inhibitor"
       "bluetooth"
       "wireplumber"
       "backlight"
       "temperature"
       "memory"
       "cpu"
-      "clock"
+      "power-profiles-daemon"
+      "idle_inhibitor"
       "custom/notification"
     ];
     clock = {
