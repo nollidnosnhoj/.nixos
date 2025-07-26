@@ -1,90 +1,101 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: let
   apps = import ./apps.nix {inherit pkgs;};
 in {
   programs.niri.settings.binds = with config.lib.niri.actions; let
-    set-volume = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume";
-    set-brightness = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness";
-    playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
-  in {
-    # media playback
-    "XF86AudioPlay".action = playerctl "play-pause";
-    "XF86AudioStop".action = playerctl "pause";
-    "XF86AudioPrev".action = playerctl "previous";
-    "XF86AudioNext".action = playerctl "next";
+    ModKey = "Mod";
+  in
+    {
+      # App shortcuts
+      "${ModKey}+Return".action = spawn apps.terminal;
+      "${ModKey}+B".action = spawn apps.browser;
+      "${ModKey}+Space".action = spawn apps.app-launcher;
+      "${ModKey}+E".action = spawn apps.file-manager;
+      "${ModKey}+Alt+L".action = spawn apps.lock-screen;
+      "Ctrl+Alt+Delete".action = quit;
 
-    # volumes
-    "XF86AudioRaiseVolume".action = set-volume "raise";
-    "XF86AudioLowerVolume".action = set-volume "lower";
-    "XF86AudioMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "mute-toggle";
-    "XF86AudioMicMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--input-volume" "mute-toggle";
+      "${ModKey}+Q".action = close-window;
 
-    # brightness
-    "XF86MonBrightnessUp".action = set-brightness "raise";
-    "XF86MonBrightnessDown".action = set-brightness "lower";
+      "${ModKey}+R".action = switch-preset-column-width;
+      "${ModKey}+Shift+R".action = switch-preset-window-height;
+      "${ModKey}+Ctrl+R".action = reset-window-height;
+      "${ModKey}+F".action = maximize-column;
+      "${ModKey}+Shift+F".action = fullscreen-window;
+      "${ModKey}+Ctrl+F".action = expand-column-to-available-width;
+      "${ModKey}+Ctrl+Shift+F".action = toggle-windowed-fullscreen;
+      "${ModKey}+C".action = center-column;
+      "${ModKey}+Ctrl+C".action = center-visible-columns;
 
-    # Screenshots
-    "Ctrl+Print".action.screenshot-screen = {
-      write-to-disk = true;
-    };
-    "Mod+Print".action = screenshot-window;
-    "Print".action.screenshot = {
-      show-pointer = false;
-    };
+      "${ModKey}+Minus".action = set-column-width "-10%";
+      "${ModKey}+Equal".action = set-column-width "+10%";
+      "${ModKey}+Ctrl+Minus".action = set-window-height "-10%";
+      "${ModKey}+Ctrl+Equal".action = set-window-height "+10%";
 
-    # App shortcuts
-    "Mod+Return".action = spawn apps.terminal;
-    "Mod+B".action = spawn apps.browser;
-    "Mod+Space".action = spawn apps.app-launcher;
-    "Mod+E".action = spawn apps.file-manager;
-    "Mod+Alt+L".action = spawn apps.lock-screen;
-    "Ctrl+Alt+Delete".action = quit;
+      "${ModKey}+BracketLeft".action = consume-or-expel-window-left;
+      "${ModKey}+BracketRight".action = consume-or-expel-window-right;
 
-    "Mod+Q".action = close-window;
-    "Mod+S".action = switch-preset-column-width;
-    "Mod+F".action = maximize-column;
-    "Mod+Shift+F".action = expand-column-to-available-width;
-    "Mod+V".action = toggle-window-floating;
-    "Mod+W".action = toggle-column-tabbed-display;
+      "${ModKey}+Tab".action = focus-workspace-previous;
+      "${ModKey}+H".action = focus-column-left;
+      "${ModKey}+L".action = focus-column-right;
+      "${ModKey}+J".action = focus-window-or-workspace-down;
+      "${ModKey}+K".action = focus-window-or-workspace-up;
 
-    "Mod+Comma".action = consume-window-into-column;
-    "Mod+Period".action = expel-window-from-column;
-    "Mod+C".action = center-visible-columns;
-    "Mod+Tab".action = switch-focus-between-floating-and-tiling;
+      "${ModKey}+Shift+H".action = move-column-left;
+      "${ModKey}+Shift+L".action = move-column-right;
+      "${ModKey}+Shift+K".action = move-column-to-workspace-up;
+      "${ModKey}+Shift+J".action = move-column-to-workspace-down;
 
-    "Mod+Minus".action = set-column-width "-10%";
-    "Mod+Plus".action = set-column-width "+10%";
-    "Mod+Shift+Minus".action = set-window-height "-10%";
-    "Mod+Shift+Plus".action = set-window-height "+10%";
+      "${ModKey}+WheelScrollDown" = {
+        action = focus-column-right;
+        cooldown-ms = 150;
+      };
 
-    "Mod+H".action = focus-column-left;
-    "Mod+L".action = focus-column-right;
-    "Mod+J".action = focus-window-or-workspace-down;
-    "Mod+K".action = focus-window-or-workspace-up;
-    "Mod+Left".action = focus-column-left;
-    "Mod+Right".action = focus-column-right;
-    "Mod+Down".action = focus-workspace-down;
-    "Mod+Up".action = focus-workspace-up;
+      "${ModKey}+WheelScrollUp" = {
+        action = focus-column-left;
+        cooldown-ms = 150;
+      };
 
-    "Mod+Shift+H".action = move-column-left;
-    "Mod+Shift+L".action = move-column-right;
-    "Mod+Shift+K".action = move-column-to-workspace-up;
-    "Mod+Shift+J".action = move-column-to-workspace-down;
+      # "${ModKey}+Shift+Ctrl+J".action = move-column-to-monitor-down;
+      # "${ModKey}+Shift+Ctrl+K".action = move-column-to-monitor-up;
 
-    "Mod+WheelScrollDown" = {
-      action = focus-column-right;
-      cooldown-ms = 150;
-    };
+      # media playback
+      "XF86AudioPlay".action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
+      "XF86AudioStop".action = spawn "${pkgs.playerctl}/bin/playerctl" "pause";
+      "XF86AudioPrev".action = spawn "${pkgs.playerctl}/bin/playerctl" "previous";
+      "XF86AudioNext".action = spawn "${pkgs.playerctl}/bin/playerctl" "next";
 
-    "Mod+WheelScrollUp" = {
-      action = focus-column-left;
-      cooldown-ms = 150;
-    };
+      # volumes
+      "XF86AudioRaiseVolume".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "raise";
+      "XF86AudioLowerVolume".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "lower";
+      "XF86AudioMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "mute-toggle";
+      "XF86AudioMicMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--input-volume" "mute-toggle";
 
-    "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
-    "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
-  };
+      # brightness
+      "XF86MonBrightnessUp".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness" "raise";
+      "XF86MonBrightnessDown".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness" "lower";
+
+      # Screenshots
+      "Ctrl+Print".action.screenshot-screen = {
+        write-to-disk = true;
+      };
+      "${ModKey}+Print".action = screenshot-window;
+      "Print".action.screenshot = {
+        show-pointer = false;
+      };
+    }
+    // lib.attrsets.listToAttrs (builtins.concatMap (i:
+      with config.lib.niri.actions; [
+        {
+          name = "${ModKey}+${toString i}";
+          value.action = focus-workspace i;
+        }
+        {
+          name = "${ModKey}+Shift+${toString i}";
+          value.action = spawn ["niri" "msg" "action" "move-column-to-workspace" (toString i)];
+        }
+      ]) (lib.range 1 9));
 }

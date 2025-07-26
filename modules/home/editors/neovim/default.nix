@@ -19,7 +19,10 @@
         globals.mapleader = " ";
         globals.maplocalleader = " ";
 
-        lsp.enable = true;
+        lsp = {
+          enable = true;
+          lspconfig.enable = true;
+        };
 
         options.splitright = true;
         options.splitbelow = true;
