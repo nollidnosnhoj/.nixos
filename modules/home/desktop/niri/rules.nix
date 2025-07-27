@@ -183,34 +183,9 @@ in {
         open-floating = true;
       }
       {
-        matches = [
-          {
-            title = "Welcome to JetBrains Rider";
-            app-id = "jetbrains-rider";
-          }
-        ];
-        open-floating = true;
-        default-window-height = {
-          proportion = 0.75;
-        };
-      }
-      {
-        matches = [
-          {
-            title = "Extension:";
-            app-id = "firefox";
-          }
-        ];
-        open-floating = true;
-      }
-      {
-        matches = [
-          {
-            app-id = "net-runelite-client-RuneLite";
-          }
-        ];
-        open-floating = true;
-        open-focused = false;
+        matches = [{app-id = "vesktop";}];
+        open-maximized = true;
+        open-on-output = "eDP-1";
       }
     ];
     layer-rules = [

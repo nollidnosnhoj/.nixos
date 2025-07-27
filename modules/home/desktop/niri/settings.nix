@@ -27,11 +27,12 @@ in {
     };
     screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";
     outputs = {
-      "eDP-1" = {
+      "LG Electronics LG ULTRAGEAR 104NTRL5T534" = {
+        focus-at-startup = true;
         mode = {
           width = 2560;
-          height = 1600;
-          refresh = null;
+          height = 1440;
+          refresh = 143.933;
         };
         scale = 1.0;
         position = {
@@ -39,11 +40,11 @@ in {
           y = 0;
         };
       };
-      "HDMI-A-1" = {
+      "eDP-1" = {
         mode = {
           width = 2560;
-          height = 1440;
-          refresh = null;
+          height = 1600;
+          refresh = 165.000;
         };
         scale = 1.0;
         position = {
