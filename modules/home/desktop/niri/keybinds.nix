@@ -6,95 +6,142 @@
 }: let
   apps = import ./apps.nix {inherit pkgs;};
 in {
-  programs.niri.settings.binds = with config.lib.niri.actions; let
-    ModKey = "Mod";
-  in
+  programs.niri.settings.binds = with config.lib.niri.actions;
     {
+      "Mod+Shift+Slash".action = show-hotkey-overlay;
+
       # App shortcuts
-      "${ModKey}+Return".action = spawn apps.terminal;
-      "${ModKey}+B".action = spawn apps.browser;
-      "${ModKey}+Space".action = spawn apps.app-launcher;
-      "${ModKey}+E".action = spawn apps.file-manager;
-      "${ModKey}+Alt+L".action = spawn apps.lock-screen;
+      "Mod+Return".action = spawn apps.terminal;
+      "Mod+B".action = spawn apps.browser;
+      "Mod+Space".action = spawn apps.app-launcher;
+      "Mod+E".action = spawn apps.file-manager;
+      "Mod+Alt+L".action = spawn apps.lock-screen;
       "Ctrl+Alt+Delete".action = quit;
 
-      "${ModKey}+Q".action = close-window;
+      "Mod+Q".action = close-window;
 
-      "${ModKey}+R".action = switch-preset-column-width;
-      "${ModKey}+Shift+R".action = switch-preset-window-height;
-      "${ModKey}+Ctrl+R".action = reset-window-height;
-      "${ModKey}+F".action = maximize-column;
-      "${ModKey}+Shift+F".action = fullscreen-window;
-      "${ModKey}+Ctrl+F".action = expand-column-to-available-width;
-      "${ModKey}+Ctrl+Shift+F".action = toggle-windowed-fullscreen;
-      "${ModKey}+C".action = center-column;
-      "${ModKey}+Ctrl+C".action = center-visible-columns;
+      "Mod+R".action = switch-preset-column-width;
+      "Mod+Shift+R".action = switch-preset-window-height;
+      "Mod+Ctrl+R".action = reset-window-height;
+      "Mod+F".action = maximize-column;
+      "Mod+Shift+F".action = fullscreen-window;
+      "Mod+Ctrl+F".action = expand-column-to-available-width;
+      "Mod+Ctrl+Shift+F".action = toggle-windowed-fullscreen;
+      "Mod+C".action = center-column;
+      "Mod+Ctrl+C".action = center-visible-columns;
 
-      "${ModKey}+Minus".action = set-column-width "-10%";
-      "${ModKey}+Equal".action = set-column-width "+10%";
-      "${ModKey}+Ctrl+Minus".action = set-window-height "-10%";
-      "${ModKey}+Ctrl+Equal".action = set-window-height "+10%";
+      "Mod+Minus".action = set-column-width "-10%";
+      "Mod+Equal".action = set-column-width "+10%";
+      "Mod+Ctrl+Minus".action = set-window-height "-10%";
+      "Mod+Ctrl+Equal".action = set-window-height "+10%";
 
-      "${ModKey}+BracketLeft".action = consume-or-expel-window-left;
-      "${ModKey}+BracketRight".action = consume-or-expel-window-right;
+      "Mod+BracketLeft".action = consume-or-expel-window-left;
+      "Mod+BracketRight".action = consume-or-expel-window-right;
 
-      "${ModKey}+Tab".action = focus-workspace-previous;
-      "${ModKey}+H".action = focus-column-left;
-      "${ModKey}+L".action = focus-column-right;
-      "${ModKey}+J".action = focus-window-or-workspace-down;
-      "${ModKey}+K".action = focus-window-or-workspace-up;
+      "Mod+Tab".action = focus-workspace-previous;
+      "Mod+H".action = focus-column-left;
+      "Mod+L".action = focus-column-right;
+      "Mod+J".action = focus-window-or-workspace-down;
+      "Mod+K".action = focus-window-or-workspace-up;
 
-      "${ModKey}+Shift+H".action = move-column-left;
-      "${ModKey}+Shift+L".action = move-column-right;
-      "${ModKey}+Shift+K".action = move-column-to-workspace-up;
-      "${ModKey}+Shift+J".action = move-column-to-workspace-down;
+      "Mod+Shift+H".action = move-column-left;
+      "Mod+Shift+L".action = move-column-right;
+      "Mod+Shift+K".action = move-column-to-workspace-up;
+      "Mod+Shift+J".action = move-column-to-workspace-down;
 
-      "${ModKey}+WheelScrollDown" = {
+      "Mod+Ctrl+Tab".action = focus-monitor-previous;
+      "Mod+Ctrl+H".action = focus-monitor-left;
+      "Mod+Ctrl+L".action = focus-monitor-right;
+
+      "Mod+Shift+Ctrl+H".action = move-column-to-monitor-left;
+      "Mod+Shift+Ctrl+L".action = move-column-to-monitor-right;
+
+      "Mod+WheelScrollDown" = {
         action = focus-column-right;
         cooldown-ms = 150;
       };
 
-      "${ModKey}+WheelScrollUp" = {
+      "Mod+WheelScrollUp" = {
         action = focus-column-left;
         cooldown-ms = 150;
       };
 
-      # "${ModKey}+Shift+Ctrl+J".action = move-column-to-monitor-down;
-      # "${ModKey}+Shift+Ctrl+K".action = move-column-to-monitor-up;
+      # "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
+      # "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
 
       # media playback
-      "XF86AudioPlay".action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
-      "XF86AudioStop".action = spawn "${pkgs.playerctl}/bin/playerctl" "pause";
-      "XF86AudioPrev".action = spawn "${pkgs.playerctl}/bin/playerctl" "previous";
-      "XF86AudioNext".action = spawn "${pkgs.playerctl}/bin/playerctl" "next";
+      "XF86AudioPlay" = {
+        action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
+        allow-when-locked = true;
+        repeat = false;
+      };
+      "XF86AudioStop" = {
+        action = spawn "${pkgs.playerctl}/bin/playerctl" "pause";
+        allow-when-locked = true;
+        repeat = false;
+      };
+      "XF86AudioPrev" = {
+        action = spawn "${pkgs.playerctl}/bin/playerctl" "previous";
+        allow-when-locked = true;
+        repeat = false;
+      };
+      "XF86AudioNext" = {
+        action = spawn "${pkgs.playerctl}/bin/playerctl" "next";
+        allow-when-locked = true;
+        repeat = false;
+      };
 
       # volumes
-      "XF86AudioRaiseVolume".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "raise";
-      "XF86AudioLowerVolume".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "lower";
-      "XF86AudioMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "mute-toggle";
-      "XF86AudioMicMute".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--input-volume" "mute-toggle";
+      "XF86AudioRaiseVolume" = {
+        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "raise";
+        allow-when-locked = true;
+        repeat = false;
+      };
+      "XF86AudioLowerVolume" = {
+        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "lower";
+        allow-when-locked = true;
+        repeat = false;
+      };
+      "XF86AudioMute" = {
+        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "mute-toggle";
+        allow-when-locked = true;
+        repeat = false;
+      };
+      "XF86AudioMicMute" = {
+        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--input-volume" "mute-toggle";
+        allow-when-locked = true;
+        repeat = false;
+      };
 
       # brightness
-      "XF86MonBrightnessUp".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness" "raise";
-      "XF86MonBrightnessDown".action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness" "lower";
+      "XF86MonBrightnessUp" = {
+        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness" "raise";
+        allow-when-locked = true;
+        repeat = false;
+      };
+      "XF86MonBrightnessDown" = {
+        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness" "lower";
+        allow-when-locked = true;
+        repeat = false;
+      };
 
       # Screenshots
-      "Ctrl+Print".action.screenshot-screen = {
-        write-to-disk = true;
-      };
-      "${ModKey}+Print".action = screenshot-window;
       "Print".action.screenshot = {
         show-pointer = false;
       };
+      "Ctrl+Print".action.screenshot-screen = {
+        write-to-disk = true;
+      };
+      "Alt+Print".action = screenshot-window;
     }
     // lib.attrsets.listToAttrs (builtins.concatMap (i:
       with config.lib.niri.actions; [
         {
-          name = "${ModKey}+${toString i}";
+          name = "Mod+${toString i}";
           value.action = focus-workspace i;
         }
         {
-          name = "${ModKey}+Shift+${toString i}";
+          name = "Mod+Shift+${toString i}";
           value.action = spawn ["niri" "msg" "action" "move-column-to-workspace" (toString i)];
         }
       ]) (lib.range 1 9));
