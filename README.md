@@ -4,7 +4,7 @@
 
 - Terminal: foot
 - Status bar: waybar
-- Editors: Zed, Neovim (nvf), VSCodium, JetBrains Rider
+- Editors: Zed, Neovim (nvf), VSCode, JetBrains Rider
 - WM: Niri (Scrollable-tiling wayland compositor)
 - Browser: Firefox, Brave
 - Notifications: Sway Notification Center (swaync)

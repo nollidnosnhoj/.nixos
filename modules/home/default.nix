@@ -5,7 +5,7 @@
     ./desktop
     ./discord.nix
     ./editors/neovim
-    ./editors/vscodium
+    ./editors/vscode
     ./editors/zed
     ./flatpak.nix
     ./git.nix

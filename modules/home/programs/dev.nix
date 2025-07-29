@@ -9,8 +9,10 @@
     alejandra
 
     devenv # development envirronment
-    go # golang
     gnumake # make command
+
+    go # golang
+    gopls
   ];
 
   home.sessionPath = [
