@@ -54,42 +54,46 @@
     };
   };
 
-  # Enable fw-fanctrl
-  programs.fw-fanctrl.enable = true;
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0012", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
+    SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0014", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
+  '';
 
-  # Add a custom config
-  programs.fw-fanctrl.config = {
-    defaultStrategy = "lazy";
-    strategies = {
-      "lazy" = {
-        fanSpeedUpdateFrequency = 5;
-        movingAverageInterval = 30;
-        speedCurve = [
-          {
-            temp = 0;
-            speed = 15;
-          }
-          {
-            temp = 50;
-            speed = 15;
-          }
-          {
-            temp = 65;
-            speed = 25;
-          }
-          {
-            temp = 70;
-            speed = 35;
-          }
-          {
-            temp = 75;
-            speed = 50;
-          }
-          {
-            temp = 85;
-            speed = 100;
-          }
-        ];
+  programs.fw-fanctrl = {
+    enable = true;
+    config = {
+      defaultStrategy = "lazy";
+      strategies = {
+        "lazy" = {
+          fanSpeedUpdateFrequency = 5;
+          movingAverageInterval = 30;
+          speedCurve = [
+            {
+              temp = 0;
+              speed = 15;
+            }
+            {
+              temp = 50;
+              speed = 15;
+            }
+            {
+              temp = 65;
+              speed = 25;
+            }
+            {
+              temp = 70;
+              speed = 35;
+            }
+            {
+              temp = 75;
+              speed = 50;
+            }
+            {
+              temp = 85;
+              speed = 100;
+            }
+          ];
+        };
       };
     };
   };
