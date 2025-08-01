@@ -84,6 +84,7 @@ in {
     #disk,
     #temperature,
     #power,
+    #clock,
     #custom-notification {
       padding-left: 10px;
       padding-right: 10px;

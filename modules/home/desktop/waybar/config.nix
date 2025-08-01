@@ -12,20 +12,18 @@ in {
       "niri/workspaces"
       "tray"
     ];
-    modules-center = [
-      "clock"
-    ];
     modules-right = [
       "network"
-      "battery"
       "bluetooth"
       "wireplumber"
       "backlight"
       "temperature"
       "memory"
       "cpu"
+      "battery"
       "power-profiles-daemon"
       "idle_inhibitor"
+      "clock"
       "custom/notification"
     ];
     clock = {
