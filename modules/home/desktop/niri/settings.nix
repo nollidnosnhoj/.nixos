@@ -1,5 +1,5 @@
 {nixosConfig, ...}: let
-  inputCfg = nixosConfig.input;
+  inputCfg = nixosConfig.custom.input;
 in {
   programs.niri.settings = {
     input = {

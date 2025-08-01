@@ -4,8 +4,8 @@
   ...
 }: {
   stylix.enable = true;
-  stylix.base16Scheme = config.desktop.palette;
-  stylix.image = config.desktop.wallpaper;
+  stylix.base16Scheme = config.custom.color-palette;
+  stylix.image = config.custom.wallpaper;
   stylix.cursor = {
     name = "Bibata-Modern-Ice";
     package = pkgs.bibata-cursors;

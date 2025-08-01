@@ -33,9 +33,14 @@
     };
   };
 
-  nixpkgs = {
-    overlays = [inputs.nur.overlays.default];
-  };
+  nixpkgs.overlays = [
+    (final: prev: {
+      nur = import inputs.nur {
+        nurpkgs = prev;
+        pkgs = prev;
+      };
+    })
+  ];
 
   nixpkgs.config.allowUnfree = true;
 

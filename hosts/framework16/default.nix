@@ -30,9 +30,6 @@
     };
   };
 
-  # Enabling it causes the build to be slow if you're using fish
-  documentation.man.generateCaches = false;
-
   home-manager.users.${username} = import ./home.nix;
 
   services = {
@@ -98,10 +95,8 @@
     };
   };
 
-  is-laptop = true;
-
-  desktop = {
+  custom = {
     wallpaper = "${self}/.assets/wallpapers/wallpaper-material-dark.jpg";
-    palette = "${pkgs.base16-schemes}/share/themes/material-darker.yaml";
+    color-palette = "${pkgs.base16-schemes}/share/themes/material-darker.yaml";
   };
 }
