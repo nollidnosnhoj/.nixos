@@ -8,12 +8,10 @@
 - WM: Niri (Scrollable-tiling wayland compositor)
 - Browser: Firefox, Brave
 - Notifications: Sway Notification Center (swaync)
-- OSD: SwayOSD
 - Lock-screen: Hypr-lock
 - Idle: Hypr-idle
 - Wallpaper: swww
 - App Launcher: fuzzel
-
 
 ## Hosts
 

@@ -11,6 +11,7 @@
     ./foot.nix
     ./git.nix
     ./programs
+    # ./scripts
     ./shell
     ./stylix.nix
     ./udiskie.nix

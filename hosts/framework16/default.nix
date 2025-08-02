@@ -14,7 +14,6 @@
     ../../modules/nixos/common.nix
     ../../modules/nixos/bootloaders/systemd-boot.nix
     ../../modules/nixos/greeters/greetd.nix
-    ../../modules/nixos/swayosd.nix
     ./stylix.nix
   ];
 

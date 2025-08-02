@@ -93,34 +93,34 @@ in {
 
       # volumes
       "XF86AudioRaiseVolume" = {
-        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "raise";
+        action = spawn "${pkgs.wireplumber}/bin/wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
         allow-when-locked = true;
         repeat = false;
       };
       "XF86AudioLowerVolume" = {
-        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "lower";
+        action = spawn "${pkgs.wireplumber}/bin/wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
         allow-when-locked = true;
         repeat = false;
       };
       "XF86AudioMute" = {
-        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--output-volume" "mute-toggle";
+        action = spawn "${pkgs.wireplumber}/bin/wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
         allow-when-locked = true;
         repeat = false;
       };
       "XF86AudioMicMute" = {
-        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--input-volume" "mute-toggle";
+        action = spawn "${pkgs.wireplumber}/bin/wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
         allow-when-locked = true;
         repeat = false;
       };
 
       # brightness
       "XF86MonBrightnessUp" = {
-        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness" "raise";
+        action = spawn "${pkgs.light}/bin/light" "-A" "5";
         allow-when-locked = true;
         repeat = false;
       };
       "XF86MonBrightnessDown" = {
-        action = spawn "${pkgs.swayosd}/bin/swayosd-client" "--brightness" "lower";
+        action = spawn "${pkgs.light}/bin/light" "-U" "5";
         allow-when-locked = true;
         repeat = false;
       };
