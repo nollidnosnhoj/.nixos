@@ -75,117 +75,50 @@ in {
         default-column-width.proportion = 0.2;
       }
       {
-        matches = [{app-id = "pavucontrol";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "pavucontrol-qt";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "com.saivert.pwvucontrol";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "dialog";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "popup";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "task_dialog";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "gcr-prompter";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "file-roller";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "org.gnome.FileRoller";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "nm-connection-editor";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "nmtui";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "blueman-manager";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "xdg-desktop-portal-gtk";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "org.gnome.polkit-gnome-authentication-agent-1";}];
-        open-floating = true;
-      }
-      {
-        matches = [{app-id = "pinentry";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Progress";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "File Operations";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Copying";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Moving";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Properties";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Downloads";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "file progress";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Confirm";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Authentication Required";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Notice";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Warning";}];
-        open-floating = true;
-      }
-      {
-        matches = [{title = "Error";}];
+        matches = [
+          {app-id = "pavucontrol";}
+          {app-id = "pavucontrol-qt";}
+          {app-id = "com.saivert.pwvucontrol";}
+          {app-id = "dialog";}
+          {app-id = "popup";}
+          {app-id = "task_dialog";}
+          {app-id = "gcr-prompter";}
+          {app-id = "file-roller";}
+          {app-id = "org.gnome.FileRoller";}
+          {app-id = "nm-connection-editor";}
+          {app-id = "nmtui";}
+          {app-id = "blueman-manager";}
+          {app-id = "xdg-desktop-portal-gtk";}
+          {app-id = "org.gnome.polkit-gnome-authentication-agent-1";}
+          {app-id = "pinentry";}
+          {title = "Progress";}
+          {title = "File Operations";}
+          {title = "Copying";}
+          {title = "Moving";}
+          {title = "Properties";}
+          {title = "Downloads";}
+          {title = "file progress";}
+          {title = "Confirm";}
+          {title = "Authentication Required";}
+          {title = "Notice";}
+          {title = "Warning";}
+          {title = "Error";}
+          {title = "Extension:";}
+          {
+            title = "Welcome to JetBrains Rider";
+            app-id = "jetbrains-rider";
+          }
+        ];
         open-floating = true;
       }
       {
         matches = [{app-id = "vesktop";}];
         open-maximized = true;
         open-on-output = "eDP-1";
+      }
+      {
+        matches = [{app-id = "jetbrains-rider";}];
+        open-maximized = true;
       }
     ];
     layer-rules = [
