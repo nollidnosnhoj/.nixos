@@ -8,6 +8,7 @@
     ./swayosd.nix
     ./swaync
     # ./mako.nix
+    ./swayosd.nix
     ./swww.nix
     ./waybar
   ];

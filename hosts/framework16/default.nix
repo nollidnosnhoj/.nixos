@@ -1,4 +1,5 @@
 {
+  host,
   inputs,
   pkgs,
   self,
@@ -6,12 +7,19 @@
   ...
 }: {
   imports = [
+    ../../options.nix
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     inputs.fw-fanctrl.nixosModules.default
-    ../../modules/nixos
-    ../../options
+    ../../modules/nixos/common.nix
+    ../../modules/nixos/bootloaders/systemd-boot.nix
+    ../../modules/nixos/greeters/greetd.nix
+    ../../modules/nixos/swayosd.nix
+    ./stylix.nix
   ];
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.supportedFilesystems = ["ntfs"];
 
   users.users.${username} = {
     isNormalUser = true;
@@ -32,8 +40,15 @@
 
   home-manager.users.${username} = import ./home.nix;
 
+  hardware.bluetooth.enable = true;
+
+  networking.hostName = "${host}";
+  networking.networkmanager.enable = true;
+
   services = {
+    openssh.enable = true;
     fprintd.enable = true;
+
     power-profiles-daemon.enable = true;
 
     logind = {

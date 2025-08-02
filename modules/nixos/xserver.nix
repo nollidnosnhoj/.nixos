@@ -4,8 +4,6 @@
       enable = true;
       xkb.layout = "us";
     };
-    libinput = {
-      enable = true;
-    };
+    libinput.enable = true;
   };
 }

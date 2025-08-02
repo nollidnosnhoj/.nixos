@@ -8,7 +8,6 @@
     nixd
     alejandra
 
-    devenv # development envirronment
     gnumake # make command
 
     go # golang

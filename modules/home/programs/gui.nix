@@ -12,9 +12,6 @@
     gnome-text-editor # gedit
     gnome-calendar # calendar
 
-    postman # api testing
-
     bitwarden # password manager
-    libreoffice # libre office
   ];
 }
