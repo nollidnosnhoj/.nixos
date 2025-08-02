@@ -15,5 +15,6 @@
     postman # api testing
 
     bitwarden # password manager
+    libreoffice # libre office
   ];
 }
