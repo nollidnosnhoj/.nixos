@@ -5,7 +5,6 @@
     ./hyprlock.nix
     ./niri
     ./swaync
-    ./swww.nix
     ./waybar
   ];
 }

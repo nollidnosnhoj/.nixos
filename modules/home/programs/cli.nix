@@ -5,10 +5,8 @@
     eza # ls replacement
     entr # perform action when file change
     fd # find replacement
-    ffmpeg
     file # Show file information
     gtrash # rm replacement, put deleted files in system trash
-    htop
     imagemagick
     imv # image viewer
     jq # JSON processor

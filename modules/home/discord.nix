@@ -5,8 +5,6 @@
 }: {
   imports = [inputs.nixcord.homeModules.nixcord];
 
-  home.packages = with pkgs; [arrpc];
-
   programs.nixcord = {
     enable = true;
     vesktop.enable = true;

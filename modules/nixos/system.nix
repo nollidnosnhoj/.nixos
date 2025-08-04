@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   username,
   ...
@@ -43,13 +42,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    unzip
-    curl
-  ];
 
   environment.pathsToLink = ["/share/zsh"];
 

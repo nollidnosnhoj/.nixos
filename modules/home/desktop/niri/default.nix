@@ -18,9 +18,6 @@
     wl-clipboard
     wl-clip-persist
     grim
-    playerctl
-    poweralertd
-    libnotify
   ];
 
   gtk = {
