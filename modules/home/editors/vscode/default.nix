@@ -15,7 +15,7 @@
         golang.go
 
         leonardssh.vscord
-        biomejs.biome
+        # biomejs.biome
         christian-kohler.path-intellisense
         esbenp.prettier-vscode
         mkhl.direnv
@@ -36,6 +36,7 @@
 
         "nix.serverPath" = "nixd";
         "nix.enableLanguageServer" = true;
+        "nix.formatterPath" = "alejandra";
         "nix.serverSettings" = {
           "nixd" = {
             "formatting" = {

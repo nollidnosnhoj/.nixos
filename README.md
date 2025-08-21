@@ -3,25 +3,16 @@
 ## Features
 
 - Terminal: foot
-- Status bar: waybar
 - Editors: Zed, Neovim (nvf), VSCode, JetBrains Rider
 - WM: Niri (Scrollable-tiling wayland compositor)
-- Browser: Firefox, Brave
-- Notifications: Sway Notification Center (swaync)
-- Lock-screen: Hypr-lock
-- Idle: Hypr-idle
-- Wallpaper: swww
-- App Launcher: fuzzel
+- Browser: Firefox
+- Shell: Noctalia
 
 ## Hosts
 
 ### framework16
 
 This configuration is used for my Framework 16 Laptop.
-
-### msa1
-
-This configuration is used for my development machine: Minisforum MS-A1
 
 ## Credit
 

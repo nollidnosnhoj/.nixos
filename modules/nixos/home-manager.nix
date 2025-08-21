@@ -3,6 +3,7 @@
   host,
   inputs,
   username,
+  self,
   ...
 }: {
   imports = [
@@ -12,7 +13,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs username host;
+      inherit inputs username host self;
       nixosConfig = config;
     };
     users.${username} = {
