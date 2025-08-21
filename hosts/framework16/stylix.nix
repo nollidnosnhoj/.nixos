@@ -1,11 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   stylix.enable = true;
-  stylix.base16Scheme = config.custom.color-palette;
-  stylix.image = config.custom.wallpaper;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
   stylix.cursor = {
     name = "Bibata-Modern-Ice";
     package = pkgs.bibata-cursors;

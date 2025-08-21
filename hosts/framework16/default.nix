@@ -2,7 +2,6 @@
   host,
   inputs,
   pkgs,
-  self,
   username,
   ...
 }: {
@@ -121,10 +120,5 @@
         };
       };
     };
-  };
-
-  custom = {
-    wallpaper = "${self}/.assets/wallpapers/wallpaper-material-dark.jpg";
-    color-palette = "${pkgs.base16-schemes}/share/themes/material-darker.yaml";
   };
 }
