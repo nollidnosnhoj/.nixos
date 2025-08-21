@@ -12,6 +12,7 @@
 
   home.packages = with pkgs; [
     devenv # development envirronment
+    claude-code
 
     postman
     libreoffice

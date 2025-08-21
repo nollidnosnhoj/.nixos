@@ -3,16 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    fw-fanctrl = {
-      url = "github:TamtamHero/fw-fanctrl/packaging/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    claude-code.url = "github:sadjow/claude-code-nix";
+
+    fw-fanctrl = {
+      url = "github:TamtamHero/fw-fanctrl/packaging/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

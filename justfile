@@ -2,6 +2,7 @@ default:
   @just --choose
 
 deploy:
+  git add .
   nixos-rebuild switch --flake . --sudo
 
 debug:
