@@ -1,0 +1,3 @@
+[submodule "modules/home/desktop/quickshell/qml"]
+	path = modules/home/desktop/quickshell/qml
+	url = https://github.com/nollidnosnhoj/Noctalia

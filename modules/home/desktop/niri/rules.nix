@@ -5,7 +5,7 @@ in {
     window-rules = with colors; [
       {
         geometry-corner-radius = let
-          radius = 2.0;
+          radius = 20.0;
         in {
           bottom-left = radius;
           bottom-right = radius;
@@ -123,8 +123,15 @@ in {
     ];
     layer-rules = [
       {
-        matches = [{namespace = "^swww$";}];
-        # place-within-backdrop = true;
+        matches = [{namespace = "^swww-daemon$";}];
+        place-within-backdrop = true;
+      }
+      {
+        matches = [{namespace = "^quickshell-wallpaper$";}];
+      }
+      {
+        matches = [{namespace = "^quickshell-overview$";}];
+        place-within-backdrop = true;
       }
     ];
   };

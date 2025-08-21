@@ -13,9 +13,9 @@ in {
       # App shortcuts
       "Mod+Return".action = spawn apps.terminal;
       "Mod+B".action = spawn apps.browser;
-      "Mod+Space".action = spawn apps.app-launcher;
+      "Mod+Space".action = spawn ["qs" "ipc" "call" "appLauncher" "toggle"];
       "Mod+E".action = spawn apps.file-manager;
-      "Mod+Alt+L".action = spawn apps.lock-screen;
+      "Mod+Alt+L".action = spawn ["qs" "ipc" "call" "lockScreen" "toggle"];
       "Ctrl+Alt+Delete".action = quit;
 
       "Mod+Q".action = close-window;

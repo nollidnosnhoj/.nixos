@@ -62,6 +62,7 @@ in {
       hot-corners.enable = true;
     };
     layout = {
+      background-color = "transparent";
       border.enable = true;
       border.width = 1;
       shadow = {
@@ -96,7 +97,7 @@ in {
         length.total-proportion = 0.1;
       };
     };
-    animations.enable = false;
+    animations.enable = true;
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
   };
