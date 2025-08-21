@@ -18,6 +18,7 @@
         biomejs.biome
         christian-kohler.path-intellisense
         esbenp.prettier-vscode
+        mkhl.direnv
       ];
       userSettings = {
         "update.mode" = "none";
