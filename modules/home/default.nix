@@ -15,6 +15,5 @@
     ./shell
     ./stylix.nix
     ./udiskie.nix
-    ./xdg-mimes.nix
   ];
 }

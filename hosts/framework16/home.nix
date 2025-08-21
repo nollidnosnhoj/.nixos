@@ -3,6 +3,7 @@
     ../../modules/home
     ../../modules/home/browsers/brave.nix
     ../../modules/home/editors/rider
+    ./xdg-mimes.nix
   ];
   services.blueman-applet.enable = true;
   home.sessionVariables = {
