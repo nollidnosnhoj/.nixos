@@ -13,6 +13,7 @@
     ../../modules/nixos/common.nix
     ../../modules/nixos/bootloaders/systemd-boot.nix
     ../../modules/nixos/greeters/greetd.nix
+    ../../modules/nixos/virtualisation/docker.nix
     ./stylix.nix
   ];
 
