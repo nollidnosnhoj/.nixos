@@ -52,6 +52,9 @@
             };
           };
         };
+        "nix.hiddenLanguageServerErrors" = [
+          "textDocument/definition"
+        ];
       };
     };
   };
