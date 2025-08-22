@@ -26,6 +26,8 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
     nur.url = "github:nix-community/NUR";
 
     quickshell = {

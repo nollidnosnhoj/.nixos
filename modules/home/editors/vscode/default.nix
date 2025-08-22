@@ -3,23 +3,25 @@
   pkgs,
   username,
   ...
-}: {
+}: let
+  vscode-marketplace-extensions = with pkgs.vscode-marketplace; [
+    # Languages
+    jnoortheen.nix-ide
+    arrterian.nix-env-selector
+    mads-hartmann.bash-ide-vscode
+    golang.go
+
+    leonardssh.vscord
+    # biomejs.biome
+    christian-kohler.path-intellisense
+    esbenp.prettier-vscode
+    mkhl.direnv
+  ];
+in {
   programs.vscode = {
     enable = true;
     profiles.default = {
-      extensions = with pkgs.vscode-extensions; [
-        # Languages
-        jnoortheen.nix-ide
-        arrterian.nix-env-selector
-        mads-hartmann.bash-ide-vscode
-        golang.go
-
-        leonardssh.vscord
-        # biomejs.biome
-        christian-kohler.path-intellisense
-        esbenp.prettier-vscode
-        mkhl.direnv
-      ];
+      extensions = vscode-marketplace-extensions;
       userSettings = {
         "update.mode" = "none";
         "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update

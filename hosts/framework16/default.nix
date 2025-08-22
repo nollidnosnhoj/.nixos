@@ -20,7 +20,10 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.supportedFilesystems = ["ntfs"];
 
-  nixpkgs.overlays = [inputs.claude-code.overlays.default];
+  nixpkgs.overlays = [
+    inputs.claude-code.overlays.default
+    inputs.nix-vscode-extensions.overlays.default
+  ];
 
   # enable quickshell for noctalia shell
   environment.systemPackages = [
