@@ -21,9 +21,9 @@ in {
     kdePackages.qtbase
     kdePackages.qtdeclarative
     kdePackages.qtstyleplugin-kvantum
-    wallust
+
     xdg-desktop-portal-gnome
-    material-symbols
+    cliphist
     swww
     matugen
     cava

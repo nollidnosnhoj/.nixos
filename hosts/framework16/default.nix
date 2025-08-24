@@ -58,6 +58,13 @@
 
   home-manager.users.${username} = import ./home.nix;
 
+  # Required for noctalia shell
+  fonts.packages = with pkgs; [
+    roboto
+    inter
+    material-symbols
+  ];
+
   hardware.bluetooth.enable = true;
 
   networking.hostName = "${host}";
