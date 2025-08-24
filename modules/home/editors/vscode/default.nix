@@ -10,9 +10,9 @@
     arrterian.nix-env-selector
     mads-hartmann.bash-ide-vscode
     golang.go
+    fresh-milkshake.qml-language-highlighting
 
     leonardssh.vscord
-    # biomejs.biome
     christian-kohler.path-intellisense
     esbenp.prettier-vscode
     mkhl.direnv
