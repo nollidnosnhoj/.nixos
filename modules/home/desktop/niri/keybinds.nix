@@ -16,7 +16,7 @@ in {
       "Mod+Space".action = spawn ["qs" "ipc" "call" "appLauncher" "toggle"];
       "Mod+E".action = spawn apps.file-manager;
       "Mod+Alt+L".action = spawn ["qs" "ipc" "call" "lockScreen" "toggle"];
-      "Ctrl+Alt+Delete".action = spawn ["qs" "ipc" "call" "powerMenu" "toggle"];
+      "Ctrl+Alt+Delete".action = spawn ["qs" "ipc" "call" "powerPanel" "toggle"];
 
       "Mod+Q".action = close-window;
 
