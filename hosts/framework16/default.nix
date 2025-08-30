@@ -1,6 +1,8 @@
 {
+  config,
   host,
   inputs,
+  lib,
   pkgs,
   username,
   ...
@@ -16,14 +18,6 @@
     ./stylix.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.supportedFilesystems = ["ntfs"];
-
-  nixpkgs.overlays = [
-    inputs.claude-code.overlays.default
-    inputs.nix-vscode-extensions.overlays.default
-  ];
-
   # enable quickshell for noctalia shell
   environment.systemPackages = [
     (inputs.quickshell.packages.${pkgs.system}.default.override {
@@ -36,6 +30,8 @@
       withHyprland = true;
       withI3 = false;
     })
+    pkgs.framework-tool
+    pkgs.cpupower-gui
   ];
 
   users.users.${username} = {
@@ -57,17 +53,36 @@
 
   home-manager.users.${username} = import ./home.nix;
 
-  # Required for noctalia shell
   fonts.packages = with pkgs; [
+    # Required for noctolia shell
     roboto
     inter
     material-symbols
   ];
 
-  hardware.bluetooth.enable = true;
+  networking = {
+    hostName = "${host}";
+    networkmanager.enable = true;
+  };
 
-  networking.hostName = "${host}";
-  networking.networkmanager.enable = true;
+  nixpkgs.overlays = [
+    inputs.claude-code.overlays.default
+    inputs.nix-vscode-extensions.overlays.default
+  ];
+
+  hardware = {
+    bluetooth.enable = true;
+    fw-fanctrl = {
+      enable = true;
+      package = pkgs.fw-fanctrl.overrideAttrs (finalAttrs: prevAttrs: {
+        patches = (prevAttrs.patches or []) ++ [./fw-fanctrl.patch];
+      });
+      config = {
+        defaultStrategy = "lazy";
+      };
+    };
+    keyboard.qmk.enable = true;
+  };
 
   services = {
     openssh.enable = true;
@@ -88,20 +103,25 @@
       percentageAction = 3;
       criticalPowerAction = "PowerOff";
     };
+
+    udev.extraRules = ''
+      SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0012", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
+      SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0014", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
+    '';
   };
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0012", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
-    SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0014", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
-  '';
-
-  hardware.fw-fanctrl = {
-    enable = true;
-    package = pkgs.fw-fanctrl.overrideAttrs (finalAttrs: prevAttrs: {
-      patches = (prevAttrs.patches or []) ++ [./fw-fanctrl.patch];
-    });
-    config = {
-      defaultStrategy = "lazy";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_zen;
+    supportedFilesystems = {
+      btrfs = true;
+      ntfs = true;
+      zfs = lib.mkForce false;
     };
+    extraModulePackages = with config.boot.kernelPackages;
+      [
+        cpupower
+        framework-laptop-kmod
+      ]
+      ++ [pkgs.cpupower-gui];
   };
 }
