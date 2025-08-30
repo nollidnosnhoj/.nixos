@@ -1,27 +1,25 @@
 {
   inputs,
+  pkgs,
   username,
   ...
 }: {
   nix = {
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     settings = {
-      allowed-users = ["${username}"];
       auto-optimise-store = true;
-      keep-derivations = true;
-      keep-outputs = true;
-      trusted-users = ["root" "@wheel"];
-      accept-flake-config = false;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
+      trusted-users = ["root" "@wheel" "${username}"];
       substituters = [
         "https://cache.nixos.org?priority=10"
         "https://nix-community.cachix.org"
         "https://hyprland.cachix.org"
         "https://niri.cachix.org"
         "https://claude-code.cachix.org"
+        "https://devenv.cachix.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -29,23 +27,37 @@
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         "claude-code.cachix.org-1:YeXf2aNu7UTX8Vwrze0za1WEDS+4DuI2kVeWEE4fsRk="
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
-      download-buffer-size = 524288000;
     };
   };
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      nur = import inputs.nur {
-        nurpkgs = prev;
-        pkgs = prev;
-      };
-    })
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (final: prev: {
+        nur = import inputs.nur {
+          nurpkgs = prev;
+          pkgs = prev;
+        };
+      })
+    ];
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [stdenv.cc.cc];
+  };
+
+  environment.systemPackages = with pkgs; [
+    wget
+    git
+    unzip
+    curl
+    xwayland
+    poweralertd
+    libnotify
   ];
-
-  nixpkgs.config.allowUnfree = true;
-
-  environment.pathsToLink = ["/share/zsh"];
 
   # Set your time zone.
   time.timeZone = "Pacific/Honolulu";

@@ -1,25 +1,19 @@
 {pkgs, ...}: {
   programs.dconf.enable = true;
   programs.zsh.enable = true;
+  services.udev.packages = with pkgs; [
+    qmk-udev-rules
+    yubikey-personalization
+  ];
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
     # pinentryFlavor = "";
   };
+  services.pcscd.enable = true;
   programs.nix-ld.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    unzip
-    curl
-    playerctl
-    base16-schemes
-    pavucontrol
-    xwayland
-    ffmpeg
-    htop
-    poweralertd
-    libnotify
-  ];
+  programs.ssh = {
+    enableAskPassword = true;
+  };
 }

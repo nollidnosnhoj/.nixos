@@ -1,19 +1,18 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ../../modules/home
-    ../../modules/home/editors/rider
-    ./xdg-mimes.nix
   ];
-  services.blueman-applet.enable = true;
-  home.sessionVariables = {
-    EDITOR = "nvim";
+  services = {
+    blueman-applet.enable = true;
+    easyeffects = {
+      enable = true;
+      preset = "easyeffect_fw16";
+    };
   };
 
-  home.packages = with pkgs; [
-    devenv # development envirronment
-    claude-code
-
-    postman
-    libreoffice
-  ];
+  home = {
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
+  };
 }

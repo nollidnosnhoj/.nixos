@@ -1,9 +1,8 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [yazi];
+  home.packages = with pkgs; [ripdrag];
 
   programs.yazi = {
     enable = true;
-    enableBashIntegration = true;
     enableZshIntegration = true;
     settings = {
       manager = {
@@ -38,6 +37,23 @@
         {
           on = ["d"];
           run = "remove --force";
+        }
+        {
+          run = "shell '$SHELL' --block --confirm";
+          on = ["<C-s>"];
+        }
+        {
+          run = ''shell 'ripdrag "$@" -x 2>/dev/null &' --confirm'';
+          on = ["<C-n>"];
+        }
+        {
+          run = [
+            "yank"
+            ''
+              shell --confirm 'for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list'
+            ''
+          ];
+          on = ["y"];
         }
       ];
     };

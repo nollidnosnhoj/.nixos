@@ -7,13 +7,13 @@
     ./editors/neovim
     ./editors/vscode
     ./editors/zed
-    ./flatpak.nix
     ./foot.nix
-    ./git.nix
+    ./git/git.nix
     ./programs
     # ./scripts
     ./shell
     ./stylix.nix
     ./udiskie.nix
+    ./xdg-mimes.nix
   ];
 }

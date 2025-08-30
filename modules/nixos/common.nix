@@ -1,16 +1,22 @@
 {...}: {
   # Place modules you want all x-top machines to have.
   imports = [
-    ./flatpak.nix
+    ./bootloaders/systemd-boot.nix
+    ./greeters/greetd.nix
     ./hardware
-    ./home-manager.nix
     ./nautilus.nix
+    ./network.nix
     ./nh.nix
     ./pipewire.nix
     ./programs.nix
     ./security.nix
+    ./services.nix
+    ./sops.nix
+    ./stylix.nix
     ./system.nix
+    ./user.nix
     ./xdg.nix
     ./xserver.nix
+    ./virtualisation
   ];
 }

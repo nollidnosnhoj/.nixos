@@ -3,10 +3,10 @@ default:
 
 deploy:
   git add .
-  nixos-rebuild switch --flake . --sudo
+  sudo nixos-rebuild switch --flake .
 
 debug:
-  nixos-rebuild switch --flake . --sudo --show-trace --verbose
+  sudo nixos-rebuild switch --flake . --show-trace --verbose
 
 up:
   nix flake update

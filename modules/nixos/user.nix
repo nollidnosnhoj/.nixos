@@ -2,6 +2,7 @@
   config,
   host,
   inputs,
+  pkgs,
   username,
   self,
   ...
@@ -25,4 +26,22 @@
     };
     backupFileExtension = "backup";
   };
+
+  users.users.${username} = {
+    isNormalUser = true;
+    description = "${username}";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "input"
+    ];
+    shell = pkgs.zsh;
+    packages = [
+      inputs.home-manager.packages.${pkgs.system}.default
+    ];
+  };
+
+  nix.settings.allowed-users = ["${username}"];
+  environment.localBinInPath = true;
 }

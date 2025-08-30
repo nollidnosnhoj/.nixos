@@ -1,6 +1,5 @@
 {
   config,
-  host,
   inputs,
   lib,
   pkgs,
@@ -12,10 +11,6 @@
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ../../modules/nixos/common.nix
-    ../../modules/nixos/bootloaders/systemd-boot.nix
-    ../../modules/nixos/greeters/greetd.nix
-    ../../modules/nixos/virtualisation/docker.nix
-    ./stylix.nix
   ];
 
   # enable quickshell for noctalia shell
@@ -35,15 +30,6 @@
   ];
 
   users.users.${username} = {
-    isNormalUser = true;
-    description = "${username}";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "video"
-      "input"
-    ];
-    shell = pkgs.zsh;
     openssh.authorizedKeys = {
       keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEny0zOiDgAoU2RLujAiI/7a3r6RFUOpuGpuNQ4osn97 me@nollidnosnhoj.com"
@@ -59,11 +45,6 @@
     inter
     material-symbols
   ];
-
-  networking = {
-    hostName = "${host}";
-    networkmanager.enable = true;
-  };
 
   nixpkgs.overlays = [
     inputs.claude-code.overlays.default
@@ -111,7 +92,6 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
     supportedFilesystems = {
       btrfs = true;
       ntfs = true;

@@ -8,10 +8,16 @@
     nixd
     alejandra
 
-    gnumake # make command
-
-    go # golang
+    # Golang
+    go
     gopls
+
+    # AI
+    claude-code
+
+    devenv
+    gnumake
+    just
   ];
 
   home.sessionPath = [

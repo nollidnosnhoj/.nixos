@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
@@ -19,8 +20,6 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
@@ -49,6 +48,7 @@
     self,
     home-manager,
     stylix,
+    chaotic,
     ...
   } @ inputs: let
     defaultModules = [
@@ -59,6 +59,7 @@
       }
       home-manager.nixosModules.home-manager
       stylix.nixosModules.stylix
+      chaotic.nixosModules.default
       {
         nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
         nixpkgs = {

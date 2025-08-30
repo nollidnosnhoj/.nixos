@@ -10,5 +10,9 @@
     gnome-calendar # calendar
 
     bitwarden # password manager
+
+    libreoffice
+    obsidian
+    pavucontrol
   ];
 }
