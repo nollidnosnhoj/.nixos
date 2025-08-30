@@ -12,6 +12,7 @@
     imv # image viewer
     jq # JSON processor
     killall
+    lsd # modern ls
     man-pages # extra man pages
     mimeo
     mpv # video player

@@ -1,7 +1,6 @@
 {lib, ...}:
 with lib; let
   defaultApps = {
-    browser = ["firefox.desktop"];
     text = ["org.gnome.TextEditor.desktop"];
     image = ["imv-dir.desktop"];
     audio = ["mpv.desktop"];
@@ -43,13 +42,6 @@ with lib; let
       "video/x-flv"
       "video/x-matroska"
       "video/x-msvideo"
-    ];
-    browser = [
-      "text/html"
-      "x-scheme-handler/about"
-      "x-scheme-handler/http"
-      "x-scheme-handler/https"
-      "x-scheme-handler/unknown"
     ];
     pdf = ["application/pdf"];
     terminal = ["terminal"];

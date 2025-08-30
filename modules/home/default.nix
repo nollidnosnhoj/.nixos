@@ -1,7 +1,7 @@
 {...}: {
   # Place modules that will be used in all x-top machines
   imports = [
-    ./browsers/firefox.nix
+    ./browsers/zen.nix
     ./desktop
     ./discord.nix
     ./editors/neovim
@@ -10,7 +10,7 @@
     ./foot.nix
     ./git/git.nix
     ./programs
-    # ./scripts
+    ./scripts
     ./shell
     ./stylix.nix
     ./udiskie.nix

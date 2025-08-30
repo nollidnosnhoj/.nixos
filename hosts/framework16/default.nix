@@ -72,9 +72,13 @@
     power-profiles-daemon.enable = true;
 
     logind = {
-      powerKey = "suspend";
-      lidSwitch = "suspend";
-      lidSwitchExternalPower = "lock";
+      settings = {
+        Login = {
+          HandleLidSwitchExternalPower = "lock";
+          HandleLidSwitch = "suspend";
+          HandlePowerKey = "suspend";
+        };
+      };
     };
 
     upower = {
