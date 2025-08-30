@@ -9,7 +9,6 @@
     ../../options.nix
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-    inputs.fw-fanctrl.nixosModules.default
     ../../modules/nixos/common.nix
     ../../modules/nixos/bootloaders/systemd-boot.nix
     ../../modules/nixos/greeters/greetd.nix
@@ -96,42 +95,13 @@
     SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0014", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
   '';
 
-  programs.fw-fanctrl = {
+  hardware.fw-fanctrl = {
     enable = true;
+    package = pkgs.fw-fanctrl.overrideAttrs (finalAttrs: prevAttrs: {
+      patches = (prevAttrs.patches or []) ++ [./fw-fanctrl.patch];
+    });
     config = {
       defaultStrategy = "lazy";
-      strategies = {
-        "lazy" = {
-          fanSpeedUpdateFrequency = 5;
-          movingAverageInterval = 30;
-          speedCurve = [
-            {
-              temp = 0;
-              speed = 15;
-            }
-            {
-              temp = 50;
-              speed = 15;
-            }
-            {
-              temp = 65;
-              speed = 25;
-            }
-            {
-              temp = 70;
-              speed = 35;
-            }
-            {
-              temp = 75;
-              speed = 50;
-            }
-            {
-              temp = 85;
-              speed = 100;
-            }
-          ];
-        };
-      };
     };
   };
 }

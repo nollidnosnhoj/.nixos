@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.dconf.enable = true;
   programs.zsh.enable = true;
   programs.gnupg.agent = {
@@ -17,7 +13,6 @@
     git
     unzip
     curl
-    inputs.swww.packages.${system}.swww
     playerctl
     base16-schemes
     pavucontrol

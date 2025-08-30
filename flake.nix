@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
@@ -11,11 +12,6 @@
     };
 
     claude-code.url = "github:sadjow/claude-code-nix";
-
-    fw-fanctrl = {
-      url = "github:TamtamHero/fw-fanctrl/packaging/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     hyprland.url = "github:hyprwm/Hyprland";
 
@@ -43,8 +39,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    swww.url = "github:LGFae/swww";
 
     nixcord.url = "github:kaylorben/nixcord";
     nvf.url = "github:notashelf/nvf";
