@@ -1,7 +1,13 @@
-{nixosConfig, ...}: let
+{
+  nixosConfig,
+  lib,
+  pkgs,
+  ...
+}: let
   inputCfg = nixosConfig.custom.input;
 in {
   programs.niri.settings = {
+    xwayland-satellite.path = "${lib.getExe pkgs.xwayland-satellite}";
     input = {
       keyboard.xkb.layout = "us";
       keyboard.numlock = true;
