@@ -13,7 +13,7 @@
   ];
 
   home.packages = with pkgs; [
-    xwayland-satellite
+    xwayland-satellite-stable
     slurp
     wl-clipboard
     wl-clip-persist

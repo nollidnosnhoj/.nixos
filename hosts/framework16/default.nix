@@ -47,7 +47,6 @@
   ];
 
   nixpkgs.overlays = [
-    inputs.niri.overlays.niri
     inputs.claude-code.overlays.default
     inputs.nix-vscode-extensions.overlays.default
   ];

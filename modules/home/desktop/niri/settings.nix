@@ -7,7 +7,7 @@
   inputCfg = nixosConfig.custom.input;
 in {
   programs.niri.settings = {
-    xwayland-satellite.path = "${lib.getExe pkgs.xwayland-satellite}";
+    xwayland-satellite.path = "${lib.getExe pkgs.xwayland-satellite-stable}";
     input = {
       keyboard.xkb.layout = "us";
       keyboard.numlock = true;

@@ -2,6 +2,7 @@
   # Place modules you want all x-top machines to have.
   imports = [
     ./bootloaders/systemd-boot.nix
+    ./desktop.nix
     ./greeters/greetd.nix
     ./hardware
     ./nautilus.nix
@@ -15,7 +16,6 @@
     ./stylix.nix
     ./system.nix
     ./user.nix
-    ./xdg.nix
     ./xserver.nix
     ./virtualisation
   ];
