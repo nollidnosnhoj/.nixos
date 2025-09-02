@@ -1,11 +1,8 @@
 {
-  nixosConfig,
   lib,
   pkgs,
   ...
-}: let
-  inputCfg = nixosConfig.custom.input;
-in {
+}: {
   programs.niri.settings = {
     xwayland-satellite.path = "${lib.getExe pkgs.xwayland-satellite-stable}";
     input = {
@@ -24,7 +21,6 @@ in {
       };
       mouse = {
         accel-profile = "flat";
-        accel-speed = inputCfg.mouse-sensivity;
         scroll-factor = 1.5;
       };
       focus-follows-mouse.enable = true;

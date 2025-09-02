@@ -6,6 +6,7 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -56,47 +57,75 @@
     home-manager,
     stylix,
     chaotic,
+    nur,
+    nixos-hardware,
+    nixos-wsl,
     ...
   } @ inputs: let
-    defaultModules = [
-      {
-        _module.args = {
-          inherit inputs;
-        };
-      }
-      home-manager.nixosModules.home-manager
-      stylix.nixosModules.stylix
-      chaotic.nixosModules.default
-      {
-        nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-        nixpkgs = {
-          config = {
-            allowUnfree = true;
+    nixpkgsWithOverlays = system: (import nixpkgs rec {
+      inherit system;
+
+      config = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          # FIXME:: add any insecure packages you absolutely need here
+        ];
+      };
+
+      overlays = [
+        nur.overlays.default
+
+        (final: prev: {
+          nur = import inputs.nur {
+            nurpkgs = prev;
+            pkgs = prev;
           };
-        };
+        })
+      ];
+    });
 
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          backupFileExtension = "backup";
-        };
-      }
-    ];
+    argDefaults = {
+      inherit inputs self;
+    };
 
-    mkSystem = host: username: extraModules:
+    mkNixosConfiguration = {
+      system ? "x86_64-linux",
+      host,
+      username,
+      args ? {},
+      modules,
+    }: let
+      specialArgs = argDefaults // {inherit host username;} // args;
+    in
       nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = defaultModules ++ extraModules;
-        specialArgs = {
-          inherit self inputs host username;
-        };
+        inherit system specialArgs;
+        pkgs = nixpkgsWithOverlays system;
+        modules =
+          [
+            home-manager.nixosModules.home-manager
+          ]
+          ++ modules;
       };
   in {
-    nixosModules.default = {...}: {
-      imports = defaultModules ++ [./modules];
-    };
     nixosConfigurations = {
-      framework16 = mkSystem "framework16" "kopa" [./hosts/framework16];
+      framework16 = mkNixosConfiguration {
+        host = "framework16";
+        username = "kopa";
+        modules = [
+          stylix.nixosModules.stylix
+          chaotic.nixosModules.default
+          nixos-hardware.nixosModules.framework-16-7040-amd
+          ./hosts/framework16
+        ];
+      };
+      wsl = mkNixosConfiguration {
+        host = "wsl";
+        username = "kopa";
+        modules = [
+          nixos-wsl.nixosModules.wsl
+          ./hosts/wsl
+        ];
+      };
     };
   };
 }

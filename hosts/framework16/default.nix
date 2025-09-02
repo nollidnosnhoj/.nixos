@@ -7,9 +7,7 @@
   ...
 }: {
   imports = [
-    ../../options.nix
     ./hardware-configuration.nix
-    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ../../modules/nixos/common.nix
   ];
 
