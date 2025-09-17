@@ -3,7 +3,7 @@
   username,
   ...
 }: {
-  imports = [./docker.nix];
+  imports = [./podman.nix];
   # Add user to libvirtd group
   users.users.${username}.extraGroups = ["libvirtd"];
 
@@ -17,6 +17,8 @@
     win-virtio
     win-spice
     adwaita-icon-theme
+    distrobox
+    distrobox-tui
   ];
 
   # Manage the virtualisation services

@@ -9,6 +9,7 @@
     alejandra
 
     # Golang
+    gcc
     go
     gopls
 
@@ -18,6 +19,10 @@
     devenv
     gnumake
     just
+
+    # kubernetes
+    kubectl
+    minikube
   ];
 
   home.sessionPath = [
