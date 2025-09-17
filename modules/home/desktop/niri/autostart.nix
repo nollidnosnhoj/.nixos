@@ -1,7 +1,7 @@
 {...}: {
   programs.niri.settings.spawn-at-startup = [
     {command = ["xwayland-satellite"];}
-    {command = ["qs"];}
+    {command = ["noctalia-shell"];}
     {command = ["swww-daemon"];}
   ];
 }

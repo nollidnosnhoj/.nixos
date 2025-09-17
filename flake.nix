@@ -6,7 +6,6 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -27,12 +26,14 @@
     nur.url = "github:nix-community/NUR";
 
     quickshell = {
-      # add ?ref=<tag> to track a tag
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-
-      # THIS IS IMPORTANT
-      # Mismatched system dependencies will lead to crashes and other issues.
+      url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
     };
 
     stylix = {
@@ -57,75 +58,47 @@
     home-manager,
     stylix,
     chaotic,
-    nur,
-    nixos-hardware,
-    nixos-wsl,
     ...
   } @ inputs: let
-    nixpkgsWithOverlays = system: (import nixpkgs rec {
-      inherit system;
-
-      config = {
-        allowUnfree = true;
-        permittedInsecurePackages = [
-          # FIXME:: add any insecure packages you absolutely need here
-        ];
-      };
-
-      overlays = [
-        nur.overlays.default
-
-        (final: prev: {
-          nur = import inputs.nur {
-            nurpkgs = prev;
-            pkgs = prev;
+    defaultModules = [
+      {
+        _module.args = {
+          inherit inputs;
+        };
+      }
+      home-manager.nixosModules.home-manager
+      stylix.nixosModules.stylix
+      chaotic.nixosModules.default
+      {
+        nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+        nixpkgs = {
+          config = {
+            allowUnfree = true;
           };
-        })
-      ];
-    });
+        };
 
-    argDefaults = {
-      inherit inputs self;
-    };
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "backup";
+        };
+      }
+    ];
 
-    mkNixosConfiguration = {
-      system ? "x86_64-linux",
-      host,
-      username,
-      args ? {},
-      modules,
-    }: let
-      specialArgs = argDefaults // {inherit host username;} // args;
-    in
+    mkSystem = host: username: extraModules:
       nixpkgs.lib.nixosSystem {
-        inherit system specialArgs;
-        pkgs = nixpkgsWithOverlays system;
-        modules =
-          [
-            home-manager.nixosModules.home-manager
-          ]
-          ++ modules;
+        system = "x86_64-linux";
+        modules = defaultModules ++ extraModules;
+        specialArgs = {
+          inherit self inputs host username;
+        };
       };
   in {
+    nixosModules.default = {...}: {
+      imports = defaultModules ++ [./modules];
+    };
     nixosConfigurations = {
-      framework16 = mkNixosConfiguration {
-        host = "framework16";
-        username = "kopa";
-        modules = [
-          stylix.nixosModules.stylix
-          chaotic.nixosModules.default
-          nixos-hardware.nixosModules.framework-16-7040-amd
-          ./hosts/framework16
-        ];
-      };
-      wsl = mkNixosConfiguration {
-        host = "wsl";
-        username = "kopa";
-        modules = [
-          nixos-wsl.nixosModules.wsl
-          ./hosts/wsl
-        ];
-      };
+      framework16 = mkSystem "framework16" "kopa" [./hosts/framework16];
     };
   };
 }

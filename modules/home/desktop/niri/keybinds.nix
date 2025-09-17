@@ -13,10 +13,10 @@ in {
       # App shortcuts
       "Mod+Return".action = spawn apps.terminal;
       "Mod+B".action = spawn apps.browser;
-      "Mod+Space".action = spawn ["qs" "ipc" "call" "appLauncher" "toggle"];
+      "Mod+Space".action = spawn "noctalia-shell" "ipc" "call" "launcher" "toggle";
       "Mod+E".action = spawn apps.file-manager;
-      "Mod+Alt+L".action = spawn ["qs" "ipc" "call" "lockScreen" "toggle"];
-      "Ctrl+Alt+Delete".action = spawn ["qs" "ipc" "call" "powerPanel" "toggle"];
+      "Mod+Alt+L".action = spawn "noctalia-shell" "ipc" "call" "lockScreen" "toggle";
+      "Ctrl+Alt+Delete".action = spawn "noctalia-shell" "ipc" "call" "powerPanel" "toggle";
 
       "Mod+Q".action = close-window;
 
@@ -93,34 +93,34 @@ in {
 
       # volumes
       "XF86AudioRaiseVolume" = {
-        action = spawn "${pkgs.wireplumber}/bin/wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
+        action = spawn "noctalia-shell" "ipc" "call" "volume" "increase";
         allow-when-locked = true;
         repeat = false;
       };
       "XF86AudioLowerVolume" = {
-        action = spawn "${pkgs.wireplumber}/bin/wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
+        action = spawn "noctalia-shell" "ipc" "call" "volume" "decrease";
         allow-when-locked = true;
         repeat = false;
       };
       "XF86AudioMute" = {
-        action = spawn "${pkgs.wireplumber}/bin/wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+        action = spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput";
         allow-when-locked = true;
         repeat = false;
       };
       "XF86AudioMicMute" = {
-        action = spawn "${pkgs.wireplumber}/bin/wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+        action = spawn "noctalia-shell" "ipc" "call" "volume" "muteInput";
         allow-when-locked = true;
         repeat = false;
       };
 
       # brightness
       "XF86MonBrightnessUp" = {
-        action = spawn "${pkgs.light}/bin/light" "-A" "5";
+        action = spawn "noctalia-shell" "ipc" "call" "brightness" "increase";
         allow-when-locked = true;
         repeat = false;
       };
       "XF86MonBrightnessDown" = {
-        action = spawn "${pkgs.light}/bin/light" "-U" "5";
+        action = spawn "noctalia-shell" "ipc" "call" "brightness" "decrease";
         allow-when-locked = true;
         repeat = false;
       };
