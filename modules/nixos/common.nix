@@ -1,13 +1,12 @@
 {...}: {
   # Place modules you want all x-top machines to have.
   imports = [
-    ./bootloaders/systemd-boot.nix
+    ./boot
     ./desktop.nix
-    ./greeters/greetd.nix
+    ./greetd.nix
     ./hardware
     ./nautilus.nix
     ./network.nix
-    ./nh.nix
     ./pipewire.nix
     ./programs.nix
     ./security.nix

@@ -14,9 +14,6 @@
 
   home.packages = with pkgs; [
     xwayland-satellite-stable
-    slurp
-    wl-clipboard
-    wl-clip-persist
     grim
   ];
 

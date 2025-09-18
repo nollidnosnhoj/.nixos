@@ -24,4 +24,14 @@
       xdg-desktop-portal-gnome
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+    pamixer
+    playerctl
+    slurp
+    wl-clipboard
+    wl-clip-persist
+    pavucontrol
+    blueman
+  ];
 }

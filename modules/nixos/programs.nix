@@ -11,7 +11,6 @@
     # pinentryFlavor = "";
   };
   services.pcscd.enable = true;
-  programs.nix-ld.enable = true;
 
   programs.ssh = {
     enableAskPassword = true;

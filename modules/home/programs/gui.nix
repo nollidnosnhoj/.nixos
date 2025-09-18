@@ -11,8 +11,7 @@
 
     bitwarden # password manager
 
-    libreoffice
-    obsidian
-    pavucontrol
+    libreoffice # office
+    obsidian # note taking app
   ];
 }

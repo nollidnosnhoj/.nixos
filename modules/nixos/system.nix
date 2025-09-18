@@ -7,6 +7,7 @@
   nix = {
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     settings = {
+      download-buffer-size = 52428800;
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
@@ -44,6 +45,15 @@
     ];
   };
 
+  programs.nh = {
+    enable = true;
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 5";
+    };
+    flake = "/home/${username}/.nixos";
+  };
+
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [stdenv.cc.cc];
@@ -57,7 +67,18 @@
     xwayland
     poweralertd
     libnotify
+    nix-output-monitor
+    nvd
   ];
+
+  zramSwap = {
+    enable = true;
+    algorithm = "lz4";
+  };
+
+  # Avoid freezing the system under memory pressure
+  services.earlyoom.enable = true;
+  services.earlyoom.enableNotifications = true; # Possible DoS vector if untrusted users on same pc.
 
   # Set your time zone.
   time.timeZone = "Pacific/Honolulu";

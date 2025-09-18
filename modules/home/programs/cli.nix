@@ -15,14 +15,19 @@
     lsd # modern ls
     man-pages # extra man pages
     mimeo
-    mpv # video player
+    (mpv.override {
+      scripts = [
+        mpvScripts.uosc
+        mpvScripts.thumbfast
+        mpvScripts.mpris
+      ];
+    })
     ncdu # disk space
     openssl
     onefetch # fetch utility for git repo
-    pamixer # pulseaudio cli mixer
-    playerctl
     ripgrep # grep replacement
     shfmt # bash formatter
+    superfile
     tdf # cli pdf viewer
     treefmt # project formatter
     tldr

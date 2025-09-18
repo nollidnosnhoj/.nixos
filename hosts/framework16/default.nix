@@ -11,10 +11,7 @@
     ../../modules/nixos/common.nix
   ];
 
-  # enable quickshell for noctalia shell
   environment.systemPackages = [
-    inputs.noctalia.packages.${pkgs.system}.default
-    inputs.quickshell.packages.${pkgs.system}.default
     pkgs.framework-tool
     pkgs.cpupower-gui
   ];
@@ -42,7 +39,6 @@
   ];
 
   hardware = {
-    bluetooth.enable = true;
     fw-fanctrl = {
       enable = true;
       config = {
