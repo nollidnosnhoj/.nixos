@@ -14,8 +14,6 @@
 
     claude-code.url = "github:sadjow/claude-code-nix";
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";

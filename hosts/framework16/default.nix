@@ -14,16 +14,7 @@
   # enable quickshell for noctalia shell
   environment.systemPackages = [
     inputs.noctalia.packages.${pkgs.system}.default
-    (inputs.quickshell.packages.${pkgs.system}.default.override {
-      withJemalloc = true;
-      withQtSvg = true;
-      withWayland = true;
-      withX11 = false;
-      withPipewire = true;
-      withPam = true;
-      withHyprland = true;
-      withI3 = false;
-    })
+    inputs.quickshell.packages.${pkgs.system}.default
     pkgs.framework-tool
     pkgs.cpupower-gui
   ];
