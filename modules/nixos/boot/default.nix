@@ -3,14 +3,19 @@
   host,
   lib,
   pkgs,
+  self,
   ...
 }: {
-  stylix.targets.plymouth.enable = true;
+  stylix.targets.plymouth = {
+    enable = true;
+    logo = "${self}/.assets/NixOS.png";
+    logoAnimated = true;
+  };
 
   boot.plymouth = {
     enable = true;
-    theme = lib.mkForce "dark_planet";
-    themePackages = [pkgs.adi1090x-plymouth-themes];
+    # theme = lib.mkForce "dark_planet";
+    # themePackages = [pkgs.adi1090x-plymouth-themes];
   };
 
   boot.loader.systemd-boot.enable = true;
