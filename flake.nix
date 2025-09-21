@@ -17,8 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-
     nur.url = "github:nix-community/NUR";
 
     quickshell = {
@@ -52,33 +50,10 @@
     nixpkgs,
     self,
     home-manager,
-    stylix,
-    chaotic,
     ...
   } @ inputs: let
     defaultModules = [
-      {
-        _module.args = {
-          inherit inputs;
-        };
-      }
       home-manager.nixosModules.home-manager
-      stylix.nixosModules.stylix
-      chaotic.nixosModules.default
-      {
-        nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-        nixpkgs = {
-          config = {
-            allowUnfree = true;
-          };
-        };
-
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          backupFileExtension = "backup";
-        };
-      }
     ];
 
     mkSystem = host: username: extraModules:
@@ -90,9 +65,6 @@
         };
       };
   in {
-    nixosModules.default = {...}: {
-      imports = defaultModules ++ [./modules];
-    };
     nixosConfigurations = {
       framework16 = mkSystem "framework16" "kopa" [./hosts/framework16];
     };
