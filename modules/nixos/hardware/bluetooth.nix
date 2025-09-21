@@ -14,5 +14,5 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [blueman];
+  services.blueman.enable = true;
 }

@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
@@ -7,13 +6,13 @@
   ...
 }: {
   imports = [
+    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ./hardware-configuration.nix
     ../../modules/nixos
   ];
 
   environment.systemPackages = [
     pkgs.framework-tool
-    pkgs.cpupower-gui
   ];
 
   users.users.${username} = {
@@ -34,7 +33,6 @@
   ];
 
   nixpkgs.overlays = [
-    inputs.claude-code.overlays.default
     inputs.nix-vscode-extensions.overlays.default
   ];
 
@@ -46,6 +44,7 @@
       };
     };
     keyboard.qmk.enable = true;
+    inputmodule.enable = true;
   };
 
   services = {
@@ -84,11 +83,5 @@
       ntfs = true;
       zfs = lib.mkForce false;
     };
-    extraModulePackages = with config.boot.kernelPackages;
-      [
-        cpupower
-        framework-laptop-kmod
-      ]
-      ++ [pkgs.cpupower-gui];
   };
 }

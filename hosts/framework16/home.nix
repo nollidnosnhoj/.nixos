@@ -3,7 +3,6 @@
     ../../modules/home
   ];
   services = {
-    blueman-applet.enable = true;
     easyeffects = {
       enable = true;
       preset = "easyeffect_fw16";
