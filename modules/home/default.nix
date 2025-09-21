@@ -2,7 +2,6 @@
   # Place modules that will be used in all x-top machines
   imports = [
     ./browsers/zen.nix
-    ./desktop
     ./discord.nix
     ./editors/neovim
     ./editors/vscode

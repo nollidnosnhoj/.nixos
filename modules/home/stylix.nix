@@ -1,4 +1,10 @@
-{...}: {
-  stylix.iconTheme.dark = "Papirus-Dark";
-  stylix.iconTheme.light = "Papirus";
+{pkgs, ...}: {
+  stylix = {
+    iconTheme = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus";
+    };
+  };
 }

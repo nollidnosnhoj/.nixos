@@ -1,11 +1,28 @@
 {
   inputs,
   pkgs,
+  username,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite-unstable
+    grim
+    pamixer
+    playerctl
+    slurp
+    wl-clipboard
+    wl-clip-persist
+  ];
+
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri-unstable;
+  };
+
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
   ];
+
   xdg.portal = {
     enable = true;
     config = {
@@ -25,13 +42,14 @@
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    pamixer
-    playerctl
-    slurp
-    wl-clipboard
-    wl-clip-persist
-    pavucontrol
-    blueman
-  ];
+  home-manager.users.${username} = {...}: {
+    imports = [
+      inputs.niri.homeModules.config
+      inputs.niri.homeModules.stylix
+      ./environments.nix
+      ./keybinds.nix
+      ./rules.nix
+      ./settings.nix
+    ];
+  };
 }

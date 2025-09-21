@@ -13,4 +13,6 @@
       KernelExperimental = "true";
     };
   };
+
+  environment.systemPackages = with pkgs; [blueman];
 }

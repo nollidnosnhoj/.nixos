@@ -4,7 +4,17 @@
   ...
 }: {
   programs.niri.settings = {
-    xwayland-satellite.path = "${lib.getExe pkgs.xwayland-satellite-stable}";
+    spawn-at-startup = [
+      {
+        command = [
+          "noctalia-shell"
+        ];
+      }
+    ];
+    xwayland-satellite = {
+      enable = true;
+      path = "${lib.getExe pkgs.xwayland-satellite-unstable}";
+    };
     input = {
       keyboard.xkb.layout = "us";
       keyboard.numlock = true;

@@ -1,5 +1,4 @@
 {
-  config,
   host,
   inputs,
   pkgs,
@@ -15,7 +14,6 @@
     useUserPackages = true;
     extraSpecialArgs = {
       inherit inputs username host self;
-      nixosConfig = config;
     };
     users.${username} = {
       home.username = "${username}";
