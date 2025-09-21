@@ -41,7 +41,7 @@
     fw-fanctrl = {
       enable = true;
       config = {
-        defaultStrategy = "lazy";
+        defaultStrategy = "medium";
       };
     };
     keyboard.qmk.enable = true;
