@@ -5,7 +5,8 @@
     ./boot
     ./desktop/niri
     ./desktop/noctalia.nix
-    ./greetd.nix
+    ./desktop/gdm.nix
+    ./desktop/gnome.nix
     ./hardware
     ./nautilus.nix
     ./network.nix
