@@ -9,6 +9,7 @@
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ./hardware-configuration.nix
     ../../modules/nixos
+    ./theme.nix
   ];
 
   environment.systemPackages = [

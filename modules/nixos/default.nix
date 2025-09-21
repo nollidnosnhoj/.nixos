@@ -13,7 +13,6 @@
     ./security.nix
     ./services.nix
     ./sops.nix
-    ./stylix.nix
     ./system.nix
     ./user.nix
     ./xserver.nix

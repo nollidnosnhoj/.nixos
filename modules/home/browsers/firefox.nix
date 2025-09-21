@@ -135,6 +135,4 @@
       };
     };
   };
-
-  stylix.targets.firefox.profileNames = ["kopa"];
 }

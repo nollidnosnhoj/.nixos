@@ -1,14 +1,4 @@
-{
-  pkgs,
-  self,
-  ...
-}: {
-  stylix.targets.plymouth = {
-    enable = true;
-    logo = "${self}/.assets/NixOS.png";
-    logoAnimated = true;
-  };
-
+{pkgs, ...}: {
   boot = {
     plymouth.enable = true;
     loader = {

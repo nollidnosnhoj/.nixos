@@ -1,8 +1,6 @@
-{config, ...}: let
-  colors = config.lib.stylix.colors.withHashtag;
-in {
+{...}: {
   programs.niri.settings = {
-    window-rules = with colors; [
+    window-rules = [
       {
         geometry-corner-radius = let
           radius = 20.0;
@@ -27,10 +25,6 @@ in {
             is-window-cast-target = true;
           }
         ];
-        tab-indicator = {
-          active.color = base0D;
-          inactive.color = base03;
-        };
       }
       {
         matches = [
