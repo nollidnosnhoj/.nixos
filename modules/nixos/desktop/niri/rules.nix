@@ -98,10 +98,6 @@
           {title = "Warning";}
           {title = "Error";}
           {title = "Extension:";}
-          {
-            title = "Welcome to JetBrains Rider";
-            app-id = "jetbrains-rider";
-          }
         ];
         open-floating = true;
       }
@@ -109,10 +105,6 @@
         matches = [{app-id = "vesktop";}];
         open-maximized = true;
         open-on-output = "eDP-1";
-      }
-      {
-        matches = [{app-id = "jetbrains-rider";}];
-        open-maximized = true;
       }
     ];
     layer-rules = [

@@ -19,10 +19,6 @@
     devenv
     gnumake
     just
-
-    # kubernetes
-    kubectl
-    minikube
   ];
 
   home.sessionPath = [
