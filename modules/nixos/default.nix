@@ -3,12 +3,8 @@
   imports = [
     ./audio.nix
     ./boot
-    ./desktop/niri
-    ./desktop/noctalia.nix
-    ./desktop/gdm.nix
-    ./desktop/gnome.nix
+    ./desktop
     ./hardware
-    ./nautilus.nix
     ./network.nix
     ./programs.nix
     ./security.nix

@@ -20,6 +20,7 @@
     };
     keyboard.qmk.enable = true;
     inputmodule.enable = true;
+    framework.enableKmod = false;
   };
 
   services = {

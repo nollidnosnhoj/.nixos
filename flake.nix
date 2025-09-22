@@ -50,10 +50,12 @@
     nixpkgs,
     self,
     home-manager,
+    chaotic,
     ...
   } @ inputs: let
     defaultModules = [
       home-manager.nixosModules.home-manager
+      chaotic.nixosModules.default
     ];
 
     mkSystem = host: username: extraModules:

@@ -6,6 +6,9 @@
       core-developer-tools.enable = false;
       games.enable = false;
     };
+    udev.packages = with pkgs; [
+      gnome-settings-daemon
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -16,6 +19,7 @@
     gnomeExtensions.vertical-workspaces
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.dash-to-panel
+    gnomeExtensions.appindicator
     dconf
     dconf-editor
   ];
