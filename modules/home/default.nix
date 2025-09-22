@@ -7,7 +7,7 @@
     ./editors/vscode
     ./editors/zed
     ./foot.nix
-    ./git/git.nix
+    ./git.nix
     ./programs
     ./scripts
     ./shell

@@ -25,4 +25,14 @@
       zfs = lib.mkForce false;
     };
   };
+
+  # Set your time zone.
+  time.timeZone = "Pacific/Honolulu";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 }

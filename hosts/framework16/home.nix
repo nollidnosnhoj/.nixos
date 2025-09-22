@@ -12,6 +12,9 @@
   home = {
     sessionVariables = {
       EDITOR = "nvim";
+      BROWSER = "zen-twilight";
+      TERMINAL = "foot";
+      NIXOS_OZONE_WL = "1";
     };
   };
 }
