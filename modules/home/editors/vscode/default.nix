@@ -8,7 +8,7 @@
     enable = true;
     package = pkgs.vscode;
     profiles.default = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         # Languages
         jnoortheen.nix-ide
         arrterian.nix-env-selector

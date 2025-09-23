@@ -23,8 +23,8 @@ in {
 
     "Mod+Space".action.spawn = noctalia "launcher toggle";
     "Mod+Alt+L".action.spawn = noctalia "lockScreen toggle";
-    "Mod+P".action.spawn = noctalia "powerPanel toggle";
-    "Mod+S".action.spawn = noctalia "sidePanel toggle";
+    "Mod+P".action.spawn = noctalia "sessionMenu toggle";
+    "Mod+S".action.spawn = noctalia "controlCenter toggle";
     "Mod+Comma".action.spawn = noctalia "settings toggle";
 
     "Mod+Q".action = close-window;
