@@ -17,4 +17,11 @@
       NIXOS_OZONE_WL = "1";
     };
   };
+
+  programs.keychain = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    keys = [ "id_ed25519" ];
+  };
 }
