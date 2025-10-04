@@ -6,6 +6,7 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -105,6 +106,7 @@
   in {
     nixosConfigurations = {
       framework16 = mkSystem "framework16" "kopa" [./hosts/framework16];
+      wsl = mkSystem "wsl" "kopa" [./hosts/wsl];
     };
   };
 }

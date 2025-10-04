@@ -13,5 +13,8 @@
 
     libreoffice # office
     obsidian # note taking app
+    
+    sqlitebrowser
+    postman # REST API testing
   ];
 }

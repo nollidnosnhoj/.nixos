@@ -39,8 +39,6 @@
     gnumake
     just
     markdown-oxide # markdown LSP
-    sqlitebrowser
-    postman # REST API testing
   ];
 
   home.sessionPath = [
