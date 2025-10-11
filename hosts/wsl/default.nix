@@ -10,8 +10,10 @@
 in {
   imports = [
     inputs.nixos-wsl.nixosModules.default
+    inputs.stylix.nixosModules.stylix
     ../../modules/nixos/nix.nix
     ../../modules/nixos/user.nix
+    ./theme.nix
   ];
 
   wsl = {
