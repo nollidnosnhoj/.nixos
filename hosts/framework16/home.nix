@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   imports = [
     ../../modules/home
   ];
@@ -10,9 +10,6 @@
   };
 
   home = {
-    file.".config/noctalia" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixos/hosts/framework16/.config/noctalia";
-    };
     sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "zen-twilight";
