@@ -1,4 +1,4 @@
-{config,host,self,...}: {
+{config, ...}: {
   imports = [
     ../../modules/home
   ];
@@ -10,9 +10,8 @@
   };
 
   home = {
-    file."${config.home.homeDirectory}/" = {
-      source = "${self}/hosts/${host}/.config";
-      recursive = true;
+    file.".config/noctalia" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixos/hosts/framework16/.config/noctalia";
     };
     sessionVariables = {
       EDITOR = "nvim";
@@ -26,6 +25,6 @@
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    keys = [ "id_ed25519" ];
+    keys = ["id_ed25519"];
   };
 }
