@@ -1,5 +1,6 @@
 {
   self,
+  lib,
   pkgs,
   username,
   ...
@@ -41,6 +42,8 @@
     logo = "${self}/.assets/NixOS.png";
     logoAnimated = true;
   };
+
+  stylix.targets.qt.platform = lib.mkForce "qtct";
 
   home-manager.users.${username} = {
     stylix = {
