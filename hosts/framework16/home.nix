@@ -1,4 +1,4 @@
-{...}: {
+{config,host,self,...}: {
   imports = [
     ../../modules/home
   ];
@@ -10,6 +10,10 @@
   };
 
   home = {
+    file."${config.home.homeDirectory}/" = {
+      source = "${self}/hosts/${host}/.config";
+      recursive = true;
+    };
     sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "zen-twilight";
