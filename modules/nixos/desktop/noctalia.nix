@@ -7,7 +7,7 @@
 }: let
   profilePicture = "${self}/.assets/profile.png";
   wallpaperDir = "${self}/.assets/wallpapers";
-  # wallpaper = "${self}/.assets/wallpapers/wallhaven-k8w7dq.png";
+  wallpaper = "${self}/.assets/wallpapers/wallhaven-k8w7dq.png";
 in {
   # systemd
   imports = [
@@ -196,18 +196,18 @@ in {
         enabled = true;
         fillColor = "#000000";
         fillMode = "crop";
-        # monitors = [
-        #   {
-        #     directory = wallpaperDir;
-        #     name = "eDP-1";
-        #     wallpaper = wallpaper;
-        #   }
-        #   {
-        #     directory = wallpaperDir;
-        #     name = "DP-2";
-        #     wallpaper = wallpaper;
-        #   }
-        # ];
+        monitors = [
+          {
+            directory = wallpaperDir;
+            name = "eDP-1";
+            wallpaper = wallpaper;
+          }
+          {
+            directory = wallpaperDir;
+            name = "DP-2";
+            wallpaper = wallpaper;
+          }
+        ];
         randomEnabled = false;
         randomIntervalSec = 300;
         setWallpaperOnAllMonitors = true;
