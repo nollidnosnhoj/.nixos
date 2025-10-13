@@ -8,6 +8,15 @@
     evince # pdf
     gnome-text-editor # gedit
     gnome-calendar # calendar
+    
+    imv # image viewer
+    (mpv.override {
+      scripts = [
+        mpvScripts.uosc
+        mpvScripts.thumbfast
+        mpvScripts.mpris
+      ];
+    }) # media player
 
     bitwarden # password manager
 

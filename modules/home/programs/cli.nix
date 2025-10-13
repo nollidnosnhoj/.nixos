@@ -9,19 +9,11 @@
     file # Show file information
     gtrash # rm replacement, put deleted files in system trash
     imagemagick
-    imv # image viewer
     jq # JSON processor
     killall
     lsd # modern ls
     man-pages # extra man pages
     mimeo
-    (mpv.override {
-      scripts = [
-        mpvScripts.uosc
-        mpvScripts.thumbfast
-        mpvScripts.mpris
-      ];
-    })
     ncdu # disk space
     openssl
     onefetch # fetch utility for git repo
