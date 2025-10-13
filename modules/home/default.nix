@@ -4,6 +4,7 @@
     ./browsers/zen.nix
     ./discord.nix
     ./editors/neovim
+    ./editors/rider
     ./editors/vscode
     ./editors/zed
     ./foot.nix

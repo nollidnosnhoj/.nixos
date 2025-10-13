@@ -16,9 +16,6 @@
     go
     gopls
 
-    # .NET
-    dotnet-sdk_9
-
     # Javascript/Typescript
     nodejs_22
     vscode-langservers-extracted
