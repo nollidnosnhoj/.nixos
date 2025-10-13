@@ -15,5 +15,6 @@
     ./user.nix
     ./xserver.nix
     ./virtualisation
+    ./vpn.nix
   ];
 }
