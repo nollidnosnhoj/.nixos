@@ -24,6 +24,7 @@
     prettierd
     eslint_d
     bun
+    markdown-oxide
 
     # AI
     claude-code
@@ -32,10 +33,7 @@
     kubectl
     minikube
 
-    devenv # developer environment
-    gnumake
-    just
-    markdown-oxide # markdown LSP
+    devenv
   ];
 
   home.sessionPath = [

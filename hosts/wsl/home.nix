@@ -1,9 +1,9 @@
 {...}: {
   imports = [
     ../../modules/home/git.nix
+    ../../modules/home/development
     ../../modules/home/editors/neovim
     ../../modules/home/programs/cli.nix
-    ../../modules/home/programs/dev.nix
     ../../modules/home/shell
   ];
 
@@ -18,6 +18,6 @@
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    keys = [ "id_ed25519" "id_rsa" ];
+    keys = ["id_ed25519" "id_rsa"];
   };
 }

@@ -7,9 +7,11 @@
     fd # find replacement
     ffmpeg
     file # Show file information
+    gnumake
     gtrash # rm replacement, put deleted files in system trash
     imagemagick
     jq # JSON processor
+    just
     killall
     lsd # modern ls
     man-pages # extra man pages

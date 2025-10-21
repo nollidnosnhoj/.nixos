@@ -1,14 +1,10 @@
 {
   inputs,
-  pkgs,
+  lib,
   ...
 }: {
   imports = [
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-  ];
-
-  environment.systemPackages = [
-    pkgs.framework-tool
   ];
 
   hardware = {
@@ -24,6 +20,7 @@
   };
 
   services = {
+    fwupd.enable = lib.mkForce true;
     fprintd.enable = true;
     power-profiles-daemon.enable = true;
     logind = {

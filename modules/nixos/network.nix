@@ -3,6 +3,7 @@
     hostName = "${host}";
     networkmanager.enable = true;
     firewall.enable = true;
+    enableIPv6 = true;
   };
 
   services.openssh = {
