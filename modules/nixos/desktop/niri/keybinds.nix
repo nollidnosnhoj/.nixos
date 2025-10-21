@@ -159,6 +159,6 @@ in {
     "Ctrl+Print".action.screenshot-screen = {
       write-to-disk = true;
     };
-    "Alt+Print".action = screenshot-window;
+    "Alt+Print".action.screenshot-window = [];
   };
 }
