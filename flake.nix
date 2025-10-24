@@ -53,18 +53,19 @@
     self,
     ...
   } @ inputs: let
-    mkSystem = host: username: extraModules:
+    mkSystem = system: host: extraModules:
       nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = system;
         modules = extraModules;
         specialArgs = {
-          inherit self inputs host username;
+          username = "kopa";
+          inherit self inputs host;
         };
       };
   in {
     nixosConfigurations = {
-      framework16 = mkSystem "framework16" "kopa" [./hosts/framework16];
-      wsl = mkSystem "wsl" "kopa" [./hosts/wsl];
+      framework16 = mkSystem "x86_64-linux" "framework16" [./hosts/framework16];
+      wsl = mkSystem "x86_64-linux" "wsl" [./hosts/wsl];
     };
   };
 }
