@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    inputs.chaotic.nixosModules.default
     inputs.stylix.nixosModules.stylix
     ./hardware-configuration.nix
     ./framework.nix
