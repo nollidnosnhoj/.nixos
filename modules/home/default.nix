@@ -1,7 +1,7 @@
 {...}: {
   # Place modules that will be used in all x-top machines
   imports = [
-    ./browsers/zen.nix
+    ./browsers
     ./development
     ./development/gui.nix
     ./discord.nix
