@@ -80,18 +80,9 @@ in {
               id = "Tray";
             }
             {
-              hideWhenZero = true;
-              id = "NotificationHistory";
-              showUnreadBadge = false;
-            }
-            {
               displayMode = "onhover";
               id = "Battery";
               warningThreshold = 30;
-            }
-            {
-              displayMode = "onhover";
-              id = "Volume";
             }
             {
               id = "ScreenRecorder";
@@ -102,6 +93,11 @@ in {
               id = "Clock";
               useMonospacedFont = true;
               usePrimaryColor = true;
+            }
+            {
+              hideWhenZero = true;
+              id = "NotificationHistory";
+              showUnreadBadge = false;
             }
           ];
         };

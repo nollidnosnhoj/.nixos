@@ -38,7 +38,6 @@
       tt = "gtrash put";
       cat = "bat";
       py = "python";
-      icat = "kitten icat";
       dsize = "du -hs";
       findw = "grep -rl";
       pdf = "tdf";

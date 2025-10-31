@@ -87,6 +87,9 @@
 
         "gfx.webrender.all" = true;
         "network.http.http3.enabled" = true;
+
+        # https://github.com/YaLTeR/niri/wiki/Application-Issues#zen-browser
+        "widget.dmabuf.force-enabled" = true;
       };
     };
 

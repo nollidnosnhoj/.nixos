@@ -8,7 +8,7 @@
     evince # pdf
     gnome-text-editor # gedit
     gnome-calendar # calendar
-    
+
     imv # image viewer
     (mpv.override {
       scripts = [
@@ -18,14 +18,9 @@
       ];
     }) # media player
 
-    bitwarden # password manager
+    bitwarden-desktop # password manager
 
     libreoffice # office
     obsidian # note taking app
-
-    sqlitebrowser
-    postman # REST API testing
-
-    mullvad-browser # private browsing
   ];
 }
