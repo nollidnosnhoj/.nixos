@@ -18,8 +18,6 @@ in {
     inputs.noctalia.packages.${system}.default
   ];
 
-  services.noctalia-shell.enable = true;
-
   home-manager.users.${username} = {
     imports = [
       inputs.noctalia.homeModules.default
