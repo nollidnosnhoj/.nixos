@@ -4,7 +4,7 @@
     extraPackages = with pkgs.bat-extras; [
       batman
       batpipe
-      batgrep
+      # batgrep # batgrep does not work right now
       batdiff
     ];
   };
