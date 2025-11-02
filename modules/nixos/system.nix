@@ -4,9 +4,6 @@
     git
     unzip
     curl
-    xwayland
-    poweralertd
-    libnotify
   ];
 
   zramSwap = {
@@ -18,5 +15,10 @@
   services.earlyoom.enable = true;
   services.earlyoom.enableNotifications = true; # Possible DoS vector if untrusted users on same pc.
 
-  system.stateVersion = "25.05";
+  # To prevent getting stuck at shutdown
+  systemd.settings.Manager = {
+    DefaultIOAccounting = true;
+    DefaultIPAccounting = true;
+    DefaultTimeoutStopSec = "10s";
+  };
 }

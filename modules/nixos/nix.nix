@@ -38,6 +38,7 @@
         };
       })
       inputs.nix-vscode-extensions.overlays.default
+      inputs.neovim-nightly-overlay.overlays.default
     ];
   };
 
@@ -63,4 +64,6 @@
     nixfmt-rfc-style
     nixos-anywhere
   ];
+
+  system.stateVersion = "25.05";
 }

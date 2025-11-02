@@ -9,7 +9,25 @@
     inputs.stylix.nixosModules.stylix
     ./hardware-configuration.nix
     ./framework.nix
-    ../../modules/nixos
+
+    ../../modules/nixos/audio.nix
+    ../../modules/nixos/bluetooth.nix
+    ../../modules/nixos/boot.nix
+    ../../modules/nixos/desktop
+    ../../modules/nixos/graphics.nix
+    ../../modules/nixos/hardware.nix
+    ../../modules/nixos/network.nix
+    ../../modules/nixos/nix.nix
+    ../../modules/nixos/programs.nix
+    ../../modules/nixos/security.nix
+    ../../modules/nixos/services.nix
+    ../../modules/nixos/sops.nix
+    ../../modules/nixos/system.nix
+    ../../modules/nixos/user.nix
+    ../../modules/nixos/xserver.nix
+    ../../modules/nixos/virtualisation
+    ../../modules/nixos/vpn.nix
+
     ./theme.nix
   ];
 

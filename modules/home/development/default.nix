@@ -24,7 +24,6 @@
     prettierd
     eslint_d
     bun
-    markdown-oxide
 
     # AI
     claude-code
@@ -34,6 +33,7 @@
     minikube
 
     devenv
+    markdown-oxide
   ];
 
   home.sessionPath = [

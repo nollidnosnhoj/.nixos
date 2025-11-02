@@ -5,14 +5,13 @@
     eza # ls replacement
     entr # perform action when file change
     fd # find replacement
-    ffmpeg
+    ffmpeg # audio/video tool
     file # Show file information
-    gnumake
+    gnumake # makefile
     gtrash # rm replacement, put deleted files in system trash
-    imagemagick
+    imagemagick # image manipulation
     jq # JSON processor
-    just
-    killall
+    just # justfile
     lsd # modern ls
     man-pages # extra man pages
     mimeo
@@ -25,7 +24,5 @@
     tdf # cli pdf viewer
     treefmt # project formatter
     tldr
-    xdg-utils
-    xxd
   ];
 }

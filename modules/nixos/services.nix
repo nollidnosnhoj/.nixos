@@ -1,11 +1,5 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   services = {
-    gvfs.enable = true;
-    gnome.gnome-keyring.enable = true;
     dbus = {
       enable = true;
       implementation = "broker";
@@ -15,14 +9,14 @@
         libsecret
       ];
     };
-    logind.settings.Login = {
-      HandlePowerkey = "ignore";
-    };
+    gnome.gnome-keyring.enable = true;
+    gvfs.enable = true;
+    logind.settings.Login.HandlePowerkey = "ignore";
+    pcscd.enable = true;
+    udev.packages = with pkgs; [
+      qmk-udev-rules
+      yubikey-personalization
+    ];
     udisks2.enable = true;
-    syncthing = {
-      enable = true;
-      user = "${username}";
-      dataDir = "/home/${username}/Sync/";
-    };
   };
 }

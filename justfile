@@ -6,6 +6,7 @@ deploy:
   sudo nixos-rebuild switch --flake .
 
 debug:
+  git add .
   sudo nixos-rebuild switch --flake . --show-trace --verbose
 
 up:

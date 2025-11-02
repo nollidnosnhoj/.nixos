@@ -36,13 +36,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixcord.url = "github:kaylorben/nixcord";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    # nvf.url = "github:notashelf/nvf";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

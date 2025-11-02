@@ -6,9 +6,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    wireplumber = {
-      enable = true;
-    };
+    wireplumber.enable = true;
   };
   hardware.alsa.enablePersistence = true;
   environment.systemPackages = with pkgs; [pulseaudioFull pavucontrol];
