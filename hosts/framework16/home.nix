@@ -1,6 +1,7 @@
 {username, ...}: {
   imports = [
     ../../modules/home/browsers
+    ../../modules/home/discord.nix
     ../../modules/home/development
     ../../modules/home/development/gui.nix
     ../../modules/home/discord.nix
