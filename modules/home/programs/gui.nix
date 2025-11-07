@@ -19,8 +19,12 @@
     }) # media player
 
     bitwarden-desktop # password manager
+    mullvad-browser # private browser
 
     libreoffice # office
     obsidian # note taking app
+
+    postman
+    sqlitebrowser
   ];
 }

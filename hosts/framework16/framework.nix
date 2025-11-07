@@ -1,12 +1,4 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
-  imports = [
-    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-  ];
-
+{lib, ...}: {
   hardware = {
     fw-fanctrl = {
       enable = true;

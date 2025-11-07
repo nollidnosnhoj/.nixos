@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   programs.git = {
     enable = true;
 
@@ -19,11 +19,4 @@
       };
     };
   };
-
-  home.packages = [
-    pkgs.gh
-  ];
-
-  programs.gpg.enable = true;
-  services.gpg-agent.enable = true;
 }

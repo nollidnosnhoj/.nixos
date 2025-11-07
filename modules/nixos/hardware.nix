@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./bluetooth.nix
-    ./graphics.nix
-  ];
   services.fwupd.enable = true;
   hardware.enableRedistributableFirmware = true;
 

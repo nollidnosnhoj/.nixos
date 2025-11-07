@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   username,
   ...
@@ -26,20 +25,6 @@
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
     };
-  };
-
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      (final: prev: {
-        nur = import inputs.nur {
-          nurpkgs = prev;
-          pkgs = prev;
-        };
-      })
-      inputs.nix-vscode-extensions.overlays.default
-      inputs.neovim-nightly-overlay.overlays.default
-    ];
   };
 
   programs.nh = {

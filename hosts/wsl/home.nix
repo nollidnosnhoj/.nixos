@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../../modules/home/git.nix
-    ../../modules/home/development
+    ../../modules/home/development.nix
     ../../modules/home/editors/neovim
     ../../modules/home/programs/cli.nix
     ../../modules/home/shell

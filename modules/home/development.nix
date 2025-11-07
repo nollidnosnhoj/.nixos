@@ -34,6 +34,7 @@
 
     devenv
     markdown-oxide
+    gh # github cli
   ];
 
   home.sessionPath = [

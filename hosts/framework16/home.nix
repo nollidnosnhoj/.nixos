@@ -1,19 +1,20 @@
-{username, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
-    ../../modules/home/browsers
-    ../../modules/home/discord.nix
-    ../../modules/home/development
-    ../../modules/home/development/gui.nix
+    ../../modules/home/browsers/zen.nix
+    ../../modules/home/development.nix
     ../../modules/home/discord.nix
     ../../modules/home/editors/neovim
     ../../modules/home/editors/vscode
-    ../../modules/home/editors/zed
-    ../../modules/home/foot.nix
+    ../../modules/home/programs/cli.nix
+    ../../modules/home/programs/gui.nix
+    ../../modules/home/terminals/foot.nix
     ../../modules/home/git.nix
-    ../../modules/home/programs
     ../../modules/home/scripts
     ../../modules/home/shell
-    ../../modules/home/udiskie.nix
     ../../modules/home/xdg-mimes.nix
   ];
   services = {
@@ -24,6 +25,9 @@
   };
 
   home = {
+    packages = with pkgs; [
+      nvtopPackages.amd # task monitor for AMD GPU
+    ];
     sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "zen-twilight";

@@ -49,14 +49,39 @@
   };
 
   outputs = {
+    chaotic,
+    neovim-nightly-overlay,
+    nix-vscode-extensions,
+    nixos-hardware,
+    nixos-wsl,
     nixpkgs,
+    nur,
     self,
+    stylix,
     ...
   } @ inputs: let
+    overlays = [
+      (final: prev: {
+        nur = import nur {
+          nurpkgs = prev;
+          pkgs = prev;
+        };
+      })
+      nix-vscode-extensions.overlays.default
+      neovim-nightly-overlay.overlays.default
+    ];
+    defaultModules = [
+      {
+        nixpkgs = {
+          config.allowUnfree = true;
+          overlays = overlays;
+        };
+      }
+    ];
     mkSystem = system: host: extraModules:
       nixpkgs.lib.nixosSystem {
         system = system;
-        modules = extraModules;
+        modules = defaultModules ++ extraModules;
         specialArgs = {
           username = "kopa";
           inherit self inputs host;
@@ -64,8 +89,17 @@
       };
   in {
     nixosConfigurations = {
-      framework16 = mkSystem "x86_64-linux" "framework16" [./hosts/framework16];
-      wsl = mkSystem "x86_64-linux" "wsl" [./hosts/wsl];
+      framework16 = mkSystem "x86_64-linux" "framework16" [
+        chaotic.nixosModules.default
+        nixos-hardware.nixosModules.framework-16-7040-amd
+        stylix.nixosModules.stylix
+        ./hosts/framework16
+      ];
+      wsl = mkSystem "x86_64-linux" "wsl" [
+        nixos-wsl.nixosModules.default
+        stylix.nixosModules.stylix
+        ./hosts/wsl
+      ];
     };
   };
 }
