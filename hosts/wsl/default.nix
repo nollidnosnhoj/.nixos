@@ -14,6 +14,7 @@
 in {
   imports = [
     ../../modules/nixos/nix.nix
+    ../../modules/nixos/shell.nix
     ../../modules/nixos/user.nix
     ./theme.nix
   ];

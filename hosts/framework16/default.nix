@@ -18,6 +18,7 @@
     ../../modules/nixos/programs.nix
     ../../modules/nixos/security.nix
     ../../modules/nixos/services.nix
+    ../../modules/nixos/shell.nix
     ../../modules/nixos/sops.nix
     ../../modules/nixos/system.nix
     ../../modules/nixos/user.nix

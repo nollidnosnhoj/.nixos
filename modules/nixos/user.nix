@@ -35,7 +35,6 @@
       "video"
       "input"
     ];
-    shell = pkgs.zsh;
     packages = [
       inputs.home-manager.packages.${pkgs.system}.default
     ];
