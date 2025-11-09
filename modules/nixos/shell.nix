@@ -3,11 +3,11 @@
   username,
   ...
 }: {
-  programs.zsh.enable = true;
-  # programs.fish.enable = true;
+  # programs.zsh.enable = true;
+  programs.fish.enable = true;
 
-  # users.users.${username}.shell = pkgs.fish;
-  users.users.${username}.shell = pkgs.zsh;
+  users.users.${username}.shell = pkgs.fish;
+  # users.users.${username}.shell = pkgs.zsh;
 
   # programs.bash = {
   #   interactiveShellInit = ''
