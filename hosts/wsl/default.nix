@@ -55,7 +55,7 @@ in {
   programs = {
     nix-ld.enable = true;
     ssh.startAgent = true;
-    zsh.enable = true;
+    fish.enable = true;
   };
 
   virtualisation.docker.enable = true;

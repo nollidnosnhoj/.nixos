@@ -23,8 +23,8 @@
 
       # Nixos
       cdnix = "cd ~/.nixos && nvim ~/.nixos";
-      ns = "nix-shell --run zsh";
-      nix-shell = "nix-shell --run zsh";
+      ns = "nix-shell --run fish";
+      nix-shell = "nix-shell --run fish";
       nix-switch = "sudo nixos-rebuild switch --flake ~/.nixos#${host}";
       nix-switchu = "sudo nixos-rebuild switch --upgrade --flake ~/.nixos#${host}";
       nix-flake-update = "sudo nix flake update";

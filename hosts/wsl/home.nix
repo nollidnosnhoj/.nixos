@@ -16,8 +16,7 @@
 
   programs.keychain = {
     enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
+    enableFishIntegration = true;
     keys = ["id_ed25519" "id_rsa"];
   };
 }
