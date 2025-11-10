@@ -22,7 +22,6 @@
     ../../modules/nixos/sops.nix
     ../../modules/nixos/system.nix
     ../../modules/nixos/user.nix
-    ../../modules/nixos/xserver.nix
     ../../modules/nixos/virtualisation
     ../../modules/nixos/vpn.nix
 

@@ -19,10 +19,6 @@
     package = pkgs.niri-unstable;
   };
 
-  nixpkgs.overlays = [
-    inputs.niri.overlays.niri
-  ];
-
   xdg.portal = {
     enable = true;
     config = {

@@ -1,11 +1,4 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    unzip
-    curl
-  ];
-
+{...}: {
   zramSwap = {
     enable = true;
     algorithm = "lz4";

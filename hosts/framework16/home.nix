@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ../../modules/home/browsers/zen.nix
+    ../../modules/home/browsers/zen-browser.nix
     ../../modules/home/development.nix
     ../../modules/home/discord.nix
     ../../modules/home/editors/neovim
@@ -12,7 +12,6 @@
     ../../modules/home/programs/cli.nix
     ../../modules/home/programs/gui.nix
     ../../modules/home/terminals/foot.nix
-    ../../modules/home/terminals/ghostty.nix
     ../../modules/home/git.nix
     ../../modules/home/scripts
     ../../modules/home/shell

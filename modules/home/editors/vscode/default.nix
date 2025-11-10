@@ -38,6 +38,9 @@
         "nix.enableLanguageServer" = true;
         "nix.formatterPath" = "alejandra";
         "nix.serverSettings" = {
+          "nixpkgs" = {
+            "expr" = "import (builtins.getFlake \"/home/${username}/.nixos\").inputs.nixpkgs { }   ";
+          };
           "nixd" = {
             "formatting" = {
               "command" = ["alejandra"];

@@ -1,10 +1,7 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   services.mullvad-vpn.enable = true;
-  home-manager.users.${username} = {
-    home.packages = with pkgs; [mullvad-vpn];
-  };
+  environment.systemPackages = with pkgs; [
+    mullvad-browser
+    mullvad-vpn
+  ];
 }

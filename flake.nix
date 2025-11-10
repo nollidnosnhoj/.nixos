@@ -51,6 +51,7 @@
   outputs = {
     chaotic,
     neovim-nightly-overlay,
+    niri,
     nix-vscode-extensions,
     nixos-hardware,
     nixos-wsl,
@@ -67,6 +68,7 @@
           pkgs = prev;
         };
       })
+      niri.overlays.niri
       nix-vscode-extensions.overlays.default
       neovim-nightly-overlay.overlays.default
     ];

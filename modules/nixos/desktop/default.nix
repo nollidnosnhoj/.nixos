@@ -6,6 +6,7 @@
     ./gdm.nix
     ./gnome.nix
     ./nautilus.nix
+    ./xserver.nix
   ];
 
   environment.systemPackages = with pkgs; [

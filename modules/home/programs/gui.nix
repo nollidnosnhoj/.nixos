@@ -1,30 +1,21 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    ## Utility
+    bitwarden-desktop
     dconf-editor
-    mission-center # GUI resources monitor
-    zenity
-
-    evince # pdf
-    gnome-text-editor # gedit
-    gnome-calendar # calendar
-
-    imv # image viewer
+    evince
+    gnome-calendar
+    gnome-text-editor
+    imv
+    libreoffice
+    mission-center
     (mpv.override {
       scripts = [
         mpvScripts.uosc
         mpvScripts.thumbfast
         mpvScripts.mpris
       ];
-    }) # media player
-
-    bitwarden-desktop # password manager
-    mullvad-browser # private browser
-
-    libreoffice # office
-    obsidian # note taking app
-
-    postman
-    sqlitebrowser
+    })
+    obsidian
+    zenity
   ];
 }

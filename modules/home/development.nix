@@ -28,16 +28,13 @@
     # AI
     claude-code
 
-    # Kubernetes
-    kubectl
-    minikube
-
     devenv
     markdown-oxide
     gh # github cli
   ];
 
   home.sessionPath = [
+    "/home/${username}/.local/bin"
     "/home/${username}/go/bin"
   ];
 }
