@@ -7,7 +7,8 @@
     ../../modules/home/browsers/zen-browser.nix
     ../../modules/home/development.nix
     ../../modules/home/discord.nix
-    ../../modules/home/editors/neovim
+    # ../../modules/home/editors/neovim
+    ../../modules/home/editors/neovim/nvf
     ../../modules/home/editors/vscode
     ../../modules/home/programs/cli.nix
     ../../modules/home/programs/gui.nix

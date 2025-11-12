@@ -19,6 +19,7 @@
     };
 
     nur.url = "github:nix-community/NUR";
+    nvf.url = "github:notashelf/nvf";
 
     quickshell = {
       url = "github:outfoxxed/quickshell";
