@@ -51,4 +51,8 @@
   environment.variables = {
     EDITOR = "nvim";
   };
+
+  # https://github.com/nixos/nixpkgs/issues/462935
+  systemd.user.services.ocra.wantedBy = lib.mkForce [];
+  services.orca.enable = lib.mkForce false;
 }
