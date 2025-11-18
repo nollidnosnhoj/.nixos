@@ -4,6 +4,7 @@
   ...
 }: {
   nix = {
+    gc.automatic = true;
     settings = {
       download-buffer-size = 52428800;
       auto-optimise-store = true;
@@ -25,15 +26,6 @@
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
     };
-  };
-
-  programs.nh = {
-    enable = true;
-    clean = {
-      enable = true;
-      extraArgs = "--keep-since 7d --keep 5";
-    };
-    flake = "/home/${username}/.nixos";
   };
 
   programs.nix-ld = {
