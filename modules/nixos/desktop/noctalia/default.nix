@@ -9,14 +9,14 @@
   # wallpaperDir = "${self}/.assets/wallpapers";
   # wallpaper = "${self}/.assets/wallpapers/wallhaven-k8w7dq.png";
 in {
-  # systemd
   imports = [
     inputs.noctalia.nixosModules.default
+    ./calendar-events.nix
   ];
-
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${system}.default
   ];
+  services.noctalia-shell.enable = true;
 
   # home-manager.users.${username} = {
   #   imports = [

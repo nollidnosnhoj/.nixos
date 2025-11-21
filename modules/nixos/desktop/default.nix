@@ -2,7 +2,7 @@
   # Place modules you want all x-top machines to have.
   imports = [
     ./niri
-    ./noctalia.nix
+    ./noctalia
     ./gdm.nix
     ./gnome.nix
     ./nautilus.nix
