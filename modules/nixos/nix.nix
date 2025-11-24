@@ -4,7 +4,11 @@
   ...
 }: {
   nix = {
-    gc.automatic = true;
+    gc = {
+      automatic = true;
+      randomizedDelaySec = "14m";
+      options = "--delete-older-than 10d";
+    };
     settings = {
       download-buffer-size = 52428800;
       auto-optimise-store = true;

@@ -1,10 +1,9 @@
 {pkgs, ...}: {
+  imports = [./limine.nix];
+
   boot = {
+    loader.efi.canTouchEfiVariables = true;
     plymouth.enable = true;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
     kernelPackages = pkgs.linuxPackages_cachyos;
   };
 

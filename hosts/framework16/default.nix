@@ -9,7 +9,7 @@
 
     ../../modules/nixos/audio.nix
     ../../modules/nixos/bluetooth.nix
-    ../../modules/nixos/boot.nix
+    ../../modules/nixos/boot
     ../../modules/nixos/desktop
     ../../modules/nixos/graphics.nix
     ../../modules/nixos/hardware.nix
