@@ -1,15 +1,6 @@
-{
-  inputs,
-  pkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     xwayland-satellite-unstable
-    grim
-    pamixer
-    playerctl
-    slurp
     wl-clipboard
     wl-clip-persist
   ];
@@ -35,17 +26,6 @@
       xdg-desktop-portal
       xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
-    ];
-  };
-
-  home-manager.users.${username} = {...}: {
-    imports = [
-      inputs.niri.homeModules.config
-      inputs.niri.homeModules.stylix
-      ./environments.nix
-      ./keybinds.nix
-      ./rules.nix
-      ./settings.nix
     ];
   };
 }

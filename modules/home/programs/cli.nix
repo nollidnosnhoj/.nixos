@@ -18,11 +18,13 @@
     ncdu # disk space
     onefetch # fetch utility for git repo
     openssl
+    playerctl # CLI for controlling media players
     ripgrep # grep replacement
     shfmt # bash formatter
     superfile
     tdf # cli pdf viewer
     tldr
     treefmt # project formatter
+    xdg-utils
   ];
 }
