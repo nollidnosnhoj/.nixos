@@ -10,6 +10,7 @@
     ../../modules/home/discord.nix
     ../../modules/home/editors/neovim/nvf
     ../../modules/home/editors/vscode
+    ../../modules/home/games
     ../../modules/home/programs/cli.nix
     ../../modules/home/programs/gui.nix
     ../../modules/home/terminals/foot.nix
