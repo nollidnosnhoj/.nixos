@@ -1,25 +1,34 @@
 {
+  inputs,
   host,
   pkgs,
   username,
   ...
-}: {
+}: let
+  extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system};
+in {
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
     profiles.default = {
-      extensions = with pkgs.vscode-marketplace; [
-        # Languages
-        jnoortheen.nix-ide
-        arrterian.nix-env-selector
-        mads-hartmann.bash-ide-vscode
-        golang.go
+      enableExtensionUpdateCheck = true;
+      enableUpdateCheck = false;
+      extensions = with pkgs.vscode-extensions;
+        [
+          # Languages
+          jnoortheen.nix-ide
+          arrterian.nix-env-selector
+          mads-hartmann.bash-ide-vscode
+          golang.go
 
-        leonardssh.vscord
-        christian-kohler.path-intellisense
-        esbenp.prettier-vscode
-        mkhl.direnv
-      ];
+          leonardssh.vscord
+          christian-kohler.path-intellisense
+          esbenp.prettier-vscode
+          mkhl.direnv
+        ]
+        ++ (with extensions.open-vsx; [
+          sst-dev.opencode
+        ]);
       userSettings = {
         "update.mode" = "none";
         "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
@@ -33,6 +42,7 @@
         "editor.inlayHints.enabled" = "off";
 
         "editor.mouseWheelZoom" = true;
+        "workbench.sideBar.location" = "right";
 
         "nix.serverPath" = "nixd";
         "nix.enableLanguageServer" = true;

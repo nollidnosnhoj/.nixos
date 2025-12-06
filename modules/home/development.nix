@@ -26,7 +26,7 @@
     bun
 
     # AI
-    claude-code
+    opencode
 
     devenv
     markdown-oxide
