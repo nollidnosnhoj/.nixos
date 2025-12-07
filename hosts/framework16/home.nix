@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ../../modules/home/browsers/helium.nix
     ../../modules/home/browsers/zen-browser.nix
     ../../modules/home/desktop/niri
     ../../modules/home/development.nix
