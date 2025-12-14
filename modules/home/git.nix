@@ -1,11 +1,11 @@
 {...}: {
   programs.git = {
     enable = true;
-
-    userName = "Dillon Johnson";
-    userEmail = "me@nollidnosnhoj.com";
-
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Dillon Johnson";
+        email = "me@nollidnosnhoj.com";
+      };
       core = {
         editor = "nvim";
       };
