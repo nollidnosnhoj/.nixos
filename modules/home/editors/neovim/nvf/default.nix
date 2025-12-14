@@ -45,8 +45,7 @@
             enable = true;
             format.enable = true;
             lsp.enable = true;
-            lsp.package = pkgs.nixd;
-            lsp.server = "nixd";
+            lsp.servers = ["nixd"];
             treesitter.enable = true;
           };
           ts.enable = true;
