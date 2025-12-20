@@ -3,16 +3,12 @@
   pkgs,
   lib,
   ...
-}: let
-  # profilePicture = "${self}/.assets/profile.png";
-  # wallpaperDir = "${self}/.assets/wallpapers";
-  # wallpaper = "${self}/.assets/wallpapers/wallhaven-k8w7dq.png";
-in {
+}: {
   imports = [
     inputs.noctalia.nixosModules.default
   ];
   environment.systemPackages = with pkgs; [
-    inputs.noctalia.packages.${system}.default
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     (python3.withPackages (pyPkgs: with pyPkgs; [pygobject3]))
   ];
   services.noctalia-shell.enable = true;
