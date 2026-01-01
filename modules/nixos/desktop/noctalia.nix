@@ -13,6 +13,6 @@
   in [
     noctalia-shell
   ];
-  services.noctalia-shell.enable = true;
+  # services.noctalia-shell.enable = true;
   services.gnome.evolution-data-server.enable = true;
 }

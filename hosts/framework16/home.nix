@@ -7,6 +7,7 @@
     ../../modules/home/browsers/helium.nix
     ../../modules/home/browsers/zen-browser.nix
     ../../modules/home/desktop/niri
+    ../../modules/home/desktop/noctalia
     ../../modules/home/development.nix
     ../../modules/home/discord.nix
     ../../modules/home/editors/neovim/nvf
