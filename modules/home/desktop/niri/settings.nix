@@ -67,7 +67,7 @@
     };
 
     overview = {
-      # workspace-shadow = "off";
+      workspace-shadow.enable = true;
       backdrop-color = "transparent";
     };
     gestures = {

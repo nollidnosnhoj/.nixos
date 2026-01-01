@@ -3,7 +3,7 @@
     window-rules = [
       {
         geometry-corner-radius = let
-          radius = 5.0;
+          radius = 20.0;
         in {
           bottom-left = radius;
           bottom-right = radius;
@@ -109,14 +109,7 @@
     ];
     layer-rules = [
       {
-        matches = [{namespace = "^swww-daemon$";}];
-        place-within-backdrop = true;
-      }
-      {
-        matches = [{namespace = "^quickshell-wallpaper$";}];
-      }
-      {
-        matches = [{namespace = "^quickshell-overview$";}];
+        matches = [{namespace = "^noctalia-overview*";}];
         place-within-backdrop = true;
       }
     ];
