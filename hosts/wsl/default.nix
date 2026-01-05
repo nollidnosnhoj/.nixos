@@ -13,10 +13,10 @@
   inherit (lib) mkForce;
 in {
   imports = [
-    ../../modules/nixos/nix.nix
+    ../../modules/nixos/nix
     ../../modules/nixos/shell.nix
     ../../modules/nixos/user.nix
-    ./theme.nix
+    ../../modules/nixos/stylix/core.nix
   ];
 
   wsl = {

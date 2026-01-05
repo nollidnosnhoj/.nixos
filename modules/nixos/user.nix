@@ -38,6 +38,7 @@
     packages = [
       inputs.home-manager.packages.${pkgs.system}.default
     ];
+    shell = pkgs.fish;
   };
 
   nix.settings.allowed-users = ["${username}"];

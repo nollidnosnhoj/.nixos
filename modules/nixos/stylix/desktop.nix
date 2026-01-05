@@ -1,12 +1,10 @@
 {
-  self,
   lib,
   pkgs,
-  username,
   ...
 }: {
-  stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+  imports = [./core.nix];
+
   stylix.cursor = {
     name = "Bibata-Modern-Ice";
     package = pkgs.bibata-cursors;
@@ -35,28 +33,5 @@
     };
   };
 
-  stylix.polarity = "dark";
-
-  stylix.targets.plymouth = {
-    enable = true;
-    logo = "${self}/.assets/NixOS.png";
-    logoAnimated = true;
-  };
-
   stylix.targets.qt.platform = lib.mkForce "qtct";
-
-  home-manager.users.${username} = {
-    stylix = {
-      targets = {
-        firefox.profileNames = ["kopa"];
-        zen-browser.profileNames = ["default"];
-      };
-      iconTheme = {
-        enable = true;
-        package = pkgs.papirus-icon-theme;
-        dark = "Papirus-Dark";
-        light = "Papirus";
-      };
-    };
-  };
 }

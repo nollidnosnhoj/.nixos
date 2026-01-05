@@ -8,45 +8,26 @@
     ./framework.nix
 
     ../../modules/nixos/audio.nix
-    ../../modules/nixos/bluetooth.nix
-    ../../modules/nixos/boot
+    ../../modules/nixos/hardware/bluetooth.nix
+    ../../modules/nixos/boot.nix
     ../../modules/nixos/desktop
-    ../../modules/nixos/graphics.nix
-    ../../modules/nixos/hardware.nix
+    ../../modules/nixos/hardware/firmware.nix
+    ../../modules/nixos/hardware/graphics.nix
     ../../modules/nixos/network.nix
-    ../../modules/nixos/nix.nix
+    ../../modules/nixos/nix
+    ../../modules/nixos/power.nix
     ../../modules/nixos/programs.nix
     ../../modules/nixos/security.nix
     ../../modules/nixos/services.nix
     ../../modules/nixos/shell.nix
-    ../../modules/nixos/sops.nix
+    ../../modules/nixos/stylix/desktop.nix
     ../../modules/nixos/system.nix
     ../../modules/nixos/user.nix
     ../../modules/nixos/virtualisation
     ../../modules/nixos/vpn.nix
-
-    ./theme.nix
   ];
 
   home-manager.users.${username} = import ./home.nix;
-
-  services = {
-    openssh.enable = true;
-  };
-
-  boot = {
-    supportedFilesystems = {
-      btrfs = true;
-      ntfs = true;
-      zfs = lib.mkForce false;
-    };
-  };
-
-  # Set your time zone.
-  time.timeZone = "Pacific/Honolulu";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
 
   environment.variables = {
     EDITOR = "nvim";

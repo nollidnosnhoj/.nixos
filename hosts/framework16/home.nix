@@ -19,6 +19,7 @@
     ../../modules/home/git.nix
     ../../modules/home/scripts
     ../../modules/home/shell
+    ../../modules/home/stylix.nix
     ../../modules/home/xdg-mimes.nix
   ];
   services = {

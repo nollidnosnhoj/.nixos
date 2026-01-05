@@ -1,5 +1,12 @@
-{...}: {
-  security.rtkit.enable = true;
-  security.sudo.enable = true;
-  security.polkit.enable = true;
+{
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+    sudo-rs = {
+      enable = true;
+      execWheelOnly = true;
+      wheelNeedsPassword = false;
+    };
+    sudo.wheelNeedsPassword = false;
+  };
 }

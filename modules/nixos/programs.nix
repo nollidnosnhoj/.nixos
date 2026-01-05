@@ -5,8 +5,11 @@
     unzip
     curl
   ];
-  programs.dconf.enable = true;
-  programs.ssh = {
-    enableAskPassword = true;
+  programs = {
+    dconf.enable = true;
+    seahorse.enable = true;
+    ssh = {
+      enableAskPassword = true;
+    };
   };
 }

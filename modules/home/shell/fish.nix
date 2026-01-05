@@ -1,4 +1,8 @@
-{host, ...}: {
+{
+  host,
+  pkgs,
+  ...
+}: {
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -54,6 +58,4 @@
       obsidian = "export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH; obsidian";
     };
   };
-
-  programs.man.generateCaches = false;
 }

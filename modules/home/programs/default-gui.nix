@@ -7,6 +7,7 @@
     gnome-text-editor
     libreoffice
     mission-center
+    mullvad-browser
     zenity
   ];
 

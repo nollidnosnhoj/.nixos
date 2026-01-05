@@ -1,11 +1,5 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   programs.fish.enable = true;
-
-  users.users.${username}.shell = pkgs.fish;
 
   programs.bash = {
     interactiveShellInit = ''
@@ -17,5 +11,8 @@
     '';
   };
 
-  documentation.man.generateCaches = false;
+  environment = {
+    shells = [pkgs.fish];
+    pathsToLink = ["/share/fish"];
+  };
 }

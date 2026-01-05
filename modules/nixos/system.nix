@@ -1,7 +1,13 @@
 {...}: {
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  time.timeZone = "Pacific/Honolulu";
+
+  # compresses half the ram for use as swap
   zramSwap = {
     enable = true;
-    algorithm = "lz4";
+    algorithm = "zstd";
+    memoryPercent = 25;
   };
 
   # Avoid freezing the system under memory pressure
@@ -13,5 +19,10 @@
     DefaultIOAccounting = true;
     DefaultIPAccounting = true;
     DefaultTimeoutStopSec = "10s";
+  };
+
+  system = {
+    switch.enable = true;
+    stateVersion = "25.11";
   };
 }
