@@ -7,7 +7,7 @@
 
   programs.nixcord = {
     enable = true;
-    vesktop.enable = true;
+    equibop.enable = true;
     config = {
       frameless = true;
       plugins = {
