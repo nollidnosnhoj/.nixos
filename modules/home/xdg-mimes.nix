@@ -8,7 +8,7 @@ with lib; let
     pdf = ["org.gnome.Evince.desktop"];
     terminal = ["foot.desktop"];
     archive = ["org.gnome.FileRoller.desktop"];
-    discord = ["vesktop.desktop"];
+    discord = ["equibop.desktop"];
   };
 
   mimeMap = {

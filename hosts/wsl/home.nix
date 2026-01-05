@@ -4,7 +4,7 @@
     ../../modules/home/development.nix
     # ../../modules/home/editors/neovim
     ../../modules/home/editors/neovim/nvf
-    ../../modules/home/programs/cli.nix
+    ../../modules/home/programs/default-cli.nix
     ../../modules/home/shell
   ];
 

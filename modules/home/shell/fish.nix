@@ -16,9 +16,9 @@
       pdf = "tdf";
       open = "xdg-open";
 
-      ls = "lsd --group-directories-first";
-      ll = "lsd -l --group-directories-first";
-      la = "lsd -la --group-directories-first";
+      # ls = "lsd --group-directories-first";
+      # ll = "lsd -l --group-directories-first";
+      # la = "lsd -la --group-directories-first";
       tree = "lsd -l --group-directories-first --tree --depth=2";
 
       # Nixos
