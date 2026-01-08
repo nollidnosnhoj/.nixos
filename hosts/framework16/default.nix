@@ -11,9 +11,9 @@
     ../../modules/nixos/hardware/bluetooth.nix
     ../../modules/nixos/boot.nix
     ../../modules/nixos/desktop
+    ../../modules/nixos/login
     ../../modules/nixos/hardware/firmware.nix
     ../../modules/nixos/hardware/graphics.nix
-    ../../modules/nixos/login/gdm.nix
     ../../modules/nixos/network.nix
     ../../modules/nixos/nix
     ../../modules/nixos/power.nix
