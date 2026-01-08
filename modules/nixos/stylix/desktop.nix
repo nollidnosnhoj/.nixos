@@ -1,9 +1,12 @@
 {
   lib,
   pkgs,
+  self,
   ...
 }: {
   imports = [./core.nix];
+
+  stylix.image = "${self}/.assets/wallpapers/firewatch-purple.png";
 
   stylix.cursor = {
     name = "Bibata-Modern-Ice";

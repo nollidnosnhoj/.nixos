@@ -1,11 +1,9 @@
 {
   inputs,
-  lib,
   username,
   ...
 }: let
   wallpapersDir = "/home/${username}/.nixos/.assets/wallpapers";
-  wallpaper = "${wallpapersDir}/wallhaven-w87qvp-nord.jpg";
   profilePic = "/home/${username}/.nixos/.assets/profile.png";
 in {
   imports = [
@@ -39,8 +37,6 @@ in {
       volumeStep = 5;
     };
     bar = {
-      backgroundOpacity = lib.mkForce 1;
-      capsuleOpacity = lib.mkForce 1;
       density = "default";
       exclusive = true;
       floating = false;
@@ -169,7 +165,6 @@ in {
       manualSunrise = "06:30";
       manualSunset = "18:30";
       matugenSchemeType = "scheme-fruit-salad";
-      predefinedScheme = "Nord";
       schedulingMode = "location";
       useWallpaperColors = false;
     };
@@ -239,7 +234,6 @@ in {
     };
     dock = {
       animationSpeed = 1;
-      backgroundOpacity = lib.mkForce 1;
       colorizeIcons = false;
       deadOpacity = 0.6;
       displayMode = "auto_hide";
@@ -309,7 +303,6 @@ in {
       nightTemp = "4000";
     };
     notifications = {
-      backgroundOpacity = lib.mkForce 1;
       criticalUrgencyDuration = 15;
       enableKeyboardLayoutToast = true;
       enabled = true;
@@ -336,7 +329,6 @@ in {
     };
     osd = {
       autoHideMs = 2000;
-      backgroundOpacity = lib.mkForce 1;
       enabled = true;
       enabledTypes = [
         0
@@ -463,11 +455,8 @@ in {
     ui = {
       bluetoothDetailsViewMode = "grid";
       bluetoothHideUnnamedDevices = false;
-      fontDefault = lib.mkForce "Noto Sans";
       fontDefaultScale = 1;
-      fontFixed = lib.mkForce "ComicShannsMono Nerd Font";
       fontFixedScale = 1;
-      panelBackgroundOpacity = lib.mkForce 1;
       panelsAttachedToBar = true;
       settingsPanelMode = "attached";
       tooltipsEnabled = true;
@@ -502,12 +491,6 @@ in {
       wallhavenResolutionWidth = "";
       wallhavenSorting = "relevance";
       wallpaperChangeMode = "random";
-    };
-  };
-
-  home.file.".cache/noctalia/wallpapers.json" = {
-    text = builtins.toJSON {
-      defaultWallpaper = wallpaper;
     };
   };
 }
