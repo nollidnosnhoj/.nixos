@@ -13,6 +13,7 @@
     ../../modules/nixos/desktop
     ../../modules/nixos/hardware/firmware.nix
     ../../modules/nixos/hardware/graphics.nix
+    ../../modules/nixos/login/gdm.nix
     ../../modules/nixos/network.nix
     ../../modules/nixos/nix
     ../../modules/nixos/power.nix
