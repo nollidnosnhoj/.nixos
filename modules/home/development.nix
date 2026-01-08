@@ -27,6 +27,7 @@
 
     # AI
     opencode
+    claude-code
 
     devenv
     markdown-oxide

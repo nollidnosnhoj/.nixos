@@ -207,9 +207,6 @@ in {
           {
             id = "ScreenRecorder";
           }
-          {
-            id = "WallpaperSelector";
-          }
         ];
         right = [
           {
