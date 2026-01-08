@@ -64,8 +64,8 @@ in {
             iconScale = 0.8;
             id = "Workspace";
             labelMode = "none";
-            showApplications = true;
-            showLabelsOnlyWhenOccupied = true;
+            showApplications = false;
+            showLabelsOnlyWhenOccupied = false;
             unfocusedIconsOpacity = 0.5;
           }
         ];
