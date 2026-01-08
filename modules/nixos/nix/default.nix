@@ -2,11 +2,6 @@
   imports = [./nh.nix ./nix-ld.nix ./substituters.nix ./programs.nix];
 
   nix = {
-    gc = {
-      automatic = true;
-      randomizedDelaySec = "14m";
-      options = "--delete-older-than 10d";
-    };
     settings = {
       auto-optimise-store = true;
       download-buffer-size = 52428800;
