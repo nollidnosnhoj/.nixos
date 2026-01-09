@@ -30,6 +30,10 @@
 
   home-manager.users.${username} = import ./home.nix;
 
+  users.users.${username}.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE9sVTgUmhj1MblnK/BI6lu8q2EjCpXCJ82ADHoXdRiD kopa@nixos"
+  ];
+
   environment.variables = {
     EDITOR = "nvim";
   };

@@ -41,11 +41,11 @@
     };
   };
 
-  programs.keychain = {
-    enable = true;
-    enableFishIntegration = true;
-    keys = ["id_ed25519"];
-  };
+  # programs.keychain = {
+  #   enable = true;
+  #   enableFishIntegration = true;
+  #   keys = ["id_ed25519"];
+  # };
 
   programs.git = {
     signing.key = "~/.ssh/id_ed25519.pub";
