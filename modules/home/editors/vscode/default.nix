@@ -7,6 +7,7 @@
 }: let
   extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system};
 in {
+  stylix.targets.vscode.enable = false;
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
@@ -26,6 +27,9 @@ in {
           christian-kohler.path-intellisense
           esbenp.prettier-vscode
           mkhl.direnv
+
+          # themes
+          enkia.tokyo-night
         ]
         ++ (with extensions.open-vsx; [
           sst-dev.opencode
@@ -43,7 +47,9 @@ in {
         "editor.inlayHints.enabled" = "off";
 
         "editor.mouseWheelZoom" = true;
+
         "workbench.sideBar.location" = "right";
+        "workbench.colorTheme" = "Tokyo Night";
 
         "nix.serverPath" = "nixd";
         "nix.enableLanguageServer" = true;
