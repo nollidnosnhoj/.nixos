@@ -7,7 +7,7 @@
   services = {
     greetd = let
       session = {
-        command = "${pkgs.niri}/bin/niri-session";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --asterisks --container-padding 2 --no-xsession-wrapper --cmd ${pkgs.niri}/bin/niri-session";
         user = "${username}";
       };
     in {
@@ -18,9 +18,28 @@
         initial_session = session;
       };
     };
-    displayManager.autoLogin = {
-      user = "${username}";
-      enable = true;
+  };
+
+  security.pam.services.greetd = {
+    enableGnomeKeyring = true;
+    fprintAuth = false;
+    gnupg.enable = true;
+    kwallet.enable = true;
+  };
+
+  systemd = {
+    settings.Manager = {
+      # To prevent getting stuck at shutdown
+      DefaultTimeoutStopSec = "10s";
+    };
+    services.greetd.serviceConfig = {
+      Type = "idle";
+      StandardInput = "tty";
+      StandardOutput = "tty";
+      StandardError = "journal";
+      TTYReset = true;
+      TTYVHangup = true;
+      TTYVTDisallocate = true;
     };
   };
 }
