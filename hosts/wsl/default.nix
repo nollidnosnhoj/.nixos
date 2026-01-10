@@ -59,4 +59,8 @@ in {
   };
 
   virtualisation.docker.enable = true;
+
+  # NixOS WSL works for 25.05
+  system.stateVersion = "25.05";
+  home-manager.users.${username}.home.stateVersion = "25.05";
 }
