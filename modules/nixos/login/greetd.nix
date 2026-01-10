@@ -25,8 +25,8 @@
   security.pam.services.greetd = {
     enableGnomeKeyring = true;
     fprintAuth = false;
-    gnupg.enable = true;
-    kwallet.enable = true;
+    gnupg.enable = false;
+    kwallet.enable = false;
   };
 
   systemd = {
