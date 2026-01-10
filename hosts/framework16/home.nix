@@ -22,11 +22,10 @@
     ../../modules/home/stylix.nix
     ../../modules/home/xdg-mimes.nix
   ];
-  services = {
-    easyeffects = {
-      enable = true;
-      preset = "easyeffect_fw16";
-    };
+
+  services.easyeffects = {
+    enable = true;
+    preset = "easyeffect_fw16";
   };
 
   home = {

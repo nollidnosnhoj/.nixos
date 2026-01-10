@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  imports = [
+    ./nautilus.nix
+    ./noctalia.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     xwayland-satellite-unstable
     wl-clipboard

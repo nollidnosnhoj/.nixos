@@ -7,7 +7,6 @@
 
   programs.nixcord = {
     enable = true;
-    equibop.enable = true;
     config = {
       frameless = true;
       plugins = {

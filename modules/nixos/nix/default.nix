@@ -12,6 +12,4 @@
       trusted-users = ["root" "@wheel" "${username}"];
     };
   };
-
-  system.stateVersion = "25.11";
 }

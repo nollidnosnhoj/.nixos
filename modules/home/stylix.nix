@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   stylix = {
     targets = {
-      firefox.profileNames = ["kopa"];
       zen-browser.profileNames = ["default"];
     };
     iconTheme = {

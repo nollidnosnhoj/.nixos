@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  imports = [./nautilus.nix];
   services = {
     desktopManager.gnome.enable = true;
     gnome = {

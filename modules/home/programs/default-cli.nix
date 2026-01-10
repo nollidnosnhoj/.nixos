@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./bat.nix
     ./fastfetch.nix
     ./lazygit.nix
   ];

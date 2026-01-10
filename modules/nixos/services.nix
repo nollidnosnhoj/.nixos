@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   location.provider = "geoclue2";
-
   services = {
     dbus = {
       enable = true;

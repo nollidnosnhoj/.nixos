@@ -1,4 +1,4 @@
-{...}: {
+{
   i18n.defaultLocale = "en_US.UTF-8";
 
   time.timeZone = "Pacific/Honolulu";
@@ -21,6 +21,7 @@
     DefaultTimeoutStopSec = "10s";
   };
 
+  # DO NOT UPDATE
   system = {
     switch.enable = true;
     stateVersion = "25.11";

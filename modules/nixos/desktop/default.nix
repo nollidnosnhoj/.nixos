@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./nautilus.nix
     ./niri.nix
-    ./noctalia.nix
     ./xserver.nix
   ];
 
