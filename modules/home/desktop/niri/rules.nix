@@ -30,6 +30,27 @@
         matches = [
           {
             app-id = "firefox";
+          }
+          {
+            app-id = "zen-twilight";
+          }
+          {
+            app-id = "helium";
+          }
+          {
+            app-id = "code";
+          }
+        ];
+        open-maximized = true;
+      }
+      {
+        matches = [
+          {
+            app-id = "firefox";
+            title = "Picture-in-Picture";
+          }
+          {
+            app-id = "zen-twilight";
             title = "Picture-in-Picture";
           }
         ];
@@ -109,7 +130,7 @@
     ];
     layer-rules = [
       {
-        matches = [{namespace = "^noctalia-overview*";}];
+        matches = [{namespace = "^noctalia-wallpaper*";}];
         place-within-backdrop = true;
       }
     ];
