@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   username,
   ...
@@ -26,8 +27,8 @@
     bun
 
     # AI
-    opencode
     claude-code
+    inputs.opencode.packages.${pkg.system}.default
 
     devenv
     markdown-oxide

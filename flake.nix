@@ -32,6 +32,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    opencode.url = "github:anomalyco/opencode";
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -92,13 +94,15 @@
       };
     mkDarwinSystem = host: username: system: extraModules:
       nix-darwin.lib.darwinSystem {
-        modules = [
-          {
-            nixpkgs.config.allowUnfree = true;
-            nixpkgs.hostPlatform = system;
-            nixpkgs.overlays = overlays;
-          }
-        ] ++ extraModules;
+        modules =
+          [
+            {
+              nixpkgs.config.allowUnfree = true;
+              nixpkgs.hostPlatform = system;
+              nixpkgs.overlays = overlays;
+            }
+          ]
+          ++ extraModules;
         specialArgs = {
           username = username;
           inherit self inputs host;
@@ -106,7 +110,7 @@
       };
   in {
     nixosConfigurations = {
-      framework16 = mkSystem "framework16" "kopa" "x86_64-linux"  [
+      framework16 = mkSystem "framework16" "kopa" "x86_64-linux" [
         chaotic.nixosModules.default
         nixos-hardware.nixosModules.framework-16-7040-amd
         stylix.nixosModules.stylix
