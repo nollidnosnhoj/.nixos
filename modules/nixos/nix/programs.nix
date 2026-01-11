@@ -4,7 +4,7 @@
     nvd
     nixVersions.latest
     nix-prefetch-git
-    nixfmt-rfc-style
+    nixfmt
     nixos-anywhere
   ];
 }

@@ -2,7 +2,7 @@
   # greetd display manager
   services.greetd = let
     session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --asterisks --container-padding 2 --no-xsession-wrapper --cmd ${pkgs.niri}/bin/niri-session";
+      command = "${pkgs.tuigreet}/bin/tuigreet --remember --asterisks --container-padding 2 --no-xsession-wrapper --cmd ${pkgs.niri}/bin/niri-session";
       user = "greeter";
     };
   in {
