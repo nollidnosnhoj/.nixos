@@ -13,7 +13,7 @@
       c = "clear";
       cd = "z";
       tt = "gtrash put";
-      cat = "bat";
+      # cat = "bat";
       py = "python";
       dsize = "du -hs";
       findw = "grep -rl";
