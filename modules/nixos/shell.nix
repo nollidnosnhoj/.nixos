@@ -15,4 +15,6 @@
     shells = [pkgs.fish];
     pathsToLink = ["/share/fish"];
   };
+
+  documentation.man.generateCaches = false;
 }
