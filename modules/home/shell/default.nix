@@ -1,8 +1,8 @@
 {...}: {
   imports = [
-    ./starship.nix
-    ./tmux.nix
     ./fish.nix
+    ./starship.nix
+    ./zellij.nix
   ];
 
   programs = {
