@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     bitwarden-desktop
     dconf-editor
@@ -12,7 +8,6 @@
     libreoffice
     mission-center
     mullvad-browser
-    inputs.opencode.packages.${pkg.system}.desktop
     zenity
   ];
 
