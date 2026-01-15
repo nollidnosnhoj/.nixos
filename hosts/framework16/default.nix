@@ -1,8 +1,4 @@
-{
-  lib,
-  username,
-  ...
-}: {
+{username, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./framework.nix
@@ -14,6 +10,7 @@
     ../../modules/nixos/login
     ../../modules/nixos/hardware/firmware.nix
     ../../modules/nixos/hardware/graphics.nix
+    ../../modules/nixos/hm.nix
     ../../modules/nixos/network.nix
     ../../modules/nixos/nix
     ../../modules/nixos/power.nix

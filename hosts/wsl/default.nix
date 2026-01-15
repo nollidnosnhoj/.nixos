@@ -13,6 +13,7 @@
   inherit (lib) mkForce;
 in {
   imports = [
+    ../../modules/nixos/hm.nix
     ../../modules/nixos/nix
     ../../modules/nixos/shell.nix
     ../../modules/nixos/user.nix

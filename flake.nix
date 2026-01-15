@@ -51,6 +51,7 @@
 
   outputs = {
     chaotic,
+    home-manager,
     neovim-nightly-overlay,
     niri,
     nix-vscode-extensions,
@@ -83,56 +84,59 @@
         };
       }
     ];
-    mkSystem = host: username: system: extraModules:
+    mkNixosSystem = host: username: system: extraModules:
       nixpkgs.lib.nixosSystem {
         system = system;
-        modules = defaultModules ++ extraModules;
-        specialArgs = {
-          username = "kopa";
-          inherit self inputs host;
-        };
-      };
-    mkDarwinSystem = host: username: system: extraModules:
-      nix-darwin.lib.darwinSystem {
         modules =
           [
-            {
-              nixpkgs.config.allowUnfree = true;
-              nixpkgs.hostPlatform = system;
-              nixpkgs.overlays = overlays;
-            }
+            home-manager.nixosModules.home-manager
           ]
+          ++ defaultModules
           ++ extraModules;
         specialArgs = {
           username = username;
           inherit self inputs host;
         };
       };
+    # mkDarwinSystem = host: username: system: extraModules:
+    #   nix-darwin.lib.darwinSystem {
+    #     modules =
+    #       [
+    #         home-manager.darwinModules.home-manager
+    #         {
+    #           nixpkgs.hostPlatform = system;
+    #           nix-homebrew = {
+    #             enable = true;
+    #             # Apple Silicon Only, add conditional based on system
+    #             enableRosetta = true;
+    #             # User owning the Homebrew prefix
+    #             user = username;
+    #             autoMigrate = true;
+    #           };
+    #         }
+    #       ]
+    #       ++ defaultModules
+    #       ++ extraModules;
+    #     specialArgs = {
+    #       username = username;
+    #       inherit self inputs host;
+    #     };
+    #   };
   in {
     nixosConfigurations = {
-      framework16 = mkSystem "framework16" "kopa" "x86_64-linux" [
+      framework16 = mkNixosSystem "framework16" "kopa" "x86_64-linux" [
         chaotic.nixosModules.default
         nixos-hardware.nixosModules.framework-16-7040-amd
         stylix.nixosModules.stylix
         ./hosts/framework16
       ];
-      wsl = mkSystem "wsl" "kopa" "x86_64-linux" [
+      wsl = mkNixosSystem "wsl" "kopa" "x86_64-linux" [
         nixos-wsl.nixosModules.default
         stylix.nixosModules.stylix
         ./hosts/wsl
       ];
       # macbook = mkDarwinSystem "macbook" "rjohnson" "aarch64-darwin" [
       #   nix-homebrew.darwinModules.nix-homebrew
-      #   {
-      #     nix-homebrew = {
-      #       enable = true;
-      #       # Apple Silicon Only, add conditional based on system
-      #       enableRosetta = true;
-      #       # User owning the Homebrew prefix
-      #       user = "rjohnson";
-      #       autoMigrate = true;
-      #     };
-      #   }
       #   stylix.nixosModules.stylix
       #   ./hosts/macbook
       # ];
