@@ -1,4 +1,9 @@
-{pkgs, ...}: let
+{
+  inputs,
+  pkgs,
+  self,
+  ...
+}: let
   scriptDir = ./scripts;
   scriptEntries = builtins.readDir scriptDir;
 
@@ -17,6 +22,10 @@
 
   scriptsSet = builtins.listToAttrs (map mkScript shellScripts);
   scripts = builtins.attrValues scriptsSet;
+
+  quickSearch = pkgs.callPackage (self + "/scripts/quick-search") {
+    bun2nix = inputs.bun2nix.packages.${pkgs.system}.default;
+  };
 in {
-  home.packages = scripts;
+  home.packages = scripts ++ [quickSearch];
 }

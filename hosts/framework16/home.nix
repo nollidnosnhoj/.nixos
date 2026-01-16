@@ -12,6 +12,7 @@
     ../../modules/home/discord.nix
     ../../modules/home/editors/neovim/nvf
     ../../modules/home/editors/vscode
+    ../../modules/home/fuzzel.nix
     ../../modules/home/games
     ../../modules/home/programs/default-cli.nix
     ../../modules/home/programs/default-gui.nix
