@@ -2,7 +2,7 @@
   imports = [
     ./fish.nix
     ./starship.nix
-    ./zellij.nix
+    ./tmux.nix
   ];
 
   programs = {

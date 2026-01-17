@@ -1,3 +1,4 @@
+// Based on https://github.com/antholeole/nixconfig/blob/main/programs/zx/fuzzel-omnibar.mts
 import { $ } from "bun";
 
 const priorityBrowsers = ["zen-twilight", "helium"];
@@ -24,7 +25,7 @@ const onSearch = async () => {
 		url = `https://home-manager-options.extranix.com/?query=${query}&release=master`;
 	} else if (fuzzelInput.startsWith("!gh")) {
 		let remainingFuzzelInput = fuzzelInput.replace("!gh ", "").trim();
-		let extensionSuffix = "";
+		// let extensionSuffix = "";
 
 		// if (fuzzelInput.includes("e:")) {
 		// 	const extensionQuery = remainingFuzzelInput
@@ -35,7 +36,7 @@ const onSearch = async () => {
 		// 	extensionSuffix = `+path%3A*.${extensionQuery.substring(2)}`;
 		// }
 
-		url = `https://github.com/search?q=%22${encodeURIComponent(remainingFuzzelInput)}%22&type=code`;
+		url = `https://github.com/search?q=${encodeURIComponent(`"${remainingFuzzelInput}"`)}&type=code`;
 		// url = `https://github.com/search?q=%22${encodeURIComponent(remainingFuzzelInput)}%22${encodeURIComponent(extensionSuffix)}&type=code`;
 	} else {
 		url = `https://www.google.com/search?q=${encodeURIComponent(fuzzelInput)}`;
