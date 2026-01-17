@@ -1,7 +1,5 @@
 import { $ } from "bun";
 
-const nixChannel = "unstable";
-
 const priorityBrowsers = ["zen-twilight", "helium"];
 
 const findBrowser = async () => {
@@ -20,24 +18,25 @@ const onSearch = async () => {
 	let url: string;
     if (fuzzelInput.startsWith("!nix")) {
         const query = encodeURIComponent(fuzzelInput.replace("!nix ", "").trim());
-		url = `https://search.nixos.org/packages?channel=${nixChannel}&from=0&size=50&sort=relevance&type=packages&query=${query}`;
-    } else if (fuzzelInput.startsWith("!home")) {
+		url = `https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=${query}`;
+    } else if (fuzzelInput.startsWith("!hm")) {
         const query = encodeURIComponent(fuzzelInput.replace("!hm ", "").trim());
-		url = `https://home-manager-options.extranix.com/?query=${query}&release=release-25.11`;
+		url = `https://home-manager-options.extranix.com/?query=${query}&release=master`;
 	} else if (fuzzelInput.startsWith("!gh")) {
 		let remainingFuzzelInput = fuzzelInput.replace("!gh ", "").trim();
 		let extensionSuffix = "";
 
-		if (fuzzelInput.includes("e:")) {
-			const extensionQuery = remainingFuzzelInput
-				.split(" ")
-				.find((word) => word.startsWith("e:")) ?? '';
+		// if (fuzzelInput.includes("e:")) {
+		// 	const extensionQuery = remainingFuzzelInput
+		// 		.split(" ")
+		// 		.find((word) => word.startsWith("e:")) ?? '';
 
-			remainingFuzzelInput = remainingFuzzelInput.replace(extensionQuery, "");
-			extensionSuffix = `+path%3A*.${extensionQuery.substring(2)}`;
-		}
+		// 	remainingFuzzelInput = remainingFuzzelInput.replace(extensionQuery, "");
+		// 	extensionSuffix = `+path%3A*.${extensionQuery.substring(2)}`;
+		// }
 
-		url = `https://github.com/search?q=%22${encodeURIComponent(remainingFuzzelInput)}%22${encodeURIComponent(extensionSuffix)}&type=code`;
+		url = `https://github.com/search?q=%22${encodeURIComponent(remainingFuzzelInput)}%22&type=code`;
+		// url = `https://github.com/search?q=%22${encodeURIComponent(remainingFuzzelInput)}%22${encodeURIComponent(extensionSuffix)}&type=code`;
 	} else {
 		url = `https://www.google.com/search?q=${encodeURIComponent(fuzzelInput)}`;
 	}
