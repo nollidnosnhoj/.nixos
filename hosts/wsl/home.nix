@@ -2,8 +2,7 @@
   imports = [
     ../../modules/home/git.nix
     ../../modules/home/development.nix
-    # ../../modules/home/editors/neovim
-    ../../modules/home/editors/neovim/nvf
+    ../../modules/home/editors/neovim
     ../../modules/home/programs/default-cli.nix
     ../../modules/home/shell
   ];
