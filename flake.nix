@@ -139,6 +139,11 @@
         stylix.nixosModules.stylix
         ./hosts/wsl
       ];
+      msa1 = mkNixosSystem "msa1" "kopa" "x86_64-linux" [
+        chaotic.nixosModules.default
+        stylix.nixosModules.stylix
+        ./hosts/msa1
+      ];
       # macbook = mkDarwinSystem "macbook" "rjohnson" "aarch64-darwin" [
       #   nix-homebrew.darwinModules.nix-homebrew
       #   stylix.nixosModules.stylix
