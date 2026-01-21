@@ -6,7 +6,7 @@
 }: {
   boot = {
     supportedFilesystems = ["ntfs"];
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;

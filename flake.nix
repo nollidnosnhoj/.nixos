@@ -8,10 +8,10 @@
       url = "github:nix-community/bun2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
@@ -54,15 +54,15 @@
   };
 
   outputs = {
-    chaotic,
     home-manager,
     neovim-nightly-overlay,
     niri,
     nix-vscode-extensions,
     nixos-hardware,
     nixos-wsl,
-    nix-darwin,
-    nix-homebrew,
+    nix-cachyos-kernel,
+    # nix-darwin,
+    # nix-homebrew,
     nixpkgs,
     nur,
     self,
@@ -79,6 +79,7 @@
       niri.overlays.niri
       nix-vscode-extensions.overlays.default
       neovim-nightly-overlay.overlays.default
+      nix-cachyos-kernel.overlays.pinned
     ];
     defaultModules = [
       {
@@ -129,7 +130,6 @@
   in {
     nixosConfigurations = {
       framework16 = mkNixosSystem "framework16" "kopa" "x86_64-linux" [
-        chaotic.nixosModules.default
         nixos-hardware.nixosModules.framework-16-7040-amd
         stylix.nixosModules.stylix
         ./hosts/framework16
@@ -140,7 +140,6 @@
         ./hosts/wsl
       ];
       msa1 = mkNixosSystem "msa1" "kopa" "x86_64-linux" [
-        chaotic.nixosModules.default
         stylix.nixosModules.stylix
         ./hosts/msa1
       ];
