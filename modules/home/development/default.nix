@@ -1,9 +1,12 @@
 {
-  inputs,
   pkgs,
   username,
   ...
 }: {
+  imports = [
+    ./claude-code.nix
+    ./opencode.nix
+  ];
   home.packages = with pkgs; [
     # Nix
     nixd
@@ -12,10 +15,8 @@
     # Bash
     nodePackages.bash-language-server
 
-    # Golang
+    # C
     gcc
-    go
-    gopls
 
     # Javascript/Typescript
     nodejs_22
@@ -24,16 +25,21 @@
     nodePackages.prettier
     prettierd
     eslint_d
-    bun
 
-    # AI
-    claude-code
-    inputs.opencode.packages.${pkg.system}.default
-
+    # Tooling
     devenv
+    gopls
     markdown-oxide
-    gh
   ];
+
+  programs.bun = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
+  programs.go = {
+    enable = true;
+  };
 
   home.sessionPath = [
     "/home/${username}/.local/bin"

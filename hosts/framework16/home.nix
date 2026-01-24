@@ -8,10 +8,10 @@
     ../../modules/home/browsers/zen-browser.nix
     ../../modules/home/desktop/niri
     ../../modules/home/desktop/noctalia
-    ../../modules/home/development.nix
+    ../../modules/home/development
     ../../modules/home/discord.nix
-    ../../modules/home/editors/neovim
-    ../../modules/home/editors/vscode
+    ../../modules/home/development/editors/neovim
+    ../../modules/home/development/editors/vscode
     ../../modules/home/fuzzel.nix
     ../../modules/home/games
     ../../modules/home/programs/default-cli.nix
