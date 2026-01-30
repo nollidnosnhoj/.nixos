@@ -1,12 +1,8 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   chromiumFlags = import ./chromium-flags.nix {inherit pkgs;};
 in {
-  home.packages = [
-    inputs.linuxmobilepkgs.packages.${pkgs.system}.helium
+  home.packages = with pkgs; [
+    nur.repos.lonerOrz.helium
   ];
   home.sessionVariables = chromiumFlags.sessionVariables;
 }
