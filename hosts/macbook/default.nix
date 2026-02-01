@@ -1,4 +1,4 @@
-{username,...}: {
+{username, ...}: {
   imports = [
     ../../modules/nixos/nix
     ../../modules/nixos/shell.nix

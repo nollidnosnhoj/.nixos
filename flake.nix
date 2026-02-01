@@ -2,6 +2,7 @@
   description = "nollidnosnhoj's nixos configuration";
 
   inputs = {
+    flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     bun2nix = {
@@ -51,101 +52,26 @@
     };
   };
 
-  outputs = {
-    home-manager,
-    neovim-nightly-overlay,
-    niri,
-    nix-vscode-extensions,
-    nixos-hardware,
-    nixos-wsl,
-    nix-cachyos-kernel,
-    # nix-darwin,
-    # nix-homebrew,
-    nixpkgs,
-    nur,
-    self,
-    stylix,
-    ...
-  } @ inputs: let
-    overlays = [
-      (final: prev: {
-        nur = import nur {
-          nurpkgs = prev;
-          pkgs = prev;
-        };
-      })
-      niri.overlays.niri
-      nix-vscode-extensions.overlays.default
-      neovim-nightly-overlay.overlays.default
-      nix-cachyos-kernel.overlays.pinned
-    ];
-    defaultModules = [
-      {
-        nixpkgs = {
+  outputs = inputs @ {flake-parts, ...}:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
+      imports = [./hosts];
+      perSystem = {system, ...}: let
+        overlays = import ./overlays {inherit inputs;};
+        pkgs = import inputs.nixpkgs {
+          inherit system;
           config.allowUnfree = true;
           overlays = overlays;
         };
-      }
-    ];
-    mkNixosSystem = host: username: system: extraModules:
-      nixpkgs.lib.nixosSystem {
-        system = system;
-        modules =
-          [
-            home-manager.nixosModules.home-manager
-          ]
-          ++ defaultModules
-          ++ extraModules;
-        specialArgs = {
-          username = username;
-          inherit self inputs host;
+        quick-search = pkgs.callPackage ./scripts/quick-search {
+          bun2nix = inputs.bun2nix;
+        };
+      in {
+        _module.args.pkgs = pkgs;
+        packages = {
+          inherit quick-search;
+          default = quick-search;
         };
       };
-    # mkDarwinSystem = host: username: system: extraModules:
-    #   nix-darwin.lib.darwinSystem {
-    #     modules =
-    #       [
-    #         home-manager.darwinModules.home-manager
-    #         {
-    #           nixpkgs.hostPlatform = system;
-    #           nix-homebrew = {
-    #             enable = true;
-    #             # Apple Silicon Only, add conditional based on system
-    #             enableRosetta = true;
-    #             # User owning the Homebrew prefix
-    #             user = username;
-    #             autoMigrate = true;
-    #           };
-    #         }
-    #       ]
-    #       ++ defaultModules
-    #       ++ extraModules;
-    #     specialArgs = {
-    #       username = username;
-    #       inherit self inputs host;
-    #     };
-    #   };
-  in {
-    nixosConfigurations = {
-      framework16 = mkNixosSystem "framework16" "kopa" "x86_64-linux" [
-        nixos-hardware.nixosModules.framework-16-7040-amd
-        stylix.nixosModules.stylix
-        ./hosts/framework16
-      ];
-      wsl = mkNixosSystem "wsl" "kopa" "x86_64-linux" [
-        nixos-wsl.nixosModules.default
-        stylix.nixosModules.stylix
-        ./hosts/wsl
-      ];
-      msa1 = mkNixosSystem "msa1" "kopa" "x86_64-linux" [
-        stylix.nixosModules.stylix
-        ./hosts/msa1
-      ];
-      # macbook = mkDarwinSystem "macbook" "rjohnson" "aarch64-darwin" [
-      #   nix-homebrew.darwinModules.nix-homebrew
-      #   stylix.nixosModules.stylix
-      #   ./hosts/macbook
-      # ];
     };
-  };
 }
