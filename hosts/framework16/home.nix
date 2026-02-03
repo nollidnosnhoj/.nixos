@@ -14,8 +14,8 @@
     ../../modules/home/development/editors/vscode
     ../../modules/home/fuzzel.nix
     ../../modules/home/games
-    ../../modules/home/programs/default-cli.nix
-    ../../modules/home/programs/default-gui.nix
+    ../../modules/home/programs/cli
+    ../../modules/home/programs/gui
     ../../modules/home/terminals/foot.nix
     ../../modules/home/git.nix
     ../../modules/home/scripts

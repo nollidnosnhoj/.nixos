@@ -8,14 +8,14 @@
     ../../modules/home/browsers/zen-browser.nix
     ../../modules/home/desktop/niri
     ../../modules/home/desktop/noctalia
-    ../../modules/home/development.nix
+    ../../modules/home/development
     ../../modules/home/discord.nix
-    ../../modules/home/editors/neovim/nvf
-    ../../modules/home/editors/vscode
+    ../../modules/home/development/editors/neovim/nvf
+    ../../modules/home/development/editors/vscode
     ../../modules/home/fuzzel.nix
     ../../modules/home/games
-    ../../modules/home/programs/default-cli.nix
-    ../../modules/home/programs/default-gui.nix
+    ../../modules/home/programs/cli
+    ../../modules/home/programs/gui
     ../../modules/home/terminals/foot.nix
     ../../modules/home/git.nix
     ../../modules/home/scripts

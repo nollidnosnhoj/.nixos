@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # imports = [./opencode.nix];
   home.packages = with pkgs; [
     bitwarden-desktop
     dconf-editor

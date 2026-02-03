@@ -3,7 +3,7 @@
     ../../modules/home/git.nix
     ../../modules/home/development
     ../../modules/home/development/editors/neovim
-    ../../modules/home/programs/default-cli.nix
+    ../../modules/home/programs/cli
     ../../modules/home/shell
   ];
 
