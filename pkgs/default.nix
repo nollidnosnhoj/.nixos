@@ -4,7 +4,7 @@
     { pkgs, ... }:
     let
       quick-search = pkgs.callPackage ./quick-search {
-        bun2nix = inputs.bun2nix;
+        bun2nix = inputs.bun2nix.packages.${pkgs.system}.bun2nix;
       };
     in
     {
