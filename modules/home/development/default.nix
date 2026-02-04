@@ -30,6 +30,10 @@
     devenv
     gopls
     markdown-oxide
+
+    # Kubernetes
+    kubectl
+    kustomize
   ];
 
   programs.bun = {
