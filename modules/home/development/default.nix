@@ -2,7 +2,8 @@
   pkgs,
   username,
   ...
-}: {
+}:
+{
   imports = [
     ./claude-code.nix
     ./opencode.nix
@@ -17,6 +18,9 @@
 
     # C
     gcc
+
+    # .NET
+    dotnet-sdk_10
 
     # Javascript/Typescript
     nodejs_22
@@ -43,6 +47,11 @@
 
   programs.go = {
     enable = true;
+  };
+
+  home.sessionVariables = {
+    DOTNET_ROOT = "${pkgs.dotnet-sdk_10}";
+    DOTNET_CLI_TELEMETRY_OPTOUT = "1";
   };
 
   home.sessionPath = [
