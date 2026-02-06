@@ -2,8 +2,7 @@
   pkgs,
   username,
   ...
-}:
-{
+}: {
   imports = [
     ./claude-code.nix
     ./opencode.nix
@@ -57,5 +56,6 @@
   home.sessionPath = [
     "/home/${username}/.local/bin"
     "/home/${username}/go/bin"
+    "/home/${username}/.dotnet/tools"
   ];
 }
