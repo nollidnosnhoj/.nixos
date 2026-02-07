@@ -4,6 +4,7 @@
     git
     unzip
     curl
+    vim
   ];
   programs = {
     dconf.enable = true;

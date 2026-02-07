@@ -15,6 +15,7 @@ in {
   imports = [
     ../../modules/nixos/hm.nix
     ../../modules/nixos/nix
+    ../../modules/nixos/programs.nix
     ../../modules/nixos/shell.nix
     ../../modules/nixos/user.nix
     ../../modules/nixos/stylix/core.nix
@@ -33,10 +34,6 @@ in {
       BROWSER = mkForce "wsl-open";
     };
     systemPackages = with pkgs; [
-      wget
-      git
-      curl
-      vim
       wsl-open
     ];
   };
