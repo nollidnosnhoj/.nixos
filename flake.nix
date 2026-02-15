@@ -52,28 +52,24 @@
     };
   };
 
-  outputs =
-    inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+  outputs = inputs @ {flake-parts, ...}:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
       imports = [
         ./hosts
         ./pkgs
       ];
-      perSystem =
-        { system, ... }:
-        let
-          overlays = import ./overlays { inherit inputs; };
-          pkgs = import inputs.nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = overlays;
-          };
-        in
-        {
-          # Provide pkgs to imported flake-parts modules (e.g., ./pkgs) since
-          # we are not using flake-parts' nixpkgs module.
-          _module.args.pkgs = pkgs;
+      perSystem = {system, ...}: let
+        overlays = import ./overlays {inherit inputs;};
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = overlays;
         };
+      in {
+        # Provide pkgs to imported flake-parts modules (e.g., ./pkgs) since
+        # we are not using flake-parts' nixpkgs module.
+        _module.args.pkgs = pkgs;
+      };
     };
 }

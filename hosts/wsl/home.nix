@@ -2,7 +2,6 @@
   imports = [
     ../../modules/home/git.nix
     ../../modules/home/development
-    ../../modules/home/development/editors/neovim
     ../../modules/home/programs/cli
     ../../modules/home/shell
   ];

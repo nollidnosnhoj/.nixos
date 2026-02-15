@@ -3,8 +3,7 @@
   pkgs,
   self,
   ...
-}:
-let
+}: let
   scriptDir = ./scripts;
   scriptEntries = builtins.readDir scriptDir;
 
@@ -16,7 +15,7 @@ let
 
   mkScript = name: {
     name = name;
-    value = pkgs.writeScriptBin (builtins.replaceStrings [ ".sh" ] [ "" ] name) (
+    value = pkgs.writeScriptBin (builtins.replaceStrings [".sh"] [""] name) (
       builtins.readFile (scriptDir + "/${name}")
     );
   };
@@ -25,7 +24,6 @@ let
   scripts = builtins.attrValues scriptsSet;
 
   quickSearch = self.packages.${pkgs.system}.quick-search;
-in
-{
-  home.packages = scripts ++ [ quickSearch ];
+in {
+  home.packages = scripts ++ [quickSearch];
 }

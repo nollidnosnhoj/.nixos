@@ -1,14 +1,20 @@
 {
+  lib,
+  isLaptop,
+  ...
+}: {
   services = {
-    logind.settings.Login = {
-      HandleLidSwitchExternalPower = "lock";
-      HandleLidSwitch = "suspend";
-      HandlePowerKey = "suspend";
+    logind.settings = lib.mkIf isLaptop {
+      Login = {
+        HandleLidSwitchExternalPower = "lock";
+        HandleLidSwitch = "suspend";
+        HandlePowerKey = "suspend";
+      };
     };
 
     power-profiles-daemon.enable = true;
 
-    upower = {
+    upower = lib.mkIf isLaptop {
       enable = true;
       percentageLow = 20;
       percentageCritical = 5;
@@ -17,8 +23,7 @@
     };
   };
 
-  # Configure systemd sleep settings for security (based on Arch documentation)
-  systemd.sleep.extraConfig = ''
+  systemd.sleep.extraConfig = lib.mkIf isLaptop ''
     AllowSuspend=yes
     AllowHibernation=no
     AllowSuspendThenHibernate=no

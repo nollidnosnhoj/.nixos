@@ -1,5 +1,8 @@
 {
   host,
+  isDesktop,
+  isLaptop,
+  isWSL,
   inputs,
   username,
   self,
@@ -9,7 +12,15 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs username host self;
+      inherit
+        inputs
+        username
+        host
+        self
+        isLaptop
+        isDesktop
+        isWSL
+        ;
     };
     users.${username} = {
       home.username = "${username}";
