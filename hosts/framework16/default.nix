@@ -1,4 +1,5 @@
-{username, ...}: {
+{ username, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ./framework.nix
@@ -28,7 +29,7 @@
   home-manager.users.${username} = import ./home.nix;
 
   users.users.${username}.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE9sVTgUmhj1MblnK/BI6lu8q2EjCpXCJ82ADHoXdRiD kopa@nixos"
+    (builtins.replaceStrings [ "\n" ] [ "" ] (builtins.readFile ../../keys/kopa_ed25519.pub))
   ];
 
   environment.variables = {
