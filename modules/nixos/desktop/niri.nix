@@ -4,15 +4,9 @@
     ./noctalia.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    xwayland-satellite-unstable
-    wl-clipboard
-    wl-clip-persist
-  ];
-
   programs.niri = {
     enable = true;
-    package = pkgs.niri-stable;
+    package = pkgs.niri;
   };
 
   xdg.portal = {
