@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     xwayland-satellite
     wl-clipboard
@@ -80,7 +76,7 @@
       layout = {
         background-color = "transparent";
         border.enable = true;
-        border.width = 1;
+        border.width = 2;
         shadow = {
           enable = true;
         };

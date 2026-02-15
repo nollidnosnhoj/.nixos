@@ -162,10 +162,7 @@ in {
     colorSchemes = {
       darkMode = true;
       generateTemplatesForPredefined = false;
-      manualSunrise = "06:30";
-      manualSunset = "18:30";
       matugenSchemeType = "scheme-fruit-salad";
-      schedulingMode = "location";
       useWallpaperColors = false;
     };
     controlCenter = {

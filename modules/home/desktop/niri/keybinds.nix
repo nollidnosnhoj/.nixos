@@ -19,6 +19,7 @@ in {
     # App shortcuts
     "Mod+Return".action.spawn = apps.terminal;
     "Mod+B".action.spawn = apps.browser;
+    "Mod+E".action.spawn = apps.fileManager;
 
     "Mod+Space".action.spawn = noctalia "launcher toggle";
     "Mod+Alt+L".action.spawn = noctalia "lockScreen toggle";
