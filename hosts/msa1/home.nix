@@ -9,9 +9,8 @@
     ../../modules/home/desktop/niri
     ../../modules/home/desktop/noctalia
     ../../modules/home/development
+    ../../modules/home/development/vscode.nix
     ../../modules/home/discord.nix
-    ../../modules/home/development/editors/neovim/nvf
-    ../../modules/home/development/editors/vscode
     ../../modules/home/fuzzel.nix
     ../../modules/home/games
     ../../modules/home/programs/cli

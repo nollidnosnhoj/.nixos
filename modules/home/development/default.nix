@@ -6,6 +6,7 @@
   imports = [
     ./claude-code.nix
     ./opencode.nix
+    ./nvf.nix
   ];
   home.packages = with pkgs; [
     # Nix
