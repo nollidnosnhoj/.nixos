@@ -37,6 +37,12 @@ in {
 
   programs.nix-ld.enable = true;
 
+  home-manager.users.${username} = import ./home.nix;
+
+  users.users.${username}.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP2ieFj6mYYyynIan2yoldvMGmJbxiw7Od36eUsSbDP9 me@nollidnosnhoj.com"
+  ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
