@@ -17,6 +17,7 @@
       ../../modules/nixos/plasma.nix
       ../../modules/nixos/printing.nix
       ../../modules/nixos/shell.nix
+      ../../modules/nixos/stylix.nix
       ../../modules/nixos/user.nix
       ../../modules/nixos/xserver.nix
     ];

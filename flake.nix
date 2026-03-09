@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-master.url = "github:NixOS/nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
@@ -15,6 +14,10 @@
     };
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -23,6 +26,7 @@
     nixos-hardware,
     nixos-wsl,
     nixpkgs,
+    stylix,
     self,
     ...
   } @ inputs: let
@@ -44,6 +48,7 @@
         modules =
           [
             home-manager.nixosModules.home-manager
+            stylix.nixosModules.stylix
           ]
           ++ defaultModules
           ++ extraModules;

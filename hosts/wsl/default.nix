@@ -17,6 +17,7 @@ in {
     ../../modules/nixos/home-manager.nix
     ../../modules/nixos/i18n.nix
     ../../modules/nixos/shell.nix
+    ../../modules/nixos/stylix.nix
     ../../modules/nixos/user.nix
   ];
 
