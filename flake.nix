@@ -2,8 +2,8 @@
   description = "nollidnosnhoj's nixos configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-master.url = "github:NixOS/nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -78,12 +78,11 @@
     #   };
   in {
     nixosConfigurations = {
-#       wsl = mkNixosSystem "wsl" "kopa" "x86_64-linux" [
-#         nixos-wsl.nixosModules.default
-#         stylix.nixosModules.stylix
-#         ./hosts/wsl
-#       ];
-      msa1 = mkNixosSystem "msa1" "kopa" "x86_64-linux" [
+      wsl = mkNixosSystem "nixos-wsl" "kopa" "x86_64-linux" [
+        nixos-wsl.nixosModules.default
+        ./hosts/wsl
+      ];
+      msa1 = mkNixosSystem "nixos-msa1" "kopa" "x86_64-linux" [
         ./hosts/msa1
       ];
     };
