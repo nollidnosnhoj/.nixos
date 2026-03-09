@@ -78,11 +78,11 @@
     #   };
   in {
     nixosConfigurations = {
-      wsl = mkNixosSystem "nixos-wsl" "kopa" "x86_64-linux" [
+      wsl = mkNixosSystem "wsl" "kopa" "x86_64-linux" [
         nixos-wsl.nixosModules.default
         ./hosts/wsl
       ];
-      msa1 = mkNixosSystem "nixos-msa1" "kopa" "x86_64-linux" [
+      msa1 = mkNixosSystem "msa1" "kopa" "x86_64-linux" [
         ./hosts/msa1
       ];
     };

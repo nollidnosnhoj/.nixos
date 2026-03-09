@@ -5,4 +5,7 @@
     description = "Dillon Johnson";
     extraGroups = [ "wheel" ];
   };
+
+  nix.settings.allowed-users = ["${username}"];
+  environment.localBinInPath = true;
 }
