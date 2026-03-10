@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./_git.nix
     ./_nvf.nix
   ];
   home.packages = with pkgs; [
