@@ -15,6 +15,7 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     niri.url = "github:sodiboo/niri-flake";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +40,7 @@
   outputs = {
     home-manager,
     neovim-nightly-overlay,
-    nixos-hardware,
+    nix-vscode-extensions,
     nixos-wsl,
     nixpkgs,
     stylix,
@@ -47,8 +48,8 @@
     ...
   } @ inputs: let
     overlays = [
-      # (final: prev: {})
       neovim-nightly-overlay.overlays.default
+      nix-vscode-extensions.overlays.default
     ];
     defaultModules = [
       {

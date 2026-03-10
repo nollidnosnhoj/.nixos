@@ -1,14 +1,11 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{username, ...}: {
   imports = [
     ../../modules/home/dev.nix
     ../../modules/home/foot.nix
     ../../modules/home/programs.nix
     ../../modules/home/shell.nix
     ../../modules/home/niri
+    ../../modules/home/vscode.nix
     ../../modules/home/zen-browser.nix
   ];
 

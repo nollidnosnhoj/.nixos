@@ -1,12 +1,8 @@
 {
-  host,
-  pkgs,
-  ...
-}: {
   imports = [
     ./_fish.nix
     ./_tmux.nix
-    ./_zellij.nix
+    # ./_zellij.nix
   ];
   programs = {
     atuin = {
