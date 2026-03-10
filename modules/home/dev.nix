@@ -4,6 +4,9 @@
   username,
   ...
 }: {
+  imports = [
+    ./_nvf.nix
+  ];
   home.packages = with pkgs; [
     # Nix
     nixd

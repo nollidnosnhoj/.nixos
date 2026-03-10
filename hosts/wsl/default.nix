@@ -15,7 +15,6 @@ in {
   imports = [
     ../../modules/nixos/core.nix
     ../../modules/nixos/home-manager.nix
-    ../../modules/nixos/i18n.nix
     ../../modules/nixos/shell.nix
     ../../modules/nixos/stylix.nix
     ../../modules/nixos/user.nix
@@ -35,7 +34,7 @@ in {
     BROWSER = mkForce "wsl-open";
   };
 
-  environment.systemPackages = with pkgs; [ wsl-open ];
+  environment.systemPackages = with pkgs; [wsl-open];
 
   programs.nix-ld.enable = true;
 

@@ -6,7 +6,6 @@
   imports = [
     ../../modules/home/dev.nix
     ../../modules/home/git.nix
-    ../../modules/home/nvf.nix
     ../../modules/home/programs.nix
     ../../modules/home/shell.nix
   ];

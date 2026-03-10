@@ -1,26 +1,26 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, host, pkgs, username, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../modules/nixos/core.nix
-      ../../modules/nixos/audio.nix
-      ../../modules/nixos/boot.nix
-      ../../modules/nixos/home-manager.nix
-      ../../modules/nixos/i18n.nix
-      ../../modules/nixos/network.nix
-      ../../modules/nixos/plasma.nix
-      ../../modules/nixos/printing.nix
-      ../../modules/nixos/shell.nix
-      ../../modules/nixos/stylix.nix
-      ../../modules/nixos/user.nix
-      ../../modules/nixos/xserver.nix
-    ];
+  config,
+  host,
+  pkgs,
+  username,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/nixos/core.nix
+    ../../modules/nixos/audio.nix
+    ../../modules/nixos/boot.nix
+    ../../modules/nixos/home-manager.nix
+    ../../modules/nixos/network.nix
+    ../../modules/nixos/plasma.nix
+    ../../modules/nixos/shell.nix
+    ../../modules/nixos/stylix.nix
+    ../../modules/nixos/user.nix
+    ../../modules/nixos/xserver.nix
+  ];
 
   networking.hostName = "${host}"; # Define your hostname.
 
@@ -40,5 +40,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }

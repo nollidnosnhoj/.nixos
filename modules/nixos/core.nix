@@ -1,4 +1,8 @@
-{ pkgs, username, ... }: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -19,7 +23,7 @@
   nix.settings = {
     auto-optimise-store = true;
     download-buffer-size = 52428800;
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = ["nix-command" "flakes"];
     substituters = [
       "https://cache.nixos.org?priority=10"
       "https://nix-community.cachix.org"
@@ -42,5 +46,6 @@
       extraArgs = "--keep-since 7d";
     };
   };
+
   programs.nix-ld.enable = true;
 }
