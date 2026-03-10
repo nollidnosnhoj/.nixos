@@ -32,7 +32,9 @@
     gopls
     markdown-oxide
 
-    # Kubernetes
+    # Work
+    azure-cli
+    k9s
     kubectl
     kustomize
   ];
