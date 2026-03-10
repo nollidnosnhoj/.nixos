@@ -8,12 +8,13 @@
   ];
 
   xdg.mimeApps = let
+    value = let
+      zen-browser = inputs.zen-browser.packages.${pkgs.system}.twilight; # or twilight
+    in
+      zen-browser.meta.mainProgram;
+
     associations = builtins.listToAttrs (map (name: {
-        inherit name;
-        value = let
-          zen-browser = inputs.zen-browser.packages.${pkgs.system}.twilight;
-        in
-          zen-browser.meta.desktopFileName;
+        inherit name value;
       }) [
         "application/x-extension-shtml"
         "application/x-extension-xhtml"

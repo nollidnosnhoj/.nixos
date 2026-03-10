@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./_fastfetch.nix
+    ./fastfetch.nix
   ];
   home.packages = with pkgs; [
     bitwarden-cli # password manager CLI

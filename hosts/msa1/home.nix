@@ -1,12 +1,10 @@
 {username, ...}: {
   imports = [
-    ../../modules/home/dev.nix
-    ../../modules/home/foot.nix
-    ../../modules/home/programs.nix
-    ../../modules/home/shell.nix
+    ../../modules/home/development
+    ../../modules/home/programs/default-cli.nix
+    ../../modules/home/programs/default-gui.nix
+    ../../modules/home/shell
     ../../modules/home/niri
-    ../../modules/home/vscode.nix
-    ../../modules/home/zen-browser.nix
   ];
 
   programs.git = {

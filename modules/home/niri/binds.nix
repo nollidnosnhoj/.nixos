@@ -16,8 +16,8 @@ in {
     "Mod+Shift+Slash".action = show-hotkey-overlay;
 
     # App shortcuts
-    # "Mod+Return".action.spawn = apps.terminal;
-    # "Mod+B".action.spawn = apps.browser;
+    "Mod+Return".action.spawn = apps.terminal;
+    "Mod+B".action.spawn = apps.browser;
     "Mod+E".action.spawn = apps.fileManager;
 
     "Mod+Space".action.spawn = noctalia "launcher toggle";

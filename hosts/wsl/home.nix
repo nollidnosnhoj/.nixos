@@ -1,12 +1,8 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{username, ...}: {
   imports = [
-    ../../modules/home/dev.nix
-    ../../modules/home/programs.nix
-    ../../modules/home/shell.nix
+    ../../modules/home/development
+    ../../modules/home/programs/default-cli.nix
+    ../../modules/home/shell
   ];
 
   programs.git = {

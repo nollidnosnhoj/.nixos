@@ -1,8 +1,7 @@
 {
   imports = [
-    ./_fish.nix
-    ./_tmux.nix
-    # ./_zellij.nix
+    ./fish.nix
+    ./tmux.nix
   ];
   programs = {
     atuin = {
