@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   username,
   ...
@@ -39,6 +40,11 @@
 
   programs.go = {
     enable = true;
+  };
+
+  programs.opencode = {
+    enable = true;
+    package = inputs.opencode.packages.${pkgs.system}.default;
   };
 
   home.sessionPath = [

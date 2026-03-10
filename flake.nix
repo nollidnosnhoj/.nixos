@@ -15,6 +15,7 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nvf.url = "github:notashelf/nvf";
+    opencode.url = "github:anomalyco/opencode";
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
