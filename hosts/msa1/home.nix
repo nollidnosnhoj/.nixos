@@ -7,6 +7,7 @@
     ../../modules/home/dev.nix
     ../../modules/home/programs.nix
     ../../modules/home/shell.nix
+    ../../modules/home/niri
   ];
 
   programs.git = {

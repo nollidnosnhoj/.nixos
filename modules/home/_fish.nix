@@ -19,11 +19,11 @@
       tree = "lsd -l --group-directories-first --tree --depth=2";
 
       # Nixos
-      cdnix = "cd ~/nixos-config && nvim ~/nixos-config";
+      cdnix = "cd ~/.nixos && nvim ~/.nixos";
       ns = "nix-shell --run fish";
       nix-shell = "nix-shell --run fish";
-      nix-switch = "sudo nixos-rebuild switch --flake ~/nixos-config#${host}";
-      nix-switchu = "sudo nixos-rebuild switch --upgrade --flake ~/nixos-config#${host}";
+      nix-switch = "sudo nixos-rebuild switch --flake ~/.nixos#${host}";
+      nix-switchu = "sudo nixos-rebuild switch --upgrade --flake ~/.nixos#${host}";
       nix-flake-update = "sudo nix flake update";
       nix-clean = "sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo rm /nix/var/nix/gcroots/auto/* && nix-collect-garbage && nix-collect-garbage -d";
 

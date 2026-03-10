@@ -1,7 +1,25 @@
 {
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services = {
+    dbus = {
+      implementation = "broker";
+      packages = with pkgs; [
+        gcr
+        gnome-settings-daemon
+        libsecret
+      ];
+    };
+    geoclue2 = {
+      enable = true;
+      geoProviderUrl = "https://beacondb.net/v1/geolocate";
+      submissionUrl = "https://beacondb.net/v2/geosubmit";
+      submissionNick = "geoclue";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = false; # TODO: wsl -> false; msa1 -> true
+      appConfig.gammastep = {
+        isAllowed = true;
+        isSystem = false;
+      };
+    };
+    gnome.gnome-keyring.enable = true;
+    gvfs.enable = true;
+  };
 }

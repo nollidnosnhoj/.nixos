@@ -14,11 +14,13 @@
     ../../modules/nixos/audio.nix
     ../../modules/nixos/boot.nix
     ../../modules/nixos/home-manager.nix
+    ../../modules/nixos/desktop/niri.nix
     ../../modules/nixos/network.nix
-    ../../modules/nixos/plasma.nix
     ../../modules/nixos/shell.nix
     ../../modules/nixos/stylix.nix
+    ../../modules/nixos/system.nix
     ../../modules/nixos/user.nix
+    ../../modules/nixos/virtualization.nix
     ../../modules/nixos/xserver.nix
   ];
 
