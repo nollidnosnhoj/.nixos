@@ -5,9 +5,11 @@
 }: {
   imports = [
     ../../modules/home/dev.nix
+    ../../modules/home/foot.nix
     ../../modules/home/programs.nix
     ../../modules/home/shell.nix
     ../../modules/home/niri
+    ../../modules/home/zen-browser.nix
   ];
 
   programs.git = {

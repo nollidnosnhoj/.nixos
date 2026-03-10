@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: let
+  apps = import ./apps.nix {inherit pkgs;};
   noctalia = cmd:
     [
       "noctalia-shell"

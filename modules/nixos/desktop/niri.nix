@@ -1,9 +1,13 @@
-{inputs,pkgs,...}: let
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   noctalia-shell = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
     calendarSupport = true;
   };
 in {
-
   programs.niri = {
     enable = true;
     package = pkgs.niri;

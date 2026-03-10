@@ -21,7 +21,7 @@
     nixos-anywhere
   ];
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   nix.settings = {
     auto-optimise-store = true;
     download-buffer-size = 52428800;
@@ -52,7 +52,7 @@
   };
 
   programs.nix-ld.enable = true;
-  
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 }
